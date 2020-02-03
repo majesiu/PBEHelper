@@ -1,0 +1,286 @@
+{
+  "Archetypes": [
+    {
+      "name": "Power Hitter (eg. Aaron Judge)",
+      "attributes": [
+        {
+          "name": "BABIP vs LHP:",
+          "min": 25,
+          "max": 60
+        },
+        {
+          "name": "BABIP vs RHP:",
+          "min": 25,
+          "max": 60
+        },
+        {
+          "name": "Avoid K's vs LHP:",
+          "min": 20,
+          "max": 60
+        },
+        {
+          "name": "Avoid K's vs RHP:",
+          "min": 20,
+          "max": 60
+        },
+        {
+          "name": "Gap vs LHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Gap vs RHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Power vs LHP:",
+          "min": 40,
+          "max": 100
+        },
+        {
+          "name": "Power vs RHP:",
+          "min": 40,
+          "max": 100
+        },
+        {
+          "name": "Eye/Patience vs LHP:",
+          "min": 40,
+          "max": 100
+        },
+        {
+          "name": "Eye/Patience vs RHP:",
+          "min": 40,
+          "max": 100
+        },
+        {
+          "name": "Speed (Base & Run):",
+          "min": 25,
+          "max": 60
+        },
+        {
+          "name": "Stealing Ability:",
+          "min": 15,
+          "max": 40
+        },
+        {
+          "name": "Bunting (Both):",
+          "min": 15,
+          "max": 30
+        }
+      ]
+    },
+    {
+      "name": "Balanced Batter (eg. Manny Machado)",
+      "attributes": [
+        {
+          "name": "BABIP vs LHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "BABIP vs RHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Avoid K's vs LHP:",
+          "min": 35,
+          "max": 80
+        },
+        {
+          "name": "Avoid K's vs RHP:",
+          "min": 35,
+          "max": 80
+        },
+        {
+          "name": "Gap vs LHP:",
+          "min": 25,
+          "max": 80
+        },
+        {
+          "name": "Gap vs RHP:",
+          "min": 25,
+          "max": 80
+        },
+        {
+          "name": "Power vs LHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Power vs RHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Eye/Patience vs LHP:",
+          "min": 30,
+          "max": 90
+        },
+        {
+          "name": "Eye/Patience vs RHP:",
+          "min": 30,
+          "max": 90
+        },
+        {
+          "name": "Speed (Base & Run):",
+          "min": 30,
+          "max": 70
+        },
+        {
+          "name": "Stealing Ability:",
+          "min": 20,
+          "max": 50
+        },
+        {
+          "name": "Bunting (Both):",
+          "min": 25,
+          "max": 50
+        }
+      ]
+    },
+    {
+      "name": "Contact Hitter (eg. Ichiro Suzuki)",
+      "attributes": [
+        {
+          "name": "BABIP vs LHP:",
+          "min": 35,
+          "max": 95
+        },
+        {
+          "name": "BABIP vs RHP:",
+          "min": 35,
+          "max": 95
+        },
+        {
+          "name": "Avoid K's vs LHP:",
+          "min": 35,
+          "max": 95
+        },
+        {
+          "name": "Avoid K's vs RHP:",
+          "min": 35,
+          "max": 95
+        },
+        {
+          "name": "Gap vs LHP:",
+          "min": 20,
+          "max": 65
+        },
+        {
+          "name": "Gap vs RHP:",
+          "min": 20,
+          "max": 65
+        },
+        {
+          "name": "Power vs LHP:",
+          "min": 20,
+          "max": 55
+        },
+        {
+          "name": "Power vs RHP:",
+          "min": 20,
+          "max": 55
+        },
+        {
+          "name": "Eye/Patience vs LHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Eye/Patience vs RHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Speed (Base & Run):",
+          "min": 35,
+          "max": 80
+        },
+        {
+          "name": "Stealing Ability:",
+          "min": 35,
+          "max": 60
+        },
+        {
+          "name": "Bunting (Both):",
+          "min": 35,
+          "max": 70
+        }
+      ]
+    },
+    {
+      "name": "Speed Demon (eg. Billy Hamilton)",
+      "attributes": [
+        {
+          "name": "BABIP vs LHP:",
+          "min": 30,
+          "max": 85
+        },
+        {
+          "name": "BABIP vs RHP:",
+          "min": 30,
+          "max": 85
+        },
+        {
+          "name": "Avoid K's vs LHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Avoid K's vs RHP:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Gap vs LHP:",
+          "min": 15,
+          "max": 55
+        },
+        {
+          "name": "Gap vs RHP:",
+          "min": 15,
+          "max": 55
+        },
+        {
+          "name": "Power vs LHP:",
+          "min": 15,
+          "max": 50
+        },
+        {
+          "name": "Power vs RHP:",
+          "min": 15,
+          "max": 50
+        },
+        {
+          "name": "Eye/Patience vs LHP:",
+          "min": 30,
+          "max": 85
+        },
+        {
+          "name": "Eye/Patience vs RHP:",
+          "min": 30,
+          "max": 85
+        },
+        {
+          "name": "Speed (Base & Run):",
+          "min": 50,
+          "max": 100
+        },
+        {
+          "name": "Stealing Ability:",
+          "min": 45,
+          "max": 100
+        },
+        {
+          "name": "Bunting (Both):",
+          "min": 50,
+          "max": 100
+        }
+      ]
+    }
+  ]
+}
+
+

@@ -1,0 +1,214 @@
+{
+  "Archetypes": [
+    {
+      "name": "Strong Arm Fielder (eg. Yoenis Cespedes, Matt Chapman)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 30,
+          "max": 75
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 50,
+          "max": 100
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 20,
+          "max": 65
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 5,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "name": "Balanced Fielder (eg. Mike Trout, Adrian Beltre)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 35,
+          "max": 85
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 40,
+          "max": 85
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 35,
+          "max": 80
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 30,
+          "max": 75
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 5,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "name": "Speedy Fielder (eg. Jose Altuve, Byron Buxton)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 45,
+          "max": 90
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 30,
+          "max": 80
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 30,
+          "max": 60
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 30,
+          "max": 90
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 5,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "name": "React Catcher (eg. Buster Posey)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 25,
+          "max": 65
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 30,
+          "max": 65
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 20,
+          "max": 85
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 20,
+          "max": 60
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 40,
+          "max": 95
+        }
+      ]
+    },
+    {
+      "name": "Strong Arm Catcher (eg. Yadier Molina)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 15,
+          "max": 65
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 15,
+          "max": 65
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 40,
+          "max": 95
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 10,
+          "max": 60
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 20,
+          "max": 80
+        }
+      ]
+    },
+    {
+      "name": "Designated Hitter (e.g. Edwin Encarnacion, Nelson Cruz)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 25,
+          "max": 70
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 20,
+          "max": 70
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 25,
+          "max": 70
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 20,
+          "max": 50
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 5,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "name": "Utility Fielder (eg. Ben Zobrist, Marwin Gonzalez)",
+      "attributes": [
+        {
+          "name": "Fielding Range:",
+          "min": 25,
+          "max": 85
+        },
+        {
+          "name": "Fielding Error:",
+          "min": 20,
+          "max": 85
+        },
+        {
+          "name": "Fielding Arm:",
+          "min": 25,
+          "max": 85
+        },
+        {
+          "name": "Turn Double Play:",
+          "min": 20,
+          "max": 85
+        },
+        {
+          "name": "Catcher Ability:",
+          "min": 5,
+          "max": 30
+        }
+      ]
+    }
+  ]
+}
