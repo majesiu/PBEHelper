@@ -1,0 +1,367 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" hidden>
+      <ng-template matStepLabel>Batter/Pitcher</ng-template> 
+      <div>
+        <button id="step1button" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+    <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep1('batter')">
+                <img class="Image" src="../../assets/batter.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">You choose Batter</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep1('pitcher')">
+                <img class="Image"src="../../assets/pitcher.jpeg"     >  
+                <div class="Overlay">
+                  <div class="Text">You choose Pitcher</div>
+                </div>
+            </div></mat-grid-tile> 
+    </mat-grid-list> 
+    
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" hidden>
+      <ng-template matStepLabel>Type</ng-template> 
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button id="step2button" mat-button matStepperNext>Next</button>
+      </div>
+    </form> 
+    <mat-grid-list *ngIf="playerType == 'batter'" cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('speed')">
+                <img class="Image" src="../../assets/speed.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Speed Demon</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('contact')">
+                <img class="Image" src="../../assets/contact.jpeg"   >  
+                <div class="Overlay">
+                  <div class="Text">Contact Hitter</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('balanced')">
+                <img class="Image" src="../../assets/balanced.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Balanced Approach</div>
+                </div>
+            </div> </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('power')">
+                <img class="Image" src="../../assets/power.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Power Batter</div>
+                </div>
+            </div></mat-grid-tile>
+    </mat-grid-list> 
+    <mat-grid-list *ngIf="playerType == 'pitcher'" cols="2" rowHeight="1:1">
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('starter')">
+                <img class="Image" src="../../assets/starter.jpeg"   >  
+                <div class="Overlay">
+                  <div class="Text">Starting Pitcher</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('reliever')">
+                <img class="Image" src="../../assets/closer.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Reliever/Closer</div>
+                </div>
+            </div></mat-grid-tile> 
+    </mat-grid-list>
+    <div *ngIf="playerType != 'batter' && playerType != 'pitcher'">Chose either pitcher or batter in Step 1</div> 
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form hidden [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Archetype</ng-template> 
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button  id="step3button" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+    <mat-grid-list *ngIf="playerType == 'batter'" cols="3" rowHeight="2:1">
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep3('strongarm')">
+                <img class="Image" src="../../assets/strongarm.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Strong Arm Fielder</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep3('balancedf')">
+                <img class="Image" src="../../assets/balancedf.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Balanced Fielder</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep3('speedyf')">
+                <img class="Image" src="../../assets/speedyf.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Speedy Fielder</div>
+                </div>
+            </div> </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep3('acatcher')">
+                <img class="Image" src="../../assets/acatcher.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Strong Arm Catcher</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep3('rcatcher')">
+                <img class="Image" src="../../assets/rcatcher.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">React Catcher</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile >
+            <div class="Container" (click)="transitionStep3('dh')">
+                <img class="Image" src="../../assets/dh.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Designated Hitter</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile [colspan]=3>
+            <div class="Container" (click)="transitionStep3('utility')">
+                <img class="Image" src="../../assets/utility.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Utility Fielder</div>
+                </div>
+            </div></mat-grid-tile>
+    </mat-grid-list> 
+    <mat-grid-list *ngIf="playerType == 'pitcher'" cols="1" rowHeight="1:3">
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('starter')">
+                <img class="Image" src="../../assets/starter.jpeg"   >  
+                <div class="Overlay">
+                  <div class="Text">Starting Pitcher</div>
+                </div>
+            </div></mat-grid-tile>
+        <mat-grid-tile>
+            <div class="Container" (click)="transitionStep2('reliever')">
+                <img class="Image" src="../../assets/closer.jpg"   >  
+                <div class="Overlay">
+                  <div class="Text">Reliever/Closer</div>
+                </div>
+            </div></mat-grid-tile> 
+    </mat-grid-list>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup" hidden>
+      <ng-template matStepLabel>Attributes</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="fourthCtrl" required>
+      </mat-form-field> 
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+    <mat-grid-list cols="2" > 
+      <mat-grid-tile>  
+        <table mat-table class="mat-elevation-z8" [dataSource]="selectedFieldingArchetype.attributes"> 
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.name}} </td> 
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <ng-container matColumnDef="min">
+            <th mat-header-cell *matHeaderCellDef>Min</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.min}} </td> 
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <ng-container matColumnDef="max">
+            <th mat-header-cell *matHeaderCellDef>Max</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.max}} </td> 
+            <td mat-footer-cell *matFooterCellDef>Total</td>
+          </ng-container>
+          <ng-container matColumnDef="value">
+            <th mat-header-cell *matHeaderCellDef>Value</th>
+            <td mat-cell *matCellDef="let attribute"> 
+                <input matInput type="number" [(ngModel)]="attribute.value" name="attribute.value" min={{attribute.min}} max={{attribute.max}}>  
+            </td> 
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <ng-container matColumnDef="slider">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let attribute">  
+                <mat-slider
+                [max]="attribute.max"
+                [min]="attribute.min"
+                [step]="1"
+                [thumbLabel]="attribute.value"
+                [tickInterval]="1"
+                [(ngModel)]="attribute.value">
+              </mat-slider>
+            </td> 
+            <td mat-footer-cell *matFooterCellDef> </td>
+          </ng-container>
+          <ng-container matColumnDef="cost">
+            <th mat-header-cell *matHeaderCellDef>Cost</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.cost()}} </td> 
+            <td mat-footer-cell *matFooterCellDef> {{selectedFieldingArchetype.costSum()}} </td>
+          </ng-container> 
+          <ng-container matColumnDef="BattingHands"> 
+            <td mat-footer-cell *matFooterCellDef colspan="6">
+              Batting Hand: 
+              <mat-radio-group [(ngModel)]="Bats">
+                <mat-radio-button class="table-radio-button" *ngFor="let bh of BattingHands" [value]="bh">
+                  {{bh}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Throwing Hand"> 
+            <td mat-footer-cell *matFooterCellDef colspan="6">
+              <mat-label>Throwing Hand: </mat-label>
+              <mat-radio-group [(ngModel)]="Throws">
+                <mat-radio-button class="table-radio-button" *ngFor="let bh of ThrowingHands" [value]="bh">
+                  {{bh}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="HittingType"> 
+            <td mat-footer-cell *matFooterCellDef colspan="6">
+              Hitting Type: 
+              <mat-radio-group [(ngModel)]="Hits" >
+                <mat-radio-button class="table-radio-button" *ngFor="let bh of HittingTypes" [value]="bh">
+                  {{bh}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="FieldingArchetype"> 
+            <th mat-header-cell *matHeaderCellDef colspan="6">
+              <mat-label>Fielding Archetype:</mat-label>
+              <mat-select [(ngModel)]="selectedFieldingArchetype">
+                <mat-option *ngFor="let fa of fieldingArchetypes" [value]="fa"> {{fa.name}}</mat-option>
+              </mat-select>
+            </th>
+          </ng-container>
+          <ng-container matColumnDef="FieldingPositions"> 
+            <td mat-footer-cell *matFooterCellDef colspan="2">
+              <mat-label>Position 1 (200/200 EXP):</mat-label>
+              <mat-select [(ngModel)]="SelectedPosition">
+                <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+              </mat-select>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="FieldingPositions2"> 
+            <td mat-footer-cell *matFooterCellDef colspan="2">
+              <mat-label>Position 2 (150/200 EXP):</mat-label>
+              <mat-select [(ngModel)]="Selected2Position">
+                <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+              </mat-select>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="FieldingPositions3"> 
+            <td mat-footer-cell *matFooterCellDef colspan="2">
+              <mat-label>Position 3 (100/200 EXP):</mat-label>
+              <mat-select [(ngModel)]="Selected3Position">
+                <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+              </mat-select>
+            </td>
+          </ng-container>
+ 
+          <tr mat-header-row *matHeaderRowDef="['FieldingArchetype']"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+          <tr mat-row *matFooterRowDef="['BattingHands']"  ></tr>
+          <tr mat-row *matFooterRowDef="['HittingType']"  ></tr>
+          <tr mat-row *matFooterRowDef="['FieldingPositions','FieldingPositions2','FieldingPositions3']" ></tr>
+          <tr mat-row *matFooterRowDef="['Throwing Hand']" ></tr>
+        </table>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <table mat-table class="mat-elevation-z8" [dataSource]="selectedHittingArchetype.attributes"> 
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.name}} </td> 
+            <td mat-footer-cell *matFooterCellDef> </td>
+          </ng-container>
+          <ng-container matColumnDef="min">
+            <th mat-header-cell *matHeaderCellDef>Min</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.min}} </td> 
+            <td mat-footer-cell *matFooterCellDef> </td>
+          </ng-container>
+          <ng-container matColumnDef="max">
+            <th mat-header-cell *matHeaderCellDef>Max</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.max}} </td> 
+            <td mat-footer-cell *matFooterCellDef>Total: </td>
+          </ng-container>
+          <ng-container matColumnDef="value">
+            <th mat-header-cell *matHeaderCellDef>Value</th>
+            <td mat-cell *matCellDef="let attribute"> 
+                <input matInput type="number" [(ngModel)]="attribute.value" name="attribute.value" min={{attribute.min}} max={{attribute.max}}>  
+            </td> 
+            <td mat-footer-cell *matFooterCellDef> </td>
+          </ng-container>
+          <ng-container matColumnDef="slider">
+            <th mat-header-cell *matHeaderCellDef>Slider</th>
+            <td mat-cell *matCellDef="let attribute">  
+                <mat-slider
+                [max]="attribute.max"
+                [min]="attribute.min"
+                [step]="1"
+                [thumbLabel]="attribute.value"
+                [tickInterval]="1"
+                [(ngModel)]="attribute.value">
+              </mat-slider>
+            </td> 
+            <td mat-footer-cell *matFooterCellDef>  </td>
+          </ng-container>
+          <ng-container matColumnDef="cost">
+            <td mat-footer-cell *matFooterCellDef> {{selectedHittingArchetype.costSum()}}  </td>
+            <th mat-header-cell *matHeaderCellDef>Cost</th>
+            <td mat-cell *matCellDef="let attribute"> {{attribute.cost()}} </td> 
+          </ng-container>
+          <ng-container matColumnDef="BattingArchetype"> 
+            <th mat-header-cell *matHeaderCellDef colspan="6">
+              <mat-label>Fielding Archetype:</mat-label>
+              <mat-select [(ngModel)]="selectedHittingArchetype">
+                <mat-option *ngFor="let ha of hittingArchetypes" [value]="ha"> {{ha.name}}</mat-option>
+              </mat-select>
+            </th>
+          </ng-container>
+ 
+          <tr mat-header-row *matHeaderRowDef="['BattingArchetype']"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+        </table >
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-step>
+  <mat-step [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup">
+      <ng-template matStepLabel>Final Details</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="fifthCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
