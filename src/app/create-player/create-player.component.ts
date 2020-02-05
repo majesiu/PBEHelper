@@ -60,8 +60,7 @@ export class CreatePlayerComponent implements OnInit {
   selectedPitchingArchetype: PitchingArchetype;
   displayedColumns: string[] = ['name','value','min','slider','max','cost'];
   Username = '';
-  FirstName = '';
-  LastName = '';
+  PlayerName = ''; 
   Number = '';
   SelectedPosition = '';
   College = '';
@@ -145,19 +144,11 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   createBatter() {
-    let formString = '[color=red][u][b]Player Information[/b][/u][/color]';
-    if (this.Username === '') {
-      return alert('Please input the Username');
-    }
-    formString += '\n[b]Username:[/b] ' + this.Username;
-    if (this.FirstName === '') {
+    let formString = '[color=red][u][b]Player Information[/b][/u][/color]'; 
+    if (this.PlayerName === '') {
       return alert('Please input the First Name');
     }
-    formString += '\n[b]First Name:[/b] ' + this.FirstName;
-    if (this.LastName === '') {
-      return alert('Please input the Last Name');
-    }
-    formString += '\n[b]Last Name:[/b] ' + this.LastName;
+    formString += '\n[b]Player Name:[/b] ' + this.PlayerName; 
     if (this.Number === '') {
       return alert('Please input the Number');
     }
@@ -270,19 +261,11 @@ export class CreatePlayerComponent implements OnInit {
   }
   
   createPitcher() {
-    let formString = '[color=red][u][b]Player Information[/b][/u][/color]';
-    if (this.Username === '') {
-      return alert('Please input the Username');
+    let formString = '[color=red][u][b]Player Information[/b][/u][/color]'; 
+    if (this.PlayerName === '') {
+      return alert('Please input the Player Name');
     }
-    formString += '\n[b]Username:[/b] ' + this.Username;
-    if (this.FirstName === '') {
-      return alert('Please input the First Name');
-    }
-    formString += '\n[b]First Name:[/b] ' + this.FirstName;
-    if (this.LastName === '') {
-      return alert('Please input the Last Name');
-    }
-    formString += '\n[b]Last Name:[/b] ' + this.LastName;
+    formString += '\n[b]Player Name:[/b] ' + this.PlayerName;
     if (this.Number === '') {
       return alert('Please input the Number');
     }
