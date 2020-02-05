@@ -13,6 +13,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSelectModule,
     MatSidenavModule,
     MatListModule,
+    MatGridListModule,
     FlexLayoutModule
   ],
   providers: [],

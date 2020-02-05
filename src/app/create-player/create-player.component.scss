@@ -1,7 +1,11 @@
+
+
 .Image { 
-    width: 100%; 
-    height: auto;
-    display: block;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%; 
 }
 
 .Container {
@@ -56,21 +60,15 @@
 
 html, body { height:100%; margin:0; padding:0 } 
 .cornerContainer { width:50%; height:50%; display: inline-block; position: static;} 
-
-.fill {
-  width:100%;
-  height: auto;
-}
  
+.table {
+  width: 100%;
+} 
+
 .table-radio-button {
   padding: 0px 0px 10px 10px;
 }
 
 tr.mat-footer-row {
   font-weight: bold;
-}
-
-
-.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
-  background-color: white;
 }
