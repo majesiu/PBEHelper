@@ -7,13 +7,13 @@ import { CreatePlayerComponent } from './create-player/create-player.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -30,13 +30,13 @@ import {MatListModule} from '@angular/material/list';
     MatAutocompleteModule,     
     FormsModule,
     ReactiveFormsModule,
-    MatGridListModule,
     MatTableModule,
     MatSliderModule,
     MatRadioModule,
     MatSelectModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
