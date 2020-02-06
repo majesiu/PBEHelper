@@ -196,7 +196,6 @@
                 [min]="attribute.min"
                 [step]="1"
                 [thumbLabel]="attribute.value"
-                [tickInterval]="1"
                 [(ngModel)]="attribute.value">
               </mat-slider>
             </td> 
@@ -254,8 +253,7 @@
                 [max]="attribute.max"
                 [min]="attribute.min"
                 [step]="1"
-                [thumbLabel]="attribute.value"
-                [tickInterval]="1"
+                [thumbLabel]="attribute.value" 
                 [(ngModel)]="attribute.value">
               </mat-slider>
             </td> 
@@ -328,6 +326,22 @@
               </mat-select>
             </td>
           </ng-container> 
+          <ng-container matColumnDef="FieldingPositions4"> 
+            <td mat-footer-cell *matFooterCellDef colspan="2" >
+              <mat-label>Position 4 (100/200 EXP):</mat-label>
+              <mat-select [(ngModel)]="Selected4Position">
+                <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+              </mat-select>
+            </td>
+          </ng-container> 
+          <ng-container matColumnDef="FieldingPositions5" > 
+            <td mat-footer-cell *matFooterCellDef colspan="2" >
+              <mat-label>Position 5 (100/200 EXP):</mat-label>
+              <mat-select [(ngModel)]="Selected5Position">
+                <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+              </mat-select>
+            </td>
+          </ng-container> 
           <ng-container matColumnDef="BasicInfo"> 
             <th mat-footer-cell *matFooterCellDef colspan="6">
               <form>
@@ -370,6 +384,7 @@
           <tr mat-row *matFooterRowDef="['BattingHands']"  ></tr>
           <tr mat-row *matFooterRowDef="['Throwing Hand']" ></tr>
           <tr mat-row *matFooterRowDef="['FieldingPositions','FieldingPositions2','FieldingPositions3']" ></tr>
+          <tr mat-row [hidden]="selectedFieldingArchetype !== fieldingArchetypes[6]" *matFooterRowDef="['FieldingPositions4','FieldingPositions5']" ></tr>
           <tr mat-row *matFooterRowDef="['ContinueSection']" ></tr> 
         </table>
         </div>
