@@ -134,11 +134,51 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   transitionStep2(subtype: string){
-    this.battingArchetype = subtype;
+    if(this.playerType === "batter"){
+      switch(subtype) {
+        case 'speed':
+          this.selectedHittingArchetype = this.hittingArchetypes[3];
+          break; 
+        case 'contact':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
+          break; 
+        case 'balanced':
+          this.selectedHittingArchetype = this.hittingArchetypes[1];
+          break; 
+        case 'power':
+          this.selectedHittingArchetype = this.hittingArchetypes[0];
+          break; 
+      }
+    } 
     document.getElementById("step2button").click();
   }
 
   transitionStep3(secondArch: string){
+    if(this.playerType === "batter"){
+      switch(secondArch) {
+        case 'speedf':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[2];
+          break; 
+        case 'strongarm':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[0];
+          break; 
+        case 'balancedf':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[1];
+          break; 
+        case 'acatcher':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[4];
+          break; 
+        case 'rcatcher':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[3];
+          break; 
+        case 'utility':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[6];
+          break; 
+        case 'dh':
+          this.selectedFieldingArchetype = this.fieldingArchetypes[5];
+          break; 
+      }
+    } 
     this.battingArchetype = secondArch;
     document.getElementById("step3button").click();
   }
