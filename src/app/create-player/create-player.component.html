@@ -61,18 +61,18 @@
       
     </div>
     <div *ngIf="playerType=='pitcher'" fxLayout="row" fxFlexFill fxLayout.lt-md="column">
-      <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('starter')">
-        <img class="Image" src="../../assets/starter.jpeg"   >  
-        <div class="Overlay">
-          <div class="Text">Starting Pitcher</div>
-        </div>
-    </div>
-    <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('reliever')">
-        <img class="Image" src="../../assets/closer.jpg"   >  
-        <div class="Overlay">
-          <div class="Text">Reliever/Closer</div>
-        </div>
-    </div>
+      <div fxFlex="50%" class="Container" (click)="transitionStep2('starter')">
+          <img class="Image" src="../../assets/starter.jpeg"   >  
+          <div class="Overlay">
+            <div class="Text">Starting Pitcher</div>
+          </div>
+      </div>
+      <div fxFlex="50%" class="Container" (click)="transitionStep2('reliever')">
+          <img class="Image" src="../../assets/closer.jpg"   >  
+          <div class="Overlay">
+            <div class="Text">Reliever/Closer</div>
+          </div>
+      </div>
     </div>
     <div *ngIf="playerType != 'batter' && playerType != 'pitcher'">Chose either pitcher or batter in Step 1</div> 
   </mat-step>
@@ -85,71 +85,114 @@
       </div>
     </form>
     <div *ngIf="playerType=='batter'" >
-      <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('strongarm')">
-              <img class="Image" src="../../assets/strongarm.jpg"   >  
-              <div class="Overlay">
-                <div class="Text">Strong Arm Fielder</div>
-              </div>
-          </div>
-          <div fxLayoutAlign="fit" fxFlex="33.4%" class="Container" (click)="transitionStep3('balancedf')">
-              <img class="Image" src="../../assets/balancedf.jpg"   >  
-              <div class="Overlay">
-                <div class="Text">Balanced Fielder</div>
-              </div>
-          </div>
-          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('speedyf')">
-              <img class="Image" src="../../assets/speedyf.jpg"   >  
-              <div class="Overlay">
-                <div class="Text">Speedy Fielder</div>
-              </div>
-          </div>
-        </div>
-        <div fxLayout="row" fxLayout.lt-md="column">
-            <div fxLayoutAlign="fit" fxFlex="50%" class="Container"  (click)="transitionStep3('acatcher')">
-                <img class="Image" src="../../assets/acatcher.jpg"   >  
-                <div class="Overlay">
-                  <div class="Text">Strong Arm Catcher</div>
-                </div>
-            </div>
-            <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('rcatcher')">
-                <img class="Image" src="../../assets/rcatcher.jpg"   >  
-                <div class="Overlay">
-                  <div class="Text">React Catcher</div>
-                </div>
-            </div>
-          </div>
-          
-      <div fxLayout="row" fxLayout.lt-md="column">
-        <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('utility')">
-            <img class="Image" src="../../assets/utility.jpg"   >  
+    <div fxLayout="row" fxLayout.lt-md="column">
+        <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('strongarm')">
+            <img class="Image" src="../../assets/strongarm.jpg"   >  
             <div class="Overlay">
-              <div class="Text">Utility Fielder</div>
+              <div class="Text">Strong Arm Fielder</div>
             </div>
         </div>
-            <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('dh')">
-                <img class="Image" src="../../assets/dh.jpg"   >  
-                <div class="Overlay">
-                  <div class="Text">Designated Hitter</div>
-                </div>
+        <div fxLayoutAlign="fit" fxFlex="33.4%" class="Container" (click)="transitionStep3('balancedf')">
+            <img class="Image" src="../../assets/balancedf.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Balanced Fielder</div>
             </div>
+        </div>
+        <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('speedyf')">
+            <img class="Image" src="../../assets/speedyf.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Speedy Fielder</div>
+            </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayout.lt-md="column">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container"  (click)="transitionStep3('acatcher')">
+              <img class="Image" src="../../assets/acatcher.jpg"   >  
+              <div class="Overlay">
+                <div class="Text">Strong Arm Catcher</div>
+              </div>
+          </div>
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('rcatcher')">
+              <img class="Image" src="../../assets/rcatcher.jpg"   >  
+              <div class="Overlay">
+                <div class="Text">React Catcher</div>
+              </div>
           </div>
         </div>
-        <div *ngIf="playerType=='pitcher'">
-            <div class="Container" (click)="transitionStep2('starter')">
-                <img class="Image" src="../../assets/starter.jpeg"   >  
-                <div class="Overlay">
-                  <div class="Text">Starting Pitcher</div>
-                </div>
-            </div>
-            <div class="Container" (click)="transitionStep2('reliever')">
-                <img class="Image" src="../../assets/closer.jpg"   >  
-                <div class="Overlay">
-                  <div class="Text">Reliever/Closer</div>
-                </div>
-            </div>
+        
+    <div fxLayout="row" fxLayout.lt-md="column">
+      <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('utility')">
+          <img class="Image" src="../../assets/utility.jpg"   >  
+          <div class="Overlay">
+            <div class="Text">Utility Fielder</div>
           </div>
-          <div *ngIf="playerType != 'batter' && playerType != 'pitcher'">Chose either pitcher or batter in Step 1</div> 
+      </div>
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('dh')">
+              <img class="Image" src="../../assets/dh.jpg"   >  
+              <div class="Overlay">
+                <div class="Text">Designated Hitter</div>
+              </div>
+          </div>
+        </div>
+    </div>
+    
+    <div *ngIf="playerType=='pitcher' && SelectedPosition==='SP'" >
+      <div fxLayout="row" fxLayout.lt-md="column">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('powersp')">
+            <img class="Image" src="../../assets/powerp.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Power Pitcher</div>
+            </div>
+        </div>
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('balancedsp')">
+            <img class="Image" src="../../assets/balancedp.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Balanced Approach</div>
+            </div>
+        </div> 
+      </div> 
+      <div fxLayout="row"  fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('knuckle')">
+          <img class="Image" src="../../assets/knuckle.jpg"   >  
+          <div class="Overlay">
+            <div class="Text">Knuckleballer</div>
+          </div>
+        </div> 
+        <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('finnesse')">
+            <img class="Image" src="../../assets/finnesse.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Finnese Starter</div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="playerType=='pitcher'  && SelectedPosition==='RP'" >
+      <div fxLayout="row" fxLayout.lt-md="column">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('powerp')">
+            <img class="Image" src="../../assets/powerrp.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Power Closer</div>
+            </div>
+        </div>
+        <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('finnesserp')">
+            <img class="Image" src="../../assets/finnesserp.jpg"   >  
+            <div class="Overlay">
+              <div class="Text">Finnesse Reliever</div>
+            </div>
+        </div> 
+      </div> 
+      <div fxLayout="row"  fxLayout.lt-md="column">
+        <div fxFlex="100%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('balancedrp')">
+          <img class="Image" src="../../assets/balancedrp.jpg"   >  
+          <div class="Overlay">
+            <div class="Text">Balanced Approach</div>
+          </div>
+      </div> 
+    </div>
+      
+    </div>
+    <div *ngIf="playerType != 'batter' && playerType != 'pitcher'">Chose either pitcher or batter in Step 1</div> 
   </mat-step>
   <mat-step [stepControl]="fourthFormGroup" >
     <form [formGroup]="fourthFormGroup" hidden>
@@ -389,6 +432,8 @@
         </table>
         </div>
       </div> 
+      
+    
   </mat-step> 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
