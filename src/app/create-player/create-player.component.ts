@@ -149,7 +149,16 @@ export class CreatePlayerComponent implements OnInit {
           this.selectedHittingArchetype = this.hittingArchetypes[0];
           break; 
       }
-    } 
+    } else if(this.playerType === "pitcher"){
+      switch(subtype) {
+        case 'reliever':
+          this.SelectedPosition = "RP";
+          break; 
+        case 'starter':
+          this.SelectedPosition = "SP";
+          break; 
+      }
+    }
     document.getElementById("step2button").click();
   }
 
