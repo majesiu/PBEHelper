@@ -22,7 +22,6 @@ export class CreatePlayerComponent implements OnInit {
   fifthFormGroup: FormGroup;
   playerType = "";
   battingArchetype = "";
-
   
   selectedPitches = ['Pitch 1', 'Pitch 2', 'Pitch 3', 'Pitch 4', 'Pitch 5'];
   pitches = ['Fastball', 'Sinker', 'Cutter', 'Curveball', 'Slider', 'Changeup', 'Splitter', 'Forkball', 'Circle Change',
@@ -82,6 +81,7 @@ export class CreatePlayerComponent implements OnInit {
   BattingHands = ["Right","Left","Switch"];
   HittingTypes = ["Normal","Pull","Extreme Pull","Spray"];
   Positions = ["1B", "2B", "3B", "SS", "LF", "CF", "RF"]
+  playerTypes = ['Batter','Pitcher']
 
   constructor(private _formBuilder: FormBuilder) {
     const temp = new Array<Archetype>();
@@ -134,7 +134,7 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   transitionStep2(subtype: string){
-    if(this.playerType === "batter"){
+    if(this.playerType === "Batter"){
       switch(subtype) {
         case 'speed':
           this.selectedHittingArchetype = this.hittingArchetypes[3];
@@ -149,7 +149,7 @@ export class CreatePlayerComponent implements OnInit {
           this.selectedHittingArchetype = this.hittingArchetypes[0];
           break; 
       }
-    } else if(this.playerType === "pitcher"){
+    } else if(this.playerType === "Pitcher"){
       switch(subtype) {
         case 'reliever':
           this.SelectedPosition = "RP";
@@ -163,7 +163,7 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   transitionStep3(secondArch: string){
-    if(this.playerType === "batter"){
+    if(this.playerType === "Batter"){
       switch(secondArch) {
         case 'speedf':
           this.selectedFieldingArchetype = this.fieldingArchetypes[2];
