@@ -41,3 +41,11 @@ html, body {
   .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
     background-color: white;
   }
+
+.mat-select-value { 
+  text-align: center;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  padding-right: 10px !important;
+}
