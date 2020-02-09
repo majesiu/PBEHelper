@@ -393,24 +393,29 @@
             <th mat-footer-cell *matFooterCellDef colspan="6">
               <form>
                 <mat-form-field>
-                  <input matInput placeholder="Player Name" [value]="PlayerName" required>
+                  <input matInput placeholder="Player Name" [(ngModel)]="PlayerName" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Recruited by" [value]="Recruited" required>
+                  <input matInput placeholder="Recruited by" [(ngModel)]="Recruited" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Birthplace" [value]="Birthplace" required>
+                  <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
               </form>
               <form>
                 <mat-form-field>
-                  <input matInput placeholder="Height" [value]="Height" required>
+                  <input matInput placeholder="Height" [(ngModel)]="Height" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Weight" [value]="Weight" required>
+                  <input matInput placeholder="Weight" [(ngModel)]="Weight" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Discord" [value]="Discord" required>
+                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+              </form>
+              <form>
+                <mat-form-field>
+                  <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
               </form>
             </th>
@@ -519,24 +524,29 @@
             <th mat-footer-cell *matFooterCellDef colspan="6">
               <form>
                 <mat-form-field>
-                  <input matInput placeholder="Player Name" [value]="PlayerName" required>
+                  <input matInput placeholder="Player Name" [(ngModel)]="PlayerName" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Recruited by" [value]="Recruited" required>
+                  <input matInput placeholder="Recruited by" [(ngModel)]="Recruited" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Birthplace" [value]="Birthplace" required>
+                  <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
               </form>
               <form>
                 <mat-form-field>
-                  <input matInput placeholder="Height" [value]="Height" required>
+                  <input matInput placeholder="Height" [(ngModel)]="Height" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Weight" [value]="Weight" required>
+                  <input matInput placeholder="Weight" [(ngModel)]="Weight" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Discord" [value]="Discord" required>
+                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+              </form>
+              <form>
+                <mat-form-field>
+                  <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
               </form>
             </th>
@@ -559,7 +569,14 @@
     You are now done.
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="generateForm()">Generate Forum Formatting</button>
+      <button mat-button disabled="!forumTemplateReady " (click)="copyAndGoToForums()">Copy to Clipboard & Go to forums</button>
+      <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            [value]="formString"></textarea>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
