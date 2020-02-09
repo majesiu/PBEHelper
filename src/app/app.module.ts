@@ -15,6 +15,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    TextFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
