@@ -228,7 +228,7 @@
           <ng-container matColumnDef="max">
             <th mat-header-cell *matHeaderCellDef>Max</th>
             <td mat-cell *matCellDef="let attribute"> {{attribute.max}} </td>
-            <td mat-footer-cell *matFooterCellDef>Total: </td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Value</th>
@@ -285,7 +285,7 @@
           <ng-container matColumnDef="max">
             <th mat-header-cell *matHeaderCellDef>Max</th>
             <td mat-cell *matCellDef="let attribute"> {{attribute.max}} </td>
-            <td mat-footer-cell *matFooterCellDef>Total</td>
+            <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Value</th>
@@ -399,7 +399,7 @@
                   <input matInput placeholder="Recruited by" [(ngModel)]="Recruited" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace" [ngModelOptions]="{standalone: true}" required>
+                  <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
               </form>
               <form>
@@ -415,7 +415,13 @@
               </form>
               <form>
                 <mat-form-field>
-                  <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}" required>
+                  <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Choose a Birthdate</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
               </form>
             </th>
@@ -530,7 +536,7 @@
                   <input matInput placeholder="Recruited by" [(ngModel)]="Recruited" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace" [ngModelOptions]="{standalone: true}" required>
+                  <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
               </form>
               <form>
@@ -546,7 +552,13 @@
               </form>
               <form>
                 <mat-form-field>
-                  <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}" required>
+                  <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace" [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Choose a Birthdate</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
               </form>
             </th>

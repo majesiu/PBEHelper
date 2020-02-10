@@ -27,8 +27,7 @@ export class CreatePlayerComponent implements OnInit {
   pitches = ['Fastball', 'Sinker', 'Cutter', 'Curveball', 'Slider', 'Changeup', 'Splitter', 'Forkball', 'Circle Change',
     'Screwball', 'Knuckle Curve'];
   positions = ['Relief Pitcher', 'Starting Pitcher', 'Catcher', 'First Baseman', 'Second Baseman', 'Third Baseman', 'Shortstop',
-    'Left Fielder', 'Center Fielder', 'Right Fielder'];
-  startDate = new Date(2007, 0, 1);
+    'Left Fielder', 'Center Fielder', 'Right Fielder']; 
   public velocityValues = ['80 - 83',
     '83 - 85',
     '84 - 86',
@@ -70,6 +69,7 @@ export class CreatePlayerComponent implements OnInit {
   Weight = '';
   Birthplace = '';
   Discord = '';
+  startDate = new Date(2012, 0, 1);
   Hitting: any;
   Bats: any;
   Selected2Position: any;
