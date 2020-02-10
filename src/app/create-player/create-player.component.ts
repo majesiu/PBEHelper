@@ -83,6 +83,7 @@ export class CreatePlayerComponent implements OnInit {
   Positions = ["1B", "2B", "3B", "SS", "LF", "CF", "RF"]
   playerTypes = ['Batter','Pitcher']
   formString = '[color=red][u][b]Player Information[/b][/u][/color]'; 
+  ArmSlots = ["Normal (3/4)", "Submarine", "Sidearm", "Over the top"];
   
 
   constructor(private _formBuilder: FormBuilder) {
