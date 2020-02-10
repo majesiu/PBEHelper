@@ -195,6 +195,7 @@ export class CreatePlayerComponent implements OnInit {
   }
 
   createBatter() {
+    this.formString = "[color=red][u][b]Player Information[/b][/u][/color]";
     if (this.PlayerName === '') {
       return alert('Please input the Player Name');
     }
@@ -305,9 +306,11 @@ export class CreatePlayerComponent implements OnInit {
     
     this.forumTemplateReady = true;
   
+    document.getElementById("formArea").focus();
   }
   
   createPitcher() { 
+    this.formString = "[color=red][u][b]Player Information[/b][/u][/color]";
     if (this.PlayerName === '') {
       return alert('Please input the Player Name');
     }
@@ -391,6 +394,8 @@ export class CreatePlayerComponent implements OnInit {
       + (this.selectedPitches[4] !== 'Pitch 5' ? this.selectedPitches[4] : ' ');
   
     this.forumTemplateReady = true;
+  
+    document.getElementById("formArea").focus();
   
   }
 
