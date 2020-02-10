@@ -334,7 +334,7 @@
           <ng-container matColumnDef="HittingType">
             <td mat-footer-cell *matFooterCellDef colspan="6">
               Hitting Type:
-              <mat-radio-group [(ngModel)]="Hits">
+              <mat-radio-group [(ngModel)]="Hitting">
                 <mat-radio-button class="table-radio-button" *ngFor="let bh of HittingTypes" [value]="bh">
                   {{bh}}
                 </mat-radio-button>
@@ -582,13 +582,12 @@
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="generateForm()">Generate Forum Formatting</button>
-      <button mat-button disabled="!forumTemplateReady " (click)="copyAndGoToForums()">Copy to Clipboard & Go to forums</button>
-      <textarea matInput
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="5"
-            [value]="formString"></textarea>
+      <button mat-button [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to forums</button>
+      <textarea id="formArea" matInput [value]="formString" 
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="25">></textarea>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
