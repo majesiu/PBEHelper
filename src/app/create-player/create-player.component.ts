@@ -322,10 +322,11 @@ export class CreatePlayerComponent implements OnInit {
     if (this.SelectedPosition.length === 0) {
       return alert('Please Select the Position');
     }
-    if (!['Starting Pitcher', 'Relief Pitcher'].includes(this.SelectedPosition)) {
-      return alert('You have to select either Relief Pitcher or Starting Pitcher as position for pitcher');
+    if (!this.selectedPitchingArchetype.name.startsWith("Relief")) {
+      this.formString += '\n[b]Position:[/b] RP';
+    } else {
+      this.formString += '\n[b]Position:[/b] SP';
     }
-    this.formString += '\n[b]Position:[/b] ' + this.SelectedPosition;
     this.formString += '\n[b]College:[/b] ' + this.College;
     if (this.Birthdate === '') {
       return alert('Please input the Birthdate of your player');
