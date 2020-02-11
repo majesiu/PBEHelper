@@ -319,15 +319,12 @@ export class CreatePlayerComponent implements OnInit {
     if (this.Number === '') {
       return alert('Please input the Number');
     }
-    this.formString += '\n[b]Number:[/b] ' + this.Number;
-    if (this.SelectedPosition.length === 0) {
-      return alert('Please Select the Position');
-    }
+    this.formString += '\n[b]Number:[/b] ' + this.Number; 
     if (!this.selectedPitchingArchetype.name.startsWith("Relief")) {
       this.formString += '\n[b]Position:[/b] RP';
     } else {
       this.formString += '\n[b]Position:[/b] SP';
-    }
+    } 
     this.formString += '\n[b]College:[/b] ' + this.College;
     if (this.Birthdate === '') {
       return alert('Please input the Birthdate of your player');
