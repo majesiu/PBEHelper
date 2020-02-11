@@ -354,8 +354,28 @@ export class CreatePlayerComponent implements OnInit {
       this.selectedPitchingArchetype.velocity.max + ') ' + this.selectedPitchingArchetype.velocity.name + ' ' +
       this.selectedPitchingArchetype.velocity.value;
     for (const att of this.selectedPitchingArchetype.attributes) {
+      let attributeName = att.name;
+      switch (att.name){
+        case 'Pitch 1:':
+          attributeName = this.selectedPitches[0];
+          break;
+        case 'Pitch 2:':
+          attributeName = this.selectedPitches[1];
+          break;
+        case 'Pitch 3:':
+          attributeName = this.selectedPitches[2];
+          break;
+        case 'Pitch 4:':
+          if(this.selectedPitches[3] != "") attributeName = this.selectedPitches[3];
+          break;
+        case 'Pitch 5:':
+          if(this.selectedPitches[4] != "") attributeName = this.selectedPitches[4];
+          break;
+        default:
+          break;
+      }
       this.formString += '\n(MIN: ' + att.min + ') (MAX: ' + att.max + ') '
-        + att.name + ' ' + att.value;
+        + attributeName + ' ' + att.value;
     }
     if (!this.ArmSlot || this.ArmSlot.length === 0) {
       return alert('Please select your arm slot');
