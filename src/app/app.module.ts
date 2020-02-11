@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreatePlayerComponent } from './create-player/create-player.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule, MatNativeDateModule } from '@angular/material';
+import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatSliderModule} from '@angular/material/slider';
@@ -17,6 +17,8 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule, MomentDateAdapter } from "@angular/material-moment-adapter";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     FlexLayoutModule,
     TextFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatMomentDateModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

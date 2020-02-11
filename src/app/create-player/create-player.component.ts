@@ -7,6 +7,7 @@ import FieldingArtchetypes from '../../assets/FieldingArchetypes.json';
 import PitchingArtchetypes from '../../assets/PitchingArchetypes.json';
 import { Velocity } from '../model/velocity';
 import * as clipboard from "clipboard-polyfill";
+import { Moment } from 'moment';
 
 @Component({
   selector: 'app-create-player',
@@ -62,7 +63,7 @@ export class CreatePlayerComponent implements OnInit {
   Number = '';
   SelectedPosition = '';
   College = '';
-  Birthdate = '';
+  Birthdate: Moment;
   Throws = '';
   Recruited = '';
   Height = '';
@@ -210,10 +211,10 @@ export class CreatePlayerComponent implements OnInit {
     }
     this.formString += '\n[b]Position:[/b] ' + this.SelectedPosition;
     this.formString += '\n[b]College:[/b] ' + this.College;
-    if (this.Birthdate === '') {
+    if (!this.Birthdate || !this.Birthdate.isValid()) {
       return alert('Please input the Birthdate of your player');
     }
-    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate;
+    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate.toDate().toDateString();
     if (!this.Throws) {
       return alert('Please select the Throwing Hand');
     }
@@ -326,10 +327,10 @@ export class CreatePlayerComponent implements OnInit {
       this.formString += '\n[b]Position:[/b] SP';
     } 
     this.formString += '\n[b]College:[/b] ' + this.College;
-    if (this.Birthdate === '') {
+    if (!this.Birthdate || !this.Birthdate.isValid()) {
       return alert('Please input the Birthdate of your player');
     }
-    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate;
+    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate.toDate().toDateString();
     if (this.Throws.length === 0) {
       return alert('Please select the Throwing Hand');
     }
