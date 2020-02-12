@@ -83,7 +83,7 @@ export class Attribute {
       case 'Fielding Error:': return 'The better the rating the lower the chance to commit fielding error';
       case 'Fielding/Catching Arm:': return 'Is a measure of the strength of a player\'s arm. ' +
         'Players with higher Arm ratings are more likely to throw out runners on a close play.';
-      case 'Turn Double Play': return 'Defines how well infielders, pitchers, and catchers can turn infield double plays. Affects only ' +
+      case 'Turn Double Play:': return 'Defines how well infielders, pitchers, and catchers can turn infield double plays. Affects only ' +
         'turning the play from 2B (or rarely from 3B/1B), not the throw initiating the double play.';
       case 'Catcher Ability:': return 'Catcher Ability is a measure of a catcher\'s overall catching skill. ' +
         'It affects the framing (increasing pitchers K/9 and BB/9), limits errors and passed balls.';
