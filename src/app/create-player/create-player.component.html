@@ -675,8 +675,8 @@
     You are now done.
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="generateForm()">Generate Forum Formatting</button>
-      <button mat-button [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to
+      <button mat-button matTooltip="Click to generate forum template for your player!" (click)="generateForm()">Generate Forum Formatting</button>
+      <button mat-button matTooltip="Click to complete the process of creating your player!" [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to
         forums</button>
       <textarea id="formArea" matInput [value]="formString" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
         cdkAutosizeMinRows="20" cdkAutosizeMaxRows="40">></textarea>
