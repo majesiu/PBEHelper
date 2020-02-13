@@ -217,17 +217,20 @@
         <table mat-table class="mat-elevation-z8" [dataSource]="selectedHittingArchetype.attributes">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.name}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.name}} </td>
             <td mat-footer-cell *matFooterCellDef> </td>
           </ng-container>
           <ng-container matColumnDef="min">
             <th mat-header-cell *matHeaderCellDef>Min</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.min}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.min}} </td>
             <td mat-footer-cell *matFooterCellDef> </td>
           </ng-container>
           <ng-container matColumnDef="max">
             <th mat-header-cell *matHeaderCellDef>Max</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.max}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.max}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <ng-container matColumnDef="value">
@@ -253,7 +256,8 @@
                 {{selectedHittingArchetype.costSum()}} </p>
             </td>
             <th mat-header-cell *matHeaderCellDef>Cost</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.cost()}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.cost()}} </td>
           </ng-container>
           <ng-container matColumnDef="BattingArchetype">
             <th mat-header-cell *matHeaderCellDef colspan="6">
@@ -275,17 +279,20 @@
         <table mat-table class="mat-elevation-z8" [dataSource]="selectedFieldingArchetype.attributes">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.name}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.name}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <ng-container matColumnDef="min">
             <th mat-header-cell *matHeaderCellDef>Min</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.min}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.min}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <ng-container matColumnDef="max">
             <th mat-header-cell *matHeaderCellDef>Max</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.max}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.max}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
           </ng-container>
           <ng-container matColumnDef="value">
@@ -307,7 +314,8 @@
           </ng-container>
           <ng-container matColumnDef="cost">
             <th mat-header-cell *matHeaderCellDef>Cost</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.cost()}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.cost()}} </td>
             <td mat-footer-cell *matFooterCellDef>
               <p [style.color]="selectedFieldingArchetype.costSum()===50 ? 'green' : 'red'">Total:
                 {{selectedFieldingArchetype.costSum()}} </p>
@@ -400,7 +408,7 @@
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Recruited by" [(ngModel)]="Recruited"
-                    [ngModelOptions]="{standalone: true}" required>
+                    [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}"
@@ -417,8 +425,7 @@
                     required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}"
-                    required>
+                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
               </form>
               <form>
@@ -463,63 +470,67 @@
         <table mat-table class="mat-elevation-z8" [dataSource]="selectedPitchingArchetype.attributes">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after" [ngSwitch]="attribute.name"> 
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"
+              [ngSwitch]="attribute.name">
               <span *ngSwitchCase="'Pitch 1:'">
                 <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]">
-                  <mat-option *ngFor="let pitch of pitches"
-                          [value]="pitch">
+                  <mat-option *ngFor="let pitch of pitches" [value]="pitch">
                     {{pitch}}
                   </mat-option>
                 </mat-select>
               </span>
               <span *ngSwitchCase="'Pitch 2:'">
                 <mat-select class="centered aligned" [(ngModel)]="selectedPitches[1]">
-                  <mat-option *ngFor="let pitch of pitches"
-                          [value]="pitch">
+                  <mat-option *ngFor="let pitch of pitches" [value]="pitch">
                     {{pitch}}
                   </mat-option>
                 </mat-select>
               </span>
               <span *ngSwitchCase="'Pitch 3:'">
                 <mat-select class="centered aligned" [(ngModel)]="selectedPitches[2]">
-                  <mat-option *ngFor="let pitch of pitches"
-                          [value]="pitch">
+                  <mat-option *ngFor="let pitch of pitches" [value]="pitch">
                     {{pitch}}
                   </mat-option>
                 </mat-select>
               </span>
               <span *ngSwitchCase="'Pitch 4:'">
                 <mat-select class="centered aligned" [(ngModel)]="selectedPitches[3]">
-                  <mat-option *ngFor="let pitch of pitches"
-                          [value]="pitch">
+                  <mat-option *ngFor="let pitch of pitches" [value]="pitch">
                     {{pitch}}
                   </mat-option>
                 </mat-select>
               </span>
               <span *ngSwitchCase="'Pitch 5:'">
                 <mat-select class="centered aligned" [(ngModel)]="selectedPitches[4]">
-                  <mat-option *ngFor="let pitch of pitches"
-                          [value]="pitch">
+                  <mat-option *ngFor="let pitch of pitches" [value]="pitch">
                     {{pitch}}
                   </mat-option>
                 </mat-select>
               </span>
               <span *ngSwitchDefault>{{attribute.name}}</span>
             </td>
-            <td mat-footer-cell *matFooterCellDef matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
-            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">{{selectedPitchingArchetype.velocity.name}} </td>
+            <td mat-footer-cell *matFooterCellDef
+              matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+              matTooltipPosition="after">{{selectedPitchingArchetype.velocity.name}} </td>
           </ng-container>
           <ng-container matColumnDef="min">
             <th mat-header-cell *matHeaderCellDef>Min</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.min}} </td>
-            <td mat-footer-cell *matFooterCellDef matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
-            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">{{selectedPitchingArchetype.velocity.min}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.min}} </td>
+            <td mat-footer-cell *matFooterCellDef
+              matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+              matTooltipPosition="after">{{selectedPitchingArchetype.velocity.min}} </td>
           </ng-container>
           <ng-container matColumnDef="max">
             <th mat-header-cell *matHeaderCellDef>Max</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"> {{attribute.max}} </td>
-            <td mat-footer-cell *matFooterCellDef matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
-            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">{{selectedPitchingArchetype.velocity.max}}</td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.max}} </td>
+            <td mat-footer-cell *matFooterCellDef
+              matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+              matTooltipPosition="after">{{selectedPitchingArchetype.velocity.max}}</td>
           </ng-container>
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Value</th>
@@ -527,20 +538,23 @@
               <input matInput type="number" [(ngModel)]="attribute.value" name="attribute.value" min={{attribute.min}}
                 max={{attribute.max}}>
             </td>
-            <td mat-footer-cell *matFooterCellDef matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
-            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">{{selectedPitchingArchetype.velocity.value}} </td>
+            <td mat-footer-cell *matFooterCellDef
+              matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+              matTooltipPosition="after">{{selectedPitchingArchetype.velocity.value}} </td>
           </ng-container>
-          <ng-container matColumnDef="slider" >
+          <ng-container matColumnDef="slider">
             <th mat-header-cell *matHeaderCellDef></th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after" >
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
               <mat-slider [max]="attribute.max" [min]="attribute.min" [step]="1" [thumbLabel]="attribute.value"
                 [(ngModel)]="attribute.value">
               </mat-slider>
             </td>
-            <td mat-footer-cell *matFooterCellDef >
-              <mat-select [(ngModel)]="selectedPitchingArchetype.velocity.value" matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+            <td mat-footer-cell *matFooterCellDef>
+              <mat-select [(ngModel)]="selectedPitchingArchetype.velocity.value"
+                matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
               Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">
-                <mat-option *ngFor="let velocityValue of velocityValues" [value]="velocityValue" >
+                <mat-option *ngFor="let velocityValue of velocityValues" [value]="velocityValue">
                   {{velocityValue}}
                 </mat-option>
               </mat-select>
@@ -548,9 +562,12 @@
           </ng-container>
           <ng-container matColumnDef="cost">
             <th mat-header-cell *matHeaderCellDef>Cost</th>
-            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after" > {{attribute.cost()}} </td>
-            <td mat-footer-cell *matFooterCellDef matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
-            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">{{selectedPitchingArchetype.velocity.cost()}} </td>
+            <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+              {{attribute.cost()}} </td>
+            <td mat-footer-cell *matFooterCellDef
+              matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+            Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+              matTooltipPosition="after">{{selectedPitchingArchetype.velocity.cost()}} </td>
           </ng-container>
           <ng-container matColumnDef="Total">
             <td mat-footer-cell *matFooterCellDef colspan="6">
@@ -568,7 +585,7 @@
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="['PitchingArchetype']"></tr>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
           <tr mat-footer-row *matFooterRowDef="['Total']">
         </table>
@@ -604,7 +621,7 @@
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Recruited by" [(ngModel)]="Recruited"
-                    [ngModelOptions]="{standalone: true}" required>
+                    [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}"
@@ -621,8 +638,7 @@
                     required>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}"
-                    required>
+                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
               </form>
               <form>
