@@ -231,7 +231,9 @@
             <th mat-header-cell *matHeaderCellDef>Max</th>
             <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
               {{attribute.max}} </td>
-            <td mat-footer-cell *matFooterCellDef><p [style.color]="selectedHittingArchetype.costSum()===50 ? 'green' : 'red'">Total: </p></td>
+            <td mat-footer-cell *matFooterCellDef>
+              <p [style.color]="selectedHittingArchetype.costSum()===50 ? 'green' : 'red'">Total: </p>
+            </td>
           </ng-container>
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Value</th>
@@ -252,7 +254,8 @@
           </ng-container>
           <ng-container matColumnDef="cost">
             <td mat-footer-cell *matFooterCellDef>
-              <p [style.color]="selectedHittingArchetype.costSum()===50 ? 'green' : 'red'">{{selectedHittingArchetype.costSum()}} </p>
+              <p [style.color]="selectedHittingArchetype.costSum()===50 ? 'green' : 'red'">
+                {{selectedHittingArchetype.costSum()}} </p>
             </td>
             <th mat-header-cell *matHeaderCellDef>Cost</th>
             <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
@@ -293,7 +296,9 @@
             <th mat-header-cell *matHeaderCellDef>Max</th>
             <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
               {{attribute.max}} </td>
-            <td mat-footer-cell *matFooterCellDef><p [style.color]="selectedFieldingArchetype.costSum()===50 ? 'green' : 'red'">Total:</p></td>
+            <td mat-footer-cell *matFooterCellDef>
+              <p [style.color]="selectedFieldingArchetype.costSum()===50 ? 'green' : 'red'">Total:</p>
+            </td>
           </ng-container>
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Value</th>
@@ -332,7 +337,9 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="Throwing Hand">
-            <td mat-footer-cell *matFooterCellDef colspan="6">
+            <td mat-footer-cell *matFooterCellDef colspan="6"
+              matTooltip="Throwing Hand, also important for fielding (Lefties get penalized as 2B/3B/SS)"
+              matTooltipPosition="after">
               <mat-label>Throwing Hand: </mat-label>
               <mat-radio-group [(ngModel)]="Throws">
                 <mat-radio-button class="table-radio-button" *ngFor="let bh of ThrowingHands" [value]="bh">
@@ -352,7 +359,8 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="FieldingArchetype">
-            <th mat-header-cell *matHeaderCellDef colspan="6" matTooltip="Select one of the fielding artchetypes. Every archetpe allows you
+            <th mat-header-cell *matHeaderCellDef colspan="6"
+              matTooltip="Select one of the fielding artchetypes. Every archetpe allows you
             to get basic experience at 3 positions, but Utility one which gives you 5, but at the cost of lowered base TPE." matTooltipPosition="after">
               <mat-label>Fielding Archetype:</mat-label>
               <mat-select [(ngModel)]="selectedFieldingArchetype">
@@ -405,39 +413,48 @@
               <form>
                 <mat-form-field>
                   <input matInput placeholder="Player Name" [(ngModel)]="PlayerName"
-                    [ngModelOptions]="{standalone: true}" required>
+                    [ngModelOptions]="{standalone: true}" required matTooltip="First and Last name of your player."
+                    matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Recruited by" [(ngModel)]="Recruited"
-                    [ngModelOptions]="{standalone: true}">
+                    [ngModelOptions]="{standalone: true}"
+                    matTooltip="Optional, if someone recruited you then you can input a user nickname so they can get bonus for recruiting you"
+                    matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required matTooltip="Number that your player will wear in the game." matTooltipPosition="after">
                 </mat-form-field>
               </form>
               <form>
                 <mat-form-field>
                   <input matInput placeholder="Height" [(ngModel)]="Height" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required
+                    matTooltip="The height of your player, affects only First Base Defence. Maximum of 6'4'' for batters, 6'8'' for pitchers.'"
+                    matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Weight" [(ngModel)]="Weight" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required matTooltip="Weight of your player, purely cosmetic." matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}">
+                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}"
+                    matTooltip="Optional - you put your nickname and/or id to let teams contact you more easily."
+                    matTooltipPosition="after">
                 </mat-form-field>
               </form>
               <form>
                 <mat-form-field>
                   <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
-                    [ngModelOptions]="{standalone: true}" required>
+                    [ngModelOptions]="{standalone: true}" required
+                    matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>Choose a Birthdate</mat-label>
                   <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required matTooltip="The date in the sim, league is currently in year 2033 (Season 17)"
+                    matTooltipPosition="after">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
@@ -572,12 +589,15 @@
           </ng-container>
           <ng-container matColumnDef="Total">
             <td mat-footer-cell *matFooterCellDef colspan="6">
-              <p style="text-align: right" [style.color]="selectedPitchingArchetype.costSum()===100 ? 'green' : 'red'">Total:
+              <p style="text-align: right" [style.color]="selectedPitchingArchetype.costSum()===100 ? 'green' : 'red'">
+                Total:
                 {{selectedPitchingArchetype.costSum()}}</p>
             </td>
           </ng-container>
           <ng-container matColumnDef="PitchingArchetype">
-            <th mat-header-cell *matHeaderCellDef colspan="6" matTooltip="Select Pitching Artchetype that will determine your player identity and minimum and maximum caps for every attribute. First 3 archetypes are Relief Pitchers, latter 4 Starters. Choose 1." matTooltipPosition="after">
+            <th mat-header-cell *matHeaderCellDef colspan="6"
+              matTooltip="Select Pitching Artchetype that will determine your player identity and minimum and maximum caps for every attribute. First 3 archetypes are Relief Pitchers, latter 4 Starters. Choose 1."
+              matTooltipPosition="after">
               <mat-label>Pitching Archetype:</mat-label>
               <mat-select [(ngModel)]="selectedPitchingArchetype">
                 <mat-option *ngFor="let fa of pitchingArchetypes" [value]="fa"> {{fa.name}}</mat-option>
@@ -594,7 +614,9 @@
       <div fxFlex="50%">
         <table mat-table class="mat-elevation-z8">
           <ng-container matColumnDef="Throwing Hand">
-            <td mat-footer-cell *matFooterCellDef colspan="6">
+            <td mat-footer-cell *matFooterCellDef colspan="6"
+              matTooltip="Throwing Hand, also important for fielding (Lefties get penalized as 2B/3B/SS)"
+              matTooltipPosition="after">
               <mat-label>Throwing Hand: </mat-label>
               <mat-radio-group [(ngModel)]="Throws">
                 <mat-radio-button class="table-radio-button" *ngFor="let bh of ThrowingHands" [value]="bh">
@@ -618,39 +640,48 @@
               <form>
                 <mat-form-field>
                   <input matInput placeholder="Player Name" [(ngModel)]="PlayerName"
-                    [ngModelOptions]="{standalone: true}" required>
+                    [ngModelOptions]="{standalone: true}" required matTooltip="First and Last name of your player."
+                    matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Recruited by" [(ngModel)]="Recruited"
-                    [ngModelOptions]="{standalone: true}">
+                    [ngModelOptions]="{standalone: true}"
+                    matTooltip="Optional, if someone recruited you then you can input a user nickname so they can get bonus for recruiting you"
+                    matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required matTooltip="Number that your player will wear in the game." matTooltipPosition="after">
                 </mat-form-field>
               </form>
               <form>
                 <mat-form-field>
                   <input matInput placeholder="Height" [(ngModel)]="Height" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required
+                    matTooltip="The height of your player, affects only First Base Defence. Maximum of 6'4'' for batters, 6'8'' for pitchers.'"
+                    matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Weight" [(ngModel)]="Weight" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required matTooltip="Weight of your player, purely cosmetic." matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}">
+                  <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}"
+                    matTooltip="Optional - you put your nickname and/or id to let teams contact you more easily."
+                    matTooltipPosition="after">
                 </mat-form-field>
               </form>
               <form>
                 <mat-form-field>
                   <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
-                    [ngModelOptions]="{standalone: true}" required>
+                    [ngModelOptions]="{standalone: true}" required
+                    matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>Choose a Birthdate</mat-label>
                   <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}"
-                    required>
+                    required matTooltip="The date in the sim, league is currently in year 2033 (Season 17)"
+                    matTooltipPosition="after">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
@@ -676,8 +707,10 @@
     You are now done.
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matTooltip="Click to generate forum template for your player!" (click)="generateForm()">Generate Forum Formatting</button>
-      <button mat-button matTooltip="Click to complete the process of creating your player!" [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to
+      <button mat-button matTooltip="Click to generate forum template for your player!"
+        (click)="generateForm()">Generate Forum Formatting</button>
+      <button mat-button matTooltip="Click to complete the process of creating your player!"
+        [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to
         forums</button>
       <textarea id="formArea" matInput [value]="formString" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
         cdkAutosizeMinRows="20" cdkAutosizeMaxRows="40">></textarea>
