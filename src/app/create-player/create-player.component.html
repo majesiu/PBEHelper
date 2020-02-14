@@ -259,7 +259,8 @@
               {{attribute.cost()}} </td>
           </ng-container>
           <ng-container matColumnDef="BattingArchetype">
-            <th mat-header-cell *matHeaderCellDef colspan="6">
+            <th mat-header-cell *matHeaderCellDef colspan="6" matTooltip="Select Batting Artchetype that will determine your player identity
+            and minimum and maximum caps for every attribute." matTooltipPosition="after">
               <mat-label>Batting Archetype:</mat-label>
               <mat-select [(ngModel)]="selectedHittingArchetype">
                 <mat-option *ngFor="let ha of hittingArchetypes" [value]="ha"> {{ha.name}}</mat-option>
@@ -351,7 +352,8 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="FieldingArchetype">
-            <th mat-header-cell *matHeaderCellDef colspan="6">
+            <th mat-header-cell *matHeaderCellDef colspan="6" matTooltip="Select one of the fielding artchetypes. Every archetpe allows you
+            to get basic experience at 3 positions, but Utility one which gives you 5, but at the cost of lowered base TPE." matTooltipPosition="after">
               <mat-label>Fielding Archetype:</mat-label>
               <mat-select [(ngModel)]="selectedFieldingArchetype">
                 <mat-option *ngFor="let fa of fieldingArchetypes" [value]="fa"> {{fa.name}}</mat-option>
@@ -575,7 +577,7 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="PitchingArchetype">
-            <th mat-header-cell *matHeaderCellDef colspan="6">
+            <th mat-header-cell *matHeaderCellDef colspan="6" matTooltip="Select Pitching Artchetype that will determine your player identity and minimum and maximum caps for every attribute. First 3 archetypes are Relief Pitchers, latter 4 Starters. Choose 1." matTooltipPosition="after">
               <mat-label>Pitching Archetype:</mat-label>
               <mat-select [(ngModel)]="selectedPitchingArchetype">
                 <mat-option *ngFor="let fa of pitchingArchetypes" [value]="fa"> {{fa.name}}</mat-option>
