@@ -9,6 +9,10 @@ html, body {
     //background: rgba(25, 55, 111, 0.3) url("assets/PBE_bgg.png") no-repeat center;
 }
 
+.mat-stepper-horizontal, .mat-stepper-vertical {
+  display: block;
+  min-height: 100vh;
+}
 
 .mat-slider-thumb {
     background: url('assets/baseball.svg');  
