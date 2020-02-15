@@ -213,7 +213,7 @@
       </mat-radio-group>
     </div>
     <div *ngIf="playerType=='Batter'" fxLayout="row" fxLayout.lt-md="column">
-      <div fxFlex="50%">
+      <div fxFlex="50%" fxFlexFill>
         <table mat-table class="mat-elevation-z8" [dataSource]="selectedHittingArchetype.attributes">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -277,8 +277,7 @@
           <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
         </table>
       </div>
-      <div fxFlex="50%">
-
+      <div fxFlex="50%" fxFlexFill>
         <table mat-table class="mat-elevation-z8" [dataSource]="selectedFieldingArchetype.attributes">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -479,7 +478,6 @@
           <tr mat-row *matFooterRowDef="['FieldingPositions','FieldingPositions2','FieldingPositions3']"></tr>
           <tr mat-row [hidden]="selectedFieldingArchetype !== fieldingArchetypes[6]"
             *matFooterRowDef="['FieldingPositions4','FieldingPositions5']"></tr>
-          <tr mat-row *matFooterRowDef="['ContinueSection']"></tr>
         </table>
       </div>
     </div>
@@ -697,14 +695,9 @@
           <tr mat-row *matFooterRowDef="['BasicInfo']"></tr>
           <tr mat-row *matFooterRowDef="['Throwing Hand']"></tr>
           <tr mat-row *matFooterRowDef="['Arm Slot']"></tr>
-          <tr mat-row *matFooterRowDef="['ContinueSection']"></tr>
         </table>
       </div>
     </div>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matTooltip="Click to generate forum template for your player!"
