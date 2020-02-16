@@ -367,7 +367,7 @@
               </mat-select>
             </th>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions">
+          <ng-container matColumnDef="FieldingPositions"  matTooltip="Select your main position. You will start with maximum fielding experience there." matTooltipPosition="after">
             <td mat-footer-cell *matFooterCellDef colspan="2">
               <mat-label>Position 1 (200/200 EXP):</mat-label>
               <mat-select [(ngModel)]="SelectedPosition">
@@ -375,7 +375,7 @@
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions2">
+          <ng-container matColumnDef="FieldingPositions2"  matTooltip="Select your secondary fielding position your player will be able to play. You can only select each position once." matTooltipPosition="after">
             <td mat-footer-cell *matFooterCellDef colspan="2">
               <mat-label>Position 2 (150/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected2Position">
@@ -383,7 +383,7 @@
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions3">
+          <ng-container matColumnDef="FieldingPositions3"  matTooltip="Select your tertiary fielding position your player will be able to play. You can only select each position once." matTooltipPosition="after">
             <td mat-footer-cell *matFooterCellDef colspan="2">
               <mat-label>Position 3 (100/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected3Position">
@@ -391,7 +391,7 @@
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions4">
+          <ng-container matColumnDef="FieldingPositions4"  matTooltip="Select your fourth fielding position your player will be able to play. You can only select each position once. This is only avalaible to the Utility fielding archetype." matTooltipPosition="after">
             <td mat-footer-cell *matFooterCellDef colspan="2">
               <mat-label>Position 4 (100/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected4Position">
@@ -399,7 +399,7 @@
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions5">
+          <ng-container matColumnDef="FieldingPositions5"  matTooltip="Select your fifth fielding position your player will be able to play. You can only select each position once. This is only avalaible to the Utility fielding archetype." matTooltipPosition="after">
             <td mat-footer-cell *matFooterCellDef colspan="2">
               <mat-label>Position 5 (100/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected5Position">
