@@ -214,6 +214,7 @@
     </div>
     <div *ngIf="playerType=='Batter'" fxLayout="row" fxLayout.lt-md="column">
       <div fxFlex="50%" fxFlexFill>
+        
         <table mat-table class="mat-elevation-z8" [dataSource]="selectedHittingArchetype.attributes">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -326,7 +327,7 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="BattingHands">
-            <td mat-footer-cell *matFooterCellDef colspan="6">
+            <td mat-footer-cell *matFooterCellDef colspan="6"  matTooltip="Select your batter handedness." matTooltipPosition="after">
               Batting Hand:
               <mat-radio-group [(ngModel)]="Bats">
                 <mat-radio-button class="table-radio-button" *ngFor="let bh of BattingHands" [value]="bh">
@@ -348,7 +349,7 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="HittingType">
-            <td mat-footer-cell *matFooterCellDef colspan="6">
+            <td mat-footer-cell *matFooterCellDef colspan="6"  matTooltip="Select your batter hitting type. It affects the placement of your hits." matTooltipPosition="after">
               Hitting Type:
               <mat-radio-group [(ngModel)]="Hitting">
                 <mat-radio-button class="table-radio-button" *ngFor="let bh of HittingTypes" [value]="bh">
@@ -367,40 +368,40 @@
               </mat-select>
             </th>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions"  matTooltip="Select your main position. You will start with maximum fielding experience there." matTooltipPosition="after">
-            <td mat-footer-cell *matFooterCellDef colspan="2">
+          <ng-container matColumnDef="FieldingPositions"  >
+            <td mat-footer-cell *matFooterCellDef colspan="2" matTooltip="Select your main position. You will start with maximum fielding experience there." matTooltipPosition="after">
               <mat-label>Position 1 (200/200 EXP):</mat-label>
               <mat-select [(ngModel)]="SelectedPosition">
                 <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions2"  matTooltip="Select your secondary fielding position your player will be able to play. You can only select each position once." matTooltipPosition="after">
-            <td mat-footer-cell *matFooterCellDef colspan="2">
+          <ng-container matColumnDef="FieldingPositions2"  >
+            <td mat-footer-cell *matFooterCellDef colspan="2" matTooltip="Select your secondary fielding position your player will be able to play. You can only select each position once." matTooltipPosition="after">
               <mat-label>Position 2 (150/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected2Position">
                 <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions3"  matTooltip="Select your tertiary fielding position your player will be able to play. You can only select each position once." matTooltipPosition="after">
-            <td mat-footer-cell *matFooterCellDef colspan="2">
+          <ng-container matColumnDef="FieldingPositions3"  >
+            <td mat-footer-cell *matFooterCellDef colspan="2" matTooltip="Select your tertiary fielding position your player will be able to play. You can only select each position once." matTooltipPosition="after">
               <mat-label>Position 3 (100/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected3Position">
                 <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions4"  matTooltip="Select your fourth fielding position your player will be able to play. You can only select each position once. This is only avalaible to the Utility fielding archetype." matTooltipPosition="after">
-            <td mat-footer-cell *matFooterCellDef colspan="2">
+          <ng-container matColumnDef="FieldingPositions4">
+            <td mat-footer-cell *matFooterCellDef colspan="2"   matTooltip="Select your fourth fielding position your player will be able to play. You can only select each position once. This is only avalaible to the Utility fielding archetype." matTooltipPosition="after">
               <mat-label>Position 4 (100/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected4Position">
                 <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
               </mat-select>
             </td>
           </ng-container>
-          <ng-container matColumnDef="FieldingPositions5"  matTooltip="Select your fifth fielding position your player will be able to play. You can only select each position once. This is only avalaible to the Utility fielding archetype." matTooltipPosition="after">
-            <td mat-footer-cell *matFooterCellDef colspan="2">
+          <ng-container matColumnDef="FieldingPositions5">
+            <td mat-footer-cell *matFooterCellDef colspan="2"   matTooltip="Select your fifth fielding position your player will be able to play. You can only select each position once. This is only avalaible to the Utility fielding archetype." matTooltipPosition="after">
               <mat-label>Position 5 (100/200 EXP):</mat-label>
               <mat-select [(ngModel)]="Selected5Position">
                 <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
@@ -624,7 +625,7 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="Arm Slot">
-            <td mat-footer-cell *matFooterCellDef colspan="6">
+            <td mat-footer-cell *matFooterCellDef colspan="6"  matTooltip="Arm slot affects whether you are more effective vs Batters of the same or opposite handedness - submarine is the best vs the Same, Over the Top vs opposite." matTooltipPosition="after">
               <mat-label>Arm slot: </mat-label>
               <mat-radio-group [(ngModel)]="ArmSlot">
                 <mat-radio-button class="table-radio-button" *ngFor="let slot of ArmSlots" [value]="slot">
