@@ -19,6 +19,7 @@ import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule, MomentDateAdapter } from "@angular/material-moment-adapter";
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     TextFieldModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatTooltipModule 
+    MatTooltipModule,
+    MatExpansionModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
