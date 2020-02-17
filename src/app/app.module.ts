@@ -20,11 +20,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule, MomentDateAdapter } from "@angular/material-moment-adapter";
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { UpdatePlayerComponent } from './update-player/update-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreatePlayerComponent
+    CreatePlayerComponent,
+    UpdatePlayerComponent
   ],
   imports: [
     BrowserModule,
