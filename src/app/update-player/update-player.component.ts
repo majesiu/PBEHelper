@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';  
-import {MatTable} from '@angular/material';
+import {MatTable} from '@angular/material'; 
 export interface UpdateTask {
   name: string;
   tpe: number;
@@ -15,12 +15,13 @@ const ELEMENT_DATA: UpdateTask[] = [
 @Component({
   selector: 'app-update-player',
   templateUrl: './update-player.component.html',
-  styleUrls: ['./update-player.component.scss']
+  styleUrls: ['./update-player.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UpdatePlayerComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['name', 'link', 'tpe'];
+  displayedColumns: string[] = ['name', 'link', 'tpe', 'delete'];
   dataSource = ELEMENT_DATA;
   firstFormGroup: FormGroup;
 
@@ -61,4 +62,10 @@ export class UpdatePlayerComponent implements OnInit {
     }
     this.table.renderRows();
   }
+
+  deleteRow(element: any) {
+    this.dataSource.splice(this.dataSource.indexOf(element), 1);
+    this.table.renderRows();
+  }
 }
+
