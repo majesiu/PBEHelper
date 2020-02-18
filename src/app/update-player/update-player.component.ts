@@ -54,7 +54,7 @@ export class UpdatePlayerComponent implements OnInit {
           window.open('http://probaseballexperience.jcink.net/index.php?showforum=79');
         break;
       case 'tc':
-          this.dataSource.push({name: 'Weekly Training', tpe: 10, link: ''});
+          this.dataSource.push({name: 'Training Camp', tpe: 10, link: ''});
           window.open('http://probaseballexperience.jcink.net/index.php?showforum=57');
         break;
       default:
