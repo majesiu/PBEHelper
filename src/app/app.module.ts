@@ -21,12 +21,14 @@ import { MatMomentDateModule, MomentDateAdapter } from "@angular/material-moment
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { UpdatePlayerComponent } from './update-player/update-player.component';
+import { PlayerCalcComponent } from './player-calc/player-calc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePlayerComponent,
-    UpdatePlayerComponent
+    UpdatePlayerComponent,
+    PlayerCalcComponent
   ],
   imports: [
     BrowserModule,

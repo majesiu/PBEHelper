@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreatePlayerComponent } from './create-player/create-player.component';
 import { UpdatePlayerComponent } from './update-player/update-player.component';
+import { PlayerCalcComponent } from './player-calc/player-calc.component';
 
 
 const routes: Routes = [ 
   { path: '', redirectTo: '/create', pathMatch: 'full' },
   { path: 'create', component: CreatePlayerComponent },
-  { path: 'update', component: UpdatePlayerComponent }];
+  { path: 'update', component: UpdatePlayerComponent },
+  { path: 'calc', component: PlayerCalcComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
