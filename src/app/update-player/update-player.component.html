@@ -1,11 +1,6 @@
 <div fxLayout="row" fxFlexFill fxLayout.lt-md="column">
   <div fxFlex="100%" fxLayoutAlign="stretch"> 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
       
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -31,3 +26,8 @@
       </table>
   </div>
 </div>
+<button mat-raised-button (click)="newTask('empty')">New Empty Task</button>
+<button mat-raised-button (click)="newTask('ac')">Activity Check</button>
+<button mat-raised-button (click)="newTask('wt')">Weekly Training</button>
+<button mat-raised-button (click)="newTask('pt')">Point Task</button>
+<button mat-raised-button (click)="newTask('tc')">Training Camp</button>

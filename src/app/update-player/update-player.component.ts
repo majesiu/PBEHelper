@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';  
+import {MatTable} from '@angular/material';
 export interface UpdateTask {
   name: string;
-  position: number;
   tpe: number;
   link: string;
 }
 
+
 const ELEMENT_DATA: UpdateTask[] = [
-  {position: 1, name: '', tpe: 3, link: ''},
+  {name: '', tpe: 3, link: ''},
 ];
 
 @Component({
@@ -18,9 +19,13 @@ const ELEMENT_DATA: UpdateTask[] = [
 })
 export class UpdatePlayerComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'link', 'tpe'];
+
+  displayedColumns: string[] = ['name', 'link', 'tpe'];
   dataSource = ELEMENT_DATA;
   firstFormGroup: FormGroup;
+
+  
+  @ViewChild(MatTable, {static: false}) table: MatTable<any>;
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -30,4 +35,30 @@ export class UpdatePlayerComponent implements OnInit {
     });
   }
 
+  newTask(type: String) {
+    switch (type) {
+      case 'empty':
+          this.dataSource.push({name: '', tpe: 0, link: ''});
+        break;
+      case 'ac':
+          this.dataSource.push({name: 'Activity Check', tpe: 3, link: ''});
+          window.open('http://probaseballexperience.jcink.net/index.php?showforum=77');
+        break;
+      case 'pt':
+        this.dataSource.push({name: 'PT', tpe: 3, link: ''});
+        window.open('http://probaseballexperience.jcink.net/index.php?showforum=56');
+      break;
+      case 'wt':
+          this.dataSource.push({name: 'Weekly Training', tpe: 5, link: ''});
+          window.open('http://probaseballexperience.jcink.net/index.php?showforum=79');
+        break;
+      case 'tc':
+          this.dataSource.push({name: 'Weekly Training', tpe: 10, link: ''});
+          window.open('http://probaseballexperience.jcink.net/index.php?showforum=57');
+        break;
+      default:
+        break;
+    }
+    this.table.renderRows();
+  }
 }
