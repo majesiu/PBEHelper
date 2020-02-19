@@ -67,5 +67,9 @@ export class UpdatePlayerComponent implements OnInit {
     this.dataSource.splice(this.dataSource.indexOf(element), 1);
     this.table.renderRows();
   }
+
+  getTotalEarnedTPE() {
+    return this.dataSource.map(e => e.tpe).reduce((acc, value) => acc + value, 0);
+  }
 }
 
