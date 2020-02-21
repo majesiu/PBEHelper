@@ -23,6 +23,7 @@ export class UpdatePlayerComponent implements OnInit {
   displayedColumns: string[] = ['name', 'link', 'tpe', 'delete'];
   dataSource = ELEMENT_DATA;
   firstFormGroup: FormGroup;
+  updateString: String = 'test';
 
   
   @ViewChild(MatTable, {static: false}) table: MatTable<any>;
@@ -33,6 +34,10 @@ export class UpdatePlayerComponent implements OnInit {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
+  }
+
+  ngOnChanhes(){
+    this.updateString += "test";
   }
 
   newTask(type: String) {
