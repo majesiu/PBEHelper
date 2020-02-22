@@ -23,7 +23,6 @@ export class UpdatePlayerComponent implements OnInit {
   displayedColumns: string[] = ['name', 'link', 'tpe', 'delete'];
   dataSource = ELEMENT_DATA;
   firstFormGroup: FormGroup;
-  updateString: String = 'test';
 
   
   @ViewChild(MatTable, {static: false}) table: MatTable<any>;
@@ -34,10 +33,6 @@ export class UpdatePlayerComponent implements OnInit {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
-  }
-
-  ngOnChanhes(){
-    this.updateString += "test";
   }
 
   newTask(type: String) {
@@ -74,6 +69,14 @@ export class UpdatePlayerComponent implements OnInit {
 
   getTotalEarnedTPE() {
     return this.dataSource.map(e => e.tpe).reduce((acc, value) => acc + value, 0);
+  }
+
+  getUpdateString() {
+    let updateString = "Earned TPE: "+this.getTotalEarnedTPE();
+    this.dataSource.forEach(e =>{
+      updateString += "\n+"+e.tpe+" TPE [url="+e.link+"]"+e.name+"[/url]"
+    })
+    return updateString
   }
 }
 
