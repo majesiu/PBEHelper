@@ -7,9 +7,18 @@ export interface UpdateTask {
   link: string;
 }
 
+export interface ChangedAttribute {
+  attribute: string;
+  tpe: number;
+}
+
 
 const ELEMENT_DATA: UpdateTask[] = [
   {name: '', tpe: 3, link: ''},
+];
+
+let CHANGED_ATTRIBUTE_DATA: ChangedAttribute[] = [
+  {attribute: 'BABIP vs LHP:', tpe: 3},
 ];
 
 @Component({
@@ -20,7 +29,7 @@ const ELEMENT_DATA: UpdateTask[] = [
 export class UpdatePlayerComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['name', 'link', 'tpe', 'delete'];
+  displayedColumns: string[] = ['name', 'link', 'tpe', 'delete']; 
   dataSource = ELEMENT_DATA;
   firstFormGroup: FormGroup;
 
