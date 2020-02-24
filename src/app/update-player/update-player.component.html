@@ -41,7 +41,7 @@
       <table mat-table [dataSource]="CHANGED_ATTRIBUTE_DATA" class="mat-elevation-z8">
       
         <ng-container matColumnDef="attribute">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th mat-header-cell *matHeaderCellDef> Attribute </th>
           <td mat-cell *matCellDef="let element"><input matInput placeholder="Name of the attribute" type="text" [(ngModel)]="element.attribute"></td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
