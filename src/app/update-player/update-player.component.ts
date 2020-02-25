@@ -36,6 +36,7 @@ export class UpdatePlayerComponent implements OnInit {
 
   
   @ViewChild(MatTable, {static: false}) table: MatTable<any>;
+  @ViewChild('UpdateTable', {static: false}) earnedTable: MatTable<any>;
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -72,9 +73,14 @@ export class UpdatePlayerComponent implements OnInit {
     this.table.renderRows();
   }
 
-  deleteRow(element: any) {
-    this.dataSource.splice(this.dataSource.indexOf(element), 1);
+  deleteRow(element: any, type: string) {
+    if(type == 'earned'){
+      this.dataSource.splice(this.dataSource.indexOf(element), 1);
+    } else if(type == 'spent') {
+      this.updateTableDataSource.splice(this.dataSource.indexOf(element), 1);
+    }
     this.table.renderRows();
+    this.earnedTable.renderRows();
   }
 
   getTotalEarnedTPE() {
