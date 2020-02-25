@@ -81,6 +81,10 @@ export class UpdatePlayerComponent implements OnInit {
     return this.dataSource.map(e => e.tpe).reduce((acc, value) => acc + value, 0);
   }
 
+  getTotalSpentTPE() {
+    return this.updateTableDataSource.map(e => e.tpe).reduce((acc, value) => acc + value, 0); 
+  }
+
   getUpdateString() {
     let updateString = "Earned TPE: "+this.getTotalEarnedTPE();
     this.dataSource.forEach(e =>{

@@ -21,7 +21,7 @@
               <input matInput type="number" [(ngModel)]="element.tpe">
             </mat-form-field>
           </td>
-          <td mat-footer-cell *matFooterCellDef> Sum: {{getTotalEarnedTPE()}} </td>
+          <td mat-footer-cell *matFooterCellDef> Earned: {{getTotalEarnedTPE()}} </td>
         </ng-container>
 
         <ng-container matColumnDef="delete">
@@ -53,7 +53,7 @@
               <input matInput type="number" [(ngModel)]="element.tpe">
             </mat-form-field>
           </td>
-          <td mat-footer-cell *matFooterCellDef> Sum: {{getTotalEarnedTPE()}} </td>
+          <td mat-footer-cell *matFooterCellDef> Spent: {{getTotalSpentTPE()}} </td>
         </ng-container>
 
         <ng-container matColumnDef="delete">
@@ -75,5 +75,5 @@
 <button mat-raised-button (click)="newTask('wt')">Weekly Training</button>
 <button mat-raised-button (click)="newTask('pt')">Point Task</button>
 <button mat-raised-button (click)="newTask('tc')">Training Camp</button>
-<textarea id="formArea" matInput [value]="getUpdateString()" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+<textarea class="mat-elevation-z8" id="formArea" matInput [value]="getUpdateString()" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
 cdkAutosizeMinRows="20" cdkAutosizeMaxRows="40">></textarea>
