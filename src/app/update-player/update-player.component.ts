@@ -73,6 +73,11 @@ export class UpdatePlayerComponent implements OnInit {
     this.table.renderRows();
   }
 
+  newAttribute() {
+    this.updateTableDataSource.push({attribute: '', tpe: 0});
+    this.earnedTable.renderRows();
+  }
+
   deleteRow(element: any, type: string) {
     if(type == 'earned'){
       this.dataSource.splice(this.dataSource.indexOf(element), 1);
