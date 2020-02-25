@@ -17,7 +17,7 @@ const ELEMENT_DATA: UpdateTask[] = [
   {name: '', tpe: 3, link: ''},
 ];
 
-let CHANGED_ATTRIBUTE_DATA: ChangedAttribute[] = [
+const CHANGED_ATTRIBUTE_DATA: ChangedAttribute[] = [
   {attribute: 'BABIP vs LHP:', tpe: 3},
 ];
 
@@ -31,6 +31,7 @@ export class UpdatePlayerComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'link', 'tpe', 'delete']; 
   dataSource = ELEMENT_DATA;
+  updateTableDataSource = CHANGED_ATTRIBUTE_DATA;
   firstFormGroup: FormGroup;
 
   
