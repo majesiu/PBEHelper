@@ -10,6 +10,8 @@ export interface UpdateTask {
 export interface ChangedAttribute {
   attribute: string;
   tpe: number;
+  from: number;
+  to: number;
 }
 
 
@@ -18,7 +20,7 @@ const ELEMENT_DATA: UpdateTask[] = [
 ];
 
 const CHANGED_ATTRIBUTE_DATA: ChangedAttribute[] = [
-  {attribute: 'BABIP vs LHP:', tpe: 3},
+  {attribute: 'BABIP vs LHP:', tpe: 3, from: 20, to: 23},
 ];
 
 @Component({
@@ -74,7 +76,7 @@ export class UpdatePlayerComponent implements OnInit {
   }
 
   newAttribute() {
-    this.updateTableDataSource.push({attribute: '', tpe: 0});
+    this.updateTableDataSource.push({attribute: '', tpe: 0, from: 0, to: 0});
     this.earnedTable.renderRows();
   }
 
