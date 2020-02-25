@@ -100,8 +100,13 @@ export class UpdatePlayerComponent implements OnInit {
 
   getUpdateString() {
     let updateString = "Earned TPE: "+this.getTotalEarnedTPE();
+    updateString += "\nSpent TPE: "+this.getTotalSpentTPE();
+    updateString += "\nBanked TPE: "+ (this.getTotalEarnedTPE() - this.getTotalSpentTPE());
     this.dataSource.forEach(e =>{
-      updateString += "\n+"+e.tpe+" TPE [url="+e.link+"]"+e.name+"[/url]"
+      updateString += "\n+"+e.tpe+" TPE [url="+e.link+"]"+e.name+"[/url]";
+    })
+    this.updateTableDataSource.forEach(e =>{
+      updateString += "\n"+e.attribute+" "+e.from+" -> "+e.to+" (+" + (e.to-e.from)+", "+e.tpe+")";
     })
     return updateString
   }
