@@ -7,9 +7,10 @@ import { PlayerCalcComponent } from './player-calc/player-calc.component';
 
 const routes: Routes = [ 
   { path: '', redirectTo: '/create', pathMatch: 'full' },
-  { path: 'create', component: CreatePlayerComponent },
-  { path: 'update', component: UpdatePlayerComponent },
-  { path: 'calc', component: PlayerCalcComponent }];
+  { path: 'create', component: CreatePlayerComponent }
+  // { path: 'update', component: UpdatePlayerComponent },
+  // { path: 'calc', component: PlayerCalcComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
