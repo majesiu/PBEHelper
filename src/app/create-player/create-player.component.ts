@@ -78,6 +78,7 @@ export class CreatePlayerComponent implements OnInit {
   Selected4Position: any;
   Selected5Position: any;
   ArmSlot: any;
+  panelOpenState: any;
   ThrowingHands = ["Right","Left"];
   BattingHands = ["Right","Left","Switch"];
   HittingTypes = ["Normal","Pull","Extreme Pull","Spray"];
