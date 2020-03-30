@@ -280,7 +280,7 @@
               <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
                 {{attribute.max}} </td>
               <td mat-footer-cell *matFooterCellDef>
-                <p [style.color]="selectedHittingArchetype.costSum()===50 ? 'green' : 'orange'">Total: </p>
+                <p [style.color]="selectedHittingArchetype.costSum()===(50 + (this.selectedFieldingArchetype !== this.fieldingArchetypes [5] ? 0 : 50)) ? 'green' : 'orange'">Total (you need to spend {{this.selectedFieldingArchetype !== this.fieldingArchetypes [5] ? 50 : 100}}):</p>
               </td>
             </ng-container>
             <ng-container matColumnDef="value">
@@ -302,7 +302,7 @@
             </ng-container>
             <ng-container matColumnDef="cost">
               <td mat-footer-cell *matFooterCellDef>
-                <p [style.color]="selectedHittingArchetype.costSum()===50 ? 'green' : 'red'">
+                <p [style.color]="selectedHittingArchetype.costSum()===(50 + (this.selectedFieldingArchetype !== this.fieldingArchetypes [5] ? 0 : 50)) ? 'green' : 'orange'">
                   {{selectedHittingArchetype.costSum()}} </p>
               </td>
               <th mat-header-cell *matHeaderCellDef>Cost</th>
@@ -344,7 +344,7 @@
               <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
                 {{attribute.max}} </td>
               <td mat-footer-cell *matFooterCellDef>
-                <p [style.color]="selectedFieldingArchetype.costSum()===50 ? 'green' : 'orange'">Total:</p>
+                <p [style.color]="(selectedFieldingArchetype.costSum()===(50 - (this.selectedFieldingArchetype !== this.fieldingArchetypes [5] ? 0 : 50))) ? 'green' : 'orange'">Total (you need to spend {{this.selectedFieldingArchetype !== this.fieldingArchetypes [5] ? 50 : 0}}):</p>
               </td>
             </ng-container>
             <ng-container matColumnDef="value">
@@ -369,7 +369,7 @@
               <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
                 {{attribute.cost()}} </td>
               <td mat-footer-cell *matFooterCellDef>
-                <p [style.color]="selectedFieldingArchetype.costSum()===50 ? 'green' : 'red'">
+                <p [style.color]="(selectedFieldingArchetype.costSum()===(50 - (this.selectedFieldingArchetype !== this.fieldingArchetypes [5] ? 0 : 50))) ? 'green' : 'orange'">
                   {{selectedFieldingArchetype.costSum()}} </p>
               </td>
             </ng-container>
