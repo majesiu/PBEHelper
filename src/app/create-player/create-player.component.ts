@@ -359,19 +359,19 @@ export class CreatePlayerComponent implements OnInit {
       let attributeName = att.name;
       switch (att.name){
         case 'Pitch 1:':
-          attributeName = this.selectedPitches[0];
+          attributeName = this.selectedPitches[0]+":";
           break;
         case 'Pitch 2:':
-          attributeName = this.selectedPitches[1];
+          attributeName = this.selectedPitches[1]+":";
           break;
         case 'Pitch 3:':
-          attributeName = this.selectedPitches[2];
+          attributeName = this.selectedPitches[2]+":";
           break;
         case 'Pitch 4:':
-          if(this.selectedPitches[3] != "") attributeName = this.selectedPitches[3];
+          if(this.selectedPitches[3] != "") attributeName = this.selectedPitches[3]+":";
           break;
         case 'Pitch 5:':
-          if(this.selectedPitches[4] != "") attributeName = this.selectedPitches[4];
+          if(this.selectedPitches[4] != "") attributeName = this.selectedPitches[4]+":";
           break;
         default:
           break;
