@@ -82,7 +82,7 @@ export class CreatePlayerComponent implements OnInit {
   ThrowingHands = ["Right","Left"];
   BattingHands = ["Right","Left","Switch"];
   HittingTypes = ["Normal","Pull","Extreme Pull","Spray"];
-  Positions = ["1B", "2B", "3B", "SS", "LF", "CF", "RF"]
+  Positions = ["1B", "2B", "3B", "SS", "LF", "CF", "RF", "C"]
   playerTypes = ['Batter','Pitcher']
   formString = '[color=red][u][b]Player Information[/b][/u][/color]'; 
   ArmSlots = ["Normal (3/4)", "Submarine", "Sidearm", "Over the top"];
