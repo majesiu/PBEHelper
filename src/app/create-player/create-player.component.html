@@ -167,13 +167,13 @@
   
       <div *ngIf="playerType=='Pitcher' && SelectedPosition==='SP'">
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('powersp')">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('powersp')">
             <img class="Image" src="assets/powerp.jpg">
             <div class="Overlay">
               <div class="Text">Power Pitcher</div>
             </div>
           </div>
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('balancedsp')">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('balancedsp')">
             <img class="Image" src="assets/balancedp.jpg">
             <div class="Overlay">
               <div class="Text">Balanced Approach</div>
@@ -181,13 +181,13 @@
           </div>
         </div>
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('knuckle')">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('knuckle')">
             <img class="Image" src="assets/knuckle.jpg">
             <div class="Overlay">
               <div class="Text">Knuckleballer</div>
             </div>
           </div>
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('finnesse')">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('finnesse')">
             <img class="Image" src="assets/finnesse.jpg">
             <div class="Overlay">
               <div class="Text">Finnesse Starter</div>
@@ -198,13 +198,13 @@
   
       <div *ngIf="playerType=='Pitcher'  && SelectedPosition==='RP'">
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('powerp')">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('powerp')">
             <img class="Image" src="assets/powerrp.jpg">
             <div class="Overlay">
               <div class="Text">Power Closer</div>
             </div>
           </div>
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('finnesserp')">
+          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('finnesserp')">
             <img class="Image" src="assets/finnesserp.jpg">
             <div class="Overlay">
               <div class="Text">Finnesse Reliever</div>
@@ -212,7 +212,7 @@
           </div>
         </div>
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="100%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('balancedrp')">
+          <div fxFlex="100%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('balancedrp')">
             <img class="Image" src="assets/balancedrp.jpg">
             <div class="Overlay">
               <div class="Text">Balanced Approach</div>

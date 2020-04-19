@@ -192,8 +192,31 @@ export class CreatePlayerComponent implements OnInit {
           this.selectedFieldingArchetype = this.fieldingArchetypes[5];
           break; 
       }
+    } else if(this.playerType === "Pitcher"){
+      switch(secondArch) {
+        case 'powersp':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[3];
+          break; 
+        case 'balancedsp':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[6];
+          break; 
+        case 'knuckle':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[5];
+          break; 
+        case 'finnesse':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[4];
+          break; 
+        case 'powerp':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[0];
+          break; 
+        case 'finnesserp':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[2];
+          break; 
+        case 'balancedrp':
+          this.selectedPitchingArchetype = this.pitchingArchetypes[1];
+          break; 
+      }
     } 
-    this.battingArchetype = secondArch;
     document.getElementById("step3button").click();
   }
 
