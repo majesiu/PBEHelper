@@ -9,8 +9,7 @@ export class Attribute {
     this.name = name;
     this.min = min;
     this.max = max;
-    if (archetype === 'Starting Knuckleball Pitcher (eg. R.A Dickey)') this.value = ['Pitch 5:'].includes(this.name) ? 0 : this.min;
-    else this.value = ['Pitch 4:', 'Pitch 5:'].includes(this.name) ? 0 : this.min;
+    this.value = ['Pitch 4:', 'Pitch 5:'].includes(this.name) ? 0 : this.min;
     
   }
 
