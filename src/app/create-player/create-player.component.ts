@@ -132,26 +132,26 @@ export class CreatePlayerComponent implements OnInit {
   transitionStep2(subtype: string){
     if(this.playerType === "Batter"){
       switch(subtype) {
-        case 'speedf':
+        case 'Mr Utility':
+          this.selectedHittingArchetype = this.hittingArchetypes[0];
+          break; 
+        case 'The Streak':
+          this.selectedHittingArchetype = this.hittingArchetypes[1];
+          break; 
+        case 'Handy Man':
           this.selectedHittingArchetype = this.hittingArchetypes[2];
           break; 
-        case 'strongarm':
-          this.selectedHittingArchetype = this.hittingArchetypes[2];
+        case 'The Cannon':
+          this.selectedHittingArchetype = this.hittingArchetypes[3];
           break; 
-        case 'balancedf':
-          this.selectedHittingArchetype = this.hittingArchetypes[2];
+        case 'Magician':
+          this.selectedHittingArchetype = this.hittingArchetypes[4];
           break; 
-        case 'acatcher':
-          this.selectedHittingArchetype = this.hittingArchetypes[2];
+        case 'Big Man On Campus':
+          this.selectedHittingArchetype = this.hittingArchetypes[5];
           break; 
-        case 'rcatcher':
-          this.selectedHittingArchetype = this.hittingArchetypes[2];
-          break; 
-        case 'utility':
-          this.selectedHittingArchetype = this.hittingArchetypes[2];
-          break; 
-        case 'dh':
-          this.selectedHittingArchetype = this.hittingArchetypes[2];
+        case 'The Freak':
+          this.selectedHittingArchetype = this.hittingArchetypes[6];
           break; 
     }
     document.getElementById("step2button").click();
@@ -171,6 +171,29 @@ export class CreatePlayerComponent implements OnInit {
 
   transitionStep3(secondArch: string){
     if(this.playerType === "Batter"){
+      switch(secondArch) {
+        case 'Mr Utility':
+          this.selectedHittingArchetype = this.hittingArchetypes[0];
+          break; 
+        case 'The Streak':
+          this.selectedHittingArchetype = this.hittingArchetypes[1];
+          break; 
+        case 'Handy Man':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
+          break; 
+        case 'The Cannon':
+          this.selectedHittingArchetype = this.hittingArchetypes[3];
+          break; 
+        case 'Magician':
+          this.selectedHittingArchetype = this.hittingArchetypes[4];
+          break; 
+        case 'Big Man On Campus':
+          this.selectedHittingArchetype = this.hittingArchetypes[5];
+          break; 
+        case 'The Freak':
+          this.selectedHittingArchetype = this.hittingArchetypes[6];
+          break; 
+    }
     } else if(this.playerType === "Pitcher"){
       switch(secondArch) {
         case 'powersp':
