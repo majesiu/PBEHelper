@@ -132,20 +132,31 @@ export class CreatePlayerComponent implements OnInit {
   transitionStep2(subtype: string){
     if(this.playerType === "Batter"){
       switch(subtype) {
-        case 'speed':
-          this.selectedHittingArchetype = this.hittingArchetypes[3];
-          break; 
-        case 'contact':
+        case 'speedf':
           this.selectedHittingArchetype = this.hittingArchetypes[2];
           break; 
-        case 'balanced':
-          this.selectedHittingArchetype = this.hittingArchetypes[1];
+        case 'strongarm':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
           break; 
-        case 'power':
-          this.selectedHittingArchetype = this.hittingArchetypes[0];
+        case 'balancedf':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
           break; 
-      }
-    } else if(this.playerType === "Pitcher"){
+        case 'acatcher':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
+          break; 
+        case 'rcatcher':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
+          break; 
+        case 'utility':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
+          break; 
+        case 'dh':
+          this.selectedHittingArchetype = this.hittingArchetypes[2];
+          break; 
+    }
+    document.getElementById("step2button").click();
+    document.getElementById("step3button").click();
+   } else if(this.playerType === "Pitcher"){
       switch(subtype) {
         case 'reliever':
           this.SelectedPosition = "RP";
@@ -154,8 +165,8 @@ export class CreatePlayerComponent implements OnInit {
           this.SelectedPosition = "SP";
           break; 
       }
+      document.getElementById("step2button").click();
     }
-    document.getElementById("step2button").click();
   }
 
   transitionStep3(secondArch: string){

@@ -60,34 +60,54 @@
       </form>
       <div *ngIf="playerType=='Batter'">
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('speed')">
-            <img class="Image" src="assets/speed.jpg">
+          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep2('Mr. Utility')">
+            <img class="Image" src="assets/Mr Utility.jpg">
             <div class="Overlay">
-              <div class="Text">Speed Demon</div>
+              <div class="Text">Mr Utility</div>
             </div>
           </div>
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('contact')">
-            <img class="Image" src="assets/contact.jpeg">
+          <div fxLayoutAlign="fit" fxFlex="33.4%" class="Container" (click)="transitionStep2('The Streak')">
+            <img class="Image" src="assets/The Streak.jpg">
             <div class="Overlay">
-              <div class="Text">Contact Hitter</div>
+              <div class="Text">The Streak</div>
+            </div>
+          </div>
+          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep2('Handy Man')">
+            <img class="Image" src="assets/Handy Man.jpg">
+            <div class="Overlay">
+              <div class="Text">Handy Man</div>
             </div>
           </div>
         </div>
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('balanced')">
-            <img class="Image" src="assets/balanced.jpg">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep2('The Cannon')">
+            <img class="Image" src="assets/The Cannon.jpg">
             <div class="Overlay">
-              <div class="Text">Balanced Approach</div>
+              <div class="Text">The Cannon</div>
             </div>
           </div>
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep2('power')">
-            <img class="Image" src="assets/power.jpg">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep2('Magician')">
+            <img class="Image" src="assets/Magician.jpg">
             <div class="Overlay">
-              <div class="Text">Power Batter</div>
+              <div class="Text">Magician</div>
             </div>
           </div>
         </div>
   
+        <div fxLayout="row" fxLayout.lt-md="column">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep2('Big Man On Campus')">
+            <img class="Image" src="assets/Big Man On Campus.jpg">
+            <div class="Overlay">
+              <div class="Text">Big Man On Campus</div>
+            </div>
+          </div>
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep2('The Freak')">
+            <img class="Image" src="assets/The Freak.jpg">
+            <div class="Overlay">
+              <div class="Text">The Freak</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div *ngIf="playerType=='Pitcher'" fxLayout="row" fxFlexFill fxLayout.lt-md="column">
         <div fxFlex="50%" class="Container" (click)="transitionStep2('starter')">
@@ -115,51 +135,51 @@
       </form>
       <div *ngIf="playerType=='Batter'">
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('strongarm')">
-            <img class="Image" src="assets/strongarm.jpg">
+          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('Mr. Utility')">
+            <img class="Image" src="assets/Mr Utility.jpg">
             <div class="Overlay">
-              <div class="Text">Strong Arm Fielder</div>
+              <div class="Text">Mr Utility</div>
             </div>
           </div>
-          <div fxLayoutAlign="fit" fxFlex="33.4%" class="Container" (click)="transitionStep3('balancedf')">
-            <img class="Image" src="assets/balancedf.jpg">
+          <div fxLayoutAlign="fit" fxFlex="33.4%" class="Container" (click)="transitionStep3('The Streak')">
+            <img class="Image" src="assets/The Streak.jpg">
             <div class="Overlay">
-              <div class="Text">Balanced Fielder</div>
+              <div class="Text">The Streak</div>
             </div>
           </div>
-          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('speedyf')">
-            <img class="Image" src="assets/speedyf.jpg">
+          <div fxLayoutAlign="fit" fxFlex="33.3%" class="Container" (click)="transitionStep3('Handy Man')">
+            <img class="Image" src="assets/Handy Man.jpg">
             <div class="Overlay">
-              <div class="Text">Speedy Fielder</div>
+              <div class="Text">Handy Man</div>
             </div>
           </div>
         </div>
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('acatcher')">
-            <img class="Image" src="assets/acatcher.jpg">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('The Cannon')">
+            <img class="Image" src="assets/The Cannon.jpg">
             <div class="Overlay">
-              <div class="Text">Strong Arm Catcher</div>
+              <div class="Text">The Cannon</div>
             </div>
           </div>
-          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('rcatcher')">
-            <img class="Image" src="assets/rcatcher.jpg">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('Magician')">
+            <img class="Image" src="assets/Magician.jpg">
             <div class="Overlay">
-              <div class="Text">React Catcher</div>
+              <div class="Text">Magician</div>
             </div>
           </div>
         </div>
   
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('utility')">
-            <img class="Image" src="assets/utility.jpg">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('Big Man On Campus')">
+            <img class="Image" src="assets/Big Man On Campus.jpg">
             <div class="Overlay">
-              <div class="Text">Utility Fielder</div>
+              <div class="Text">Big Man On Campus</div>
             </div>
           </div>
-          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('dh')">
-            <img class="Image" src="assets/dh.jpg">
+          <div fxLayoutAlign="fit" fxFlex="50%" class="Container" (click)="transitionStep3('The Freak')">
+            <img class="Image" src="assets/The Freak.jpg">
             <div class="Overlay">
-              <div class="Text">Designated Hitter</div>
+              <div class="Text">The Freak</div>
             </div>
           </div>
         </div>
