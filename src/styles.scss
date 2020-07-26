@@ -86,3 +86,17 @@ th, td, tr {
   margin-bottom: 0px;
   padding: 2px;
 }
+
+.docs-footer {
+  background: #3f51b5;
+  color: #fff;
+}
+
+.docs-footer-copyright {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  flex-direction: column;
+  min-width: 225px;
+  margin-top: 16px;
+}
