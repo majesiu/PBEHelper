@@ -90,13 +90,7 @@ th, td, tr {
 .docs-footer {
   background: #3f51b5;
   color: #fff;
-}
-
-.docs-footer-copyright {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-  flex-direction: column;
-  min-width: 225px;
-  margin-top: 16px;
+  font-size: 1em;
+  text-align: center;
+  padding: 5px;
 }
