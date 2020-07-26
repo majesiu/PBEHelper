@@ -1,459 +1,116 @@
 {
   "Archetypes": [
-    {
-      "name": "Relief Power Pitcher (eg. Aroldis Chapman)",
+    {"name":"Flamethrower RP (eg. Kerry Wood, Aroldis Chapman)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "92 - 94",
-          "max": "100"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 40,
-          "max": 65
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 40,
-          "max": 65
-        },
-        {
-          "name": "Stamina:",
-          "min": 10,
-          "max": 30
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 40,
-          "max": 90
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 50,
-          "max": 100
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 40,
-          "max": 85
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 40,
-          "max": 80
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 70
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 60
-        }
-      ]
-    },
-    {
-      "name": "Relief Balanced Pitcher (eg. Andrew Miller)",
+     { "name":"Velocity:","min": "93 - 95" ,"max": "100+"},
+     { "name":"Movement vs LHB:","min":40,"max":95},
+     { "name":"Movement vs. RHB:","min":40,"max":95},
+     { "name":"Control vs. LHB:","min":40,"max":65},
+     { "name":"Control vs. RHB:","min":40,"max":65},
+     { "name":"Stamina:","min":10,"max":40},
+     { "name":"Holding Runners:","min":40,"max":90},
+     { "name":"Pitch 1:","min":50,"max":100},
+     { "name":"Pitch 2:","min":50,"max":90},
+     { "name":"Pitch 3:","min":40,"max":80},
+     { "name":"Pitch 4:","min":40,"max":70},
+     { "name":"Pitch 5:","min":40,"max":60},
+     { "name":"GB%:","min":51,"max":51}
+     ] },
+     {"name":"Control Freak (e.g. Mariano Rivera, Kirby Yates)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "91 - 93",
-          "max": "96 - 98"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 50,
-          "max": 90
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 50,
-          "max": 90
-        },
-        {
-          "name": "Stamina:",
-          "min": 10,
-          "max": 30
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 40,
-          "max": 90
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 50,
-          "max": 100
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 45,
-          "max": 85
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 40,
-          "max": 80
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 70
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 60
-        }
-      ]
-    },
-    {
-      "name": "Relief Finesse Pitcher (eg. Brad Ziegler)",
+     { "name":"Velocity:","min": "91 - 93" ,"max": "96 - 98"},
+     { "name":"Movement vs LHB:","min":50,"max":85},
+     { "name":"Movement vs. RHB:","min":50,"max":85},
+     { "name":"Control vs. LHB:","min":50,"max":95},
+     { "name":"Control vs. RHB:","min":50,"max":95},
+     { "name":"Stamina:","min":10,"max":30},
+     { "name":"Holding Runners:","min":40,"max":90},
+     { "name":"Pitch 1:","min":55,"max":100},
+     { "name":"Pitch 2:","min":50,"max":85},
+     { "name":"Pitch 3:","min":40,"max":80},
+     { "name":"Pitch 4:","min":40,"max":70},
+     { "name":"Pitch 5:","min":40,"max":60},
+     { "name":"GB%:","min":59,"max":59}
+     ] },
+    {"name":"Junkballer RP (e.g. John Franco, Will Smith)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "90 - 92",
-          "max": "93 - 95"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 45,
-          "max": 80
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 45,
-          "max": 80
-        },
-        {
-          "name": "Stamina:",
-          "min": 10,
-          "max": 30
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 45,
-          "max": 90
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 60,
-          "max": 100
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 80
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 75
-        }
-      ]
-    },
-    {
-      "name": "Starting Power Pitcher (eg. Luis Severino)",
+     { "name":"Velocity:","min": "90 - 92" ,"max": "93 - 95"},
+     { "name":"Movement vs LHB:","min":50,"max":95},
+     { "name":"Movement vs. RHB:","min":50,"max":95},
+     { "name":"Control vs. LHB:","min":45,"max":80},
+     { "name":"Control vs. RHB:","min":45,"max":80},
+     { "name":"Stamina:","min":10,"max":30},
+     { "name":"Holding Runners:","min":45,"max":90},
+     { "name":"Pitch 1:","min":60,"max":100},
+     { "name":"Pitch 2:","min":50,"max":90},
+     { "name":"Pitch 3:","min":50,"max":95},
+     { "name":"Pitch 4:","min":40,"max":80},
+     { "name":"Pitch 5:","min":40,"max":70},
+     { "name":"GB%:","min":62,"max":62}
+     ] },
+    {"name":"Flamethrower SP (e.g. Nolan Ryan, Gerrit Cole)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "90 - 92",
-          "max": "98 - 100"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 30,
-          "max": 90
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 30,
-          "max": 90
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 30,
-          "max": 80
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 30,
-          "max": 80
-        },
-        {
-          "name": "Stamina:",
-          "min": 50,
-          "max": 75
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 40,
-          "max": 85
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 50,
-          "max": 90
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 30,
-          "max": 80
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 30,
-          "max": 75
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 70
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 60
-        }
-      ]
-    },
-    {
-      "name": "Starting Finesse Pitcher (eg. Dallas Keuchel, Masahiro Tanaka)",
+     { "name":"Velocity:","min": "90 - 92" ,"max": "98 - 100"},
+     { "name":"Movement vs LHB:","min":30,"max":95},
+     { "name":"Movement vs. RHB:","min":30,"max":95},
+     { "name":"Control vs. LHB:","min":30,"max":75},
+     { "name":"Control vs. RHB:","min":30,"max":75},
+     { "name":"Stamina:","min":50,"max":85},
+     { "name":"Holding Runners:","min":40,"max":85},
+     { "name":"Pitch 1:","min":50,"max":95},
+     { "name":"Pitch 2:","min":30,"max":85},
+     { "name":"Pitch 3:","min":30,"max":80},
+     { "name":"Pitch 4:","min":40,"max":70},
+     { "name":"Pitch 5:","min":40,"max":60},
+     { "name":"GB%:","min":51,"max":51}
+     ] },
+     {"name":"Junkballer SP (e.g. Barry Zito, Yu Darvish)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "88 - 90",
-          "max": "92 - 94"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 40,
-          "max": 90
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 40,
-          "max": 90
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 40,
-          "max": 85
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 40,
-          "max": 85
-        },
-        {
-          "name": "Stamina:",
-          "min": 50,
-          "max": 75
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 40,
-          "max": 85
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 50,
-          "max": 95
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 45,
-          "max": 90
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 45,
-          "max": 90
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 80
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 70
-        }
-      ]
-    },
-    {
-      "name": "Starting Knuckleball Pitcher (eg. R.A Dickey)",
+     { "name":"Velocity:","min": "88 - 90" ,"max": "92 - 94"},
+     { "name":"Movement vs LHB:","min":40,"max":90},
+     { "name":"Movement vs. RHB:","min":40,"max":90},
+     { "name":"Control vs. LHB:","min":40,"max":80},
+     { "name":"Control vs. RHB:","min":40,"max":80},
+     { "name":"Stamina:","min":50,"max":75},
+     { "name":"Holding Runners:","min":40,"max":85},
+     { "name":"Pitch 1:","min":50,"max":95},
+     { "name":"Pitch 2:","min":45,"max":90},
+     { "name":"Pitch 3:","min":45,"max":90},
+     { "name":"Pitch 4:","min":40,"max":80},
+     { "name":"Pitch 5:","min":40,"max":70},
+     { "name":"GB%:","min":65,"max":65}
+     ] },
+     {"name":"Knuckler (e.g. Phil Niekro, RA Dickey)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "80 - 83",
-          "max": "91 - 93"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 30,
-          "max": 90
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 30,
-          "max": 90
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 35,
-          "max": 85
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 35,
-          "max": 85
-        },
-        {
-          "name": "Stamina:",
-          "min": 20,
-          "max": 70
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 30,
-          "max": 85
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 50,
-          "max": 90
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 30,
-          "max": 75
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 30,
-          "max": 90
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 70
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 60
-        }
-      ]
-    },
-    {
-      "name": "Starting Balanced Pitcher (eg. Chris Sale, Corey Kluber)",
+     { "name":"Velocity:","min": "75 - 80" ,"max": "90 - 92"},
+     { "name":"Movement vs LHB:","min":30,"max":90},
+     { "name":"Movement vs. RHB:","min":30,"max":90},
+     { "name":"Control vs. LHB:","min":35,"max":85},
+     { "name":"Control vs. RHB:","min":35,"max":85},
+     { "name":"Stamina:","min":20,"max":70},
+     { "name":"Holding Runners:","min":30,"max":85},
+     { "name":"Pitch 1:","min":40,"max":95},
+     { "name":"Pitch 2:","min":30,"max":90},
+     { "name":"Pitch 3:","min":30,"max":75},
+     { "name":"Pitch 4:","min":40,"max":70},
+     { "name":"Pitch 5:","min":0,"max":0},
+     { "name":"GB%:","min":45,"max":45}
+     ] },
+    {"name":"Control Freak SP (e.g. Brett Saberhagen, Zach Greinke)",
       "attributes": [
-        {
-          "name": "Velocity:",
-          "min": "89 - 91",
-          "max": "95 - 97"
-        },
-        {
-          "name": "Movement vs. LHB:",
-          "min": 40,
-          "max": 90
-        },
-        {
-          "name": "Movement vs. RHB:",
-          "min": 40,
-          "max": 90
-        },
-        {
-          "name": "Control vs. LHB:",
-          "min": 40,
-          "max": 95
-        },
-        {
-          "name": "Control vs. RHB:",
-          "min": 40,
-          "max": 95
-        },
-        {
-          "name": "Stamina:",
-          "min": 50,
-          "max": 75
-        },
-        {
-          "name": "Holding Runners:",
-          "min": 40,
-          "max": 85
-        },
-        {
-          "name": "Pitch 1:",
-          "min": 45,
-          "max": 90
-        },
-        {
-          "name": "Pitch 2:",
-          "min": 40,
-          "max": 80
-        },
-        {
-          "name": "Pitch 3:",
-          "min": 40,
-          "max": 75
-        },
-        {
-          "name": "Pitch 4:",
-          "min": 40,
-          "max": 70
-        },
-        {
-          "name": "Pitch 5:",
-          "min": 40,
-          "max": 60
-        }
-      ]
-    }
+     { "name":"Velocity:","min": "90 - 92" ,"max": "95 - 97"},
+     { "name":"Movement vs LHB:","min":40,"max":85},
+     { "name":"Movement vs. RHB:","min":40,"max":85},
+     { "name":"Control vs. LHB:","min":40,"max":95},
+     { "name":"Control vs. RHB:","min":40,"max":95},
+     { "name":"Stamina:","min":50,"max":75},
+     { "name":"Holding Runners:","min":40,"max":85},
+     { "name":"Pitch 1:","min":45,"max":95},
+     { "name":"Pitch 2:","min":40,"max":85},
+     { "name":"Pitch 3:","min":40,"max":75},
+     { "name":"Pitch 4:","min":40,"max":70},
+     { "name":"Pitch 5:","min":40,"max":60},
+     { "name":"GB%:","min":57,"max":57}
+     ] }
   ]
 }
