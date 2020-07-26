@@ -12,25 +12,7 @@ export class Velocity {
     this.value = min;
   }
 
-  /*80 - 83 Cost for next level: 30 TPE
-83 - 85 Cost for next level: 30 TPE
-84 - 86 Cost for next level: 30 TPE
-85 - 87 Cost for next level: 30 TPE
-86 - 88 Cost for next level: 30 TPE
-87 - 89 Cost for next level: 30 TPE
-88 - 90 Cost for next level: 30 TPE
-89 - 91 Cost for next level: 50 TPE->(40)
-90 - 92 Cost for next level: 50 TPE->(40)
-91 - 93 Cost for next level: 50 TPE->(40)
-92 - 94 Cost for next level: 50 TPE->(40)
-93 - 95 Cost for next level: 50 TPE->(40)
-94 - 96 Cost for next level: 50 TPE->(40)
-95 - 97 Cost for next level: 75 TPE->(50)
-96 - 98 Cost for next level: 75 TPE->(50)
-97 - 99 Cost for next level: 75 TPE->(50)
-98 - 100 Cost for next level: 75 TPE->(50)
-99 - 101 Cost for next level: 75 TPE->(50)
-  100+ Max level*/
+  /*30 across the table*/
   private static veloValue(velo: String): number {
     switch (velo) {
       case '80 - 83':
@@ -58,37 +40,37 @@ export class Velocity {
         return 210;
         break;
       case '90 - 92':
-        return 250;
+        return 240;
         break;
       case '91 - 93':
-        return 290;
+        return 270;
         break;
       case '92 - 94':
-        return 330;
+        return 300;
         break;
       case '93 - 95':
-        return 370;
+        return 330;
         break;
       case '94 - 96':
-        return 410;
+        return 360;
         break;
       case '95 - 97':
-        return 450;
+        return 390;
         break;
       case '96 - 98':
-        return 500;
+        return 420;
         break;
       case '97 - 99':
-        return 550;
+        return 450;
         break;
       case '98 - 100':
-        return 600;
+        return 480;
         break;
       case '99 - 101':
-        return 650;
+        return 510;
         break;
       case '100':
-        return 700;
+        return 540;
         break;
     }
   }
