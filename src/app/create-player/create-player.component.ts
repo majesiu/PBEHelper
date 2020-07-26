@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Archetype } from '../model/archetype';
 import { PitchingArchetype } from '../model/pitching-archetype';
 import BattingArchetypes from '../../assets/BattingArchetypes.json';
-import FieldingArtchetypes from '../../assets/FieldingArchetypes.json';
 import PitchingArtchetypes from '../../assets/PitchingArchetypes.json';
 import { Velocity } from '../model/velocity';
 import * as clipboard from "clipboard-polyfill";
@@ -54,8 +53,6 @@ export class CreatePlayerComponent implements OnInit {
   earnedPitcherTPE = 100;
   hittingArchetypes: Archetype[];
   selectedHittingArchetype: Archetype;
-  fieldingArchetypes: Archetype[];
-  selectedFieldingArchetype: Archetype;
   pitchingArchetypes: PitchingArchetype[];
   selectedPitchingArchetype: PitchingArchetype;
   displayedColumns: string[] = ['name','value','min','slider','max','cost'];
@@ -97,13 +94,6 @@ export class CreatePlayerComponent implements OnInit {
     }
     this.hittingArchetypes = temp;
     this.selectedHittingArchetype = this.hittingArchetypes[0];
-    const temp2 = new Array<Archetype>();
-    for (const entry of FieldingArtchetypes.Archetypes) {
-      const archetype = new Archetype(entry.name, entry.attributes);
-      temp2.push(archetype);
-    }
-    this.fieldingArchetypes = temp2;
-    this.selectedFieldingArchetype = this.fieldingArchetypes[0];
 
     const temp3 = new Array<PitchingArchetype>();
     for (const entry of PitchingArtchetypes.Archetypes) {
@@ -170,29 +160,6 @@ export class CreatePlayerComponent implements OnInit {
 
   transitionStep3(secondArch: string){
     if(this.playerType === "Batter"){
-      switch(secondArch) {
-        case 'speedf':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[2];
-          break; 
-        case 'strongarm':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[0];
-          break; 
-        case 'balancedf':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[1];
-          break; 
-        case 'acatcher':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[4];
-          break; 
-        case 'rcatcher':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[3];
-          break; 
-        case 'utility':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[6];
-          break; 
-        case 'dh':
-          this.selectedFieldingArchetype = this.fieldingArchetypes[5];
-          break; 
-      }
     } else if(this.playerType === "Pitcher"){
       switch(secondArch) {
         case 'powersp':
@@ -264,22 +231,12 @@ export class CreatePlayerComponent implements OnInit {
       return alert('Please input the Hitting Type');
     }
     this.formString += '\n[b]Hitting:[/b] ' + this.Hitting;
-    this.formString += '\n\n[color=red][u][b]Hitting Attributes: [/b][/u][/color]';
-    if (this.selectedFieldingArchetype !== this.fieldingArchetypes [5]) {
-      if (this.selectedFieldingArchetype.costSum() !== 50 || this.selectedHittingArchetype.costSum() !== 50) {
-        return alert('You have to spent exactly 50 TPE in each Hitting and Fielding');
-      }
-    } else if (this.selectedFieldingArchetype.costSum() !== 0 || this.selectedHittingArchetype.costSum() !== 100) {
-      return alert('As DH You have to spent exactly 100 starting TPE in Hitting and none in Fielding');
+    this.formString += '\n\n[color=red][u][b]Attributes: [/b][/u][/color]';
+    if (this.selectedHittingArchetype.costSum() !== 100) {
+      return alert('You have to spent exactly 100 starting TPE');
     }
     this.formString += '\n[b]Hitting Archetype:[/b] ' + this.selectedHittingArchetype.name;
     for (const att of this.selectedHittingArchetype.attributes) {
-      this.formString += '\n(MIN: ' + att.min + ') (MAX: ' + att.max + ') '
-        + att.name + ' ' + att.value;
-    }
-    this.formString += '\n\n[color=blue][u][b]Fielding Attributes:[/b][/u][/color]';
-    this.formString += '\n[b]Fielding Archetype:[/b] ' + this.selectedFieldingArchetype.name;
-    for (const att of this.selectedFieldingArchetype.attributes) {
       this.formString += '\n(MIN: ' + att.min + ') (MAX: ' + att.max + ') '
         + att.name + ' ' + att.value;
     }
@@ -308,27 +265,6 @@ export class CreatePlayerComponent implements OnInit {
     
     if (['Starting Pitcher', 'Relief Pitcher'].includes(this.SelectedPosition) || ['Starting Pitcher', 'Relief Pitcher'].includes(this.Selected2Position) || ['Starting Pitcher', 'Relief Pitcher'].includes(this.Selected3Position)) {
       return alert('You can\'t select either Relief Pitcher or Starting Pitcher as position for batter, please choose another');
-    }
-    if (this.selectedFieldingArchetype === this.fieldingArchetypes[6]) {
-      if (!this.Selected4Position || this.Selected4Position.length === 0) {
-        return alert('Please input the 4th Position');
-      }
-      if (uniquePositions.includes(this.Selected4Position)){
-        return alert(`You already selected ${this.Selected4Position}, please select another position.`);
-      }
-      uniquePositions.push(this.Selected4Position);
-      this.formString += '\n4th Position (100/200 experience): ' + this.Selected4Position;
-      if (!this.Selected5Position || this.Selected5Position.length === 0) {
-        return alert('Please input the 5th Position');
-      }
-      if (['Starting Pitcher', 'Relief Pitcher'].includes(this.Selected4Position) || ['Starting Pitcher', 'Relief Pitcher'].includes(this.Selected5Position)) {
-        return alert('You can\'t select either Relief Pitcher or Starting Pitcher as position for batter, please choose another');
-      }
-      if (uniquePositions.includes(this.Selected5Position)){
-        return alert(`You already selected ${this.Selected5Position}, please select another position.`);
-      }
-      uniquePositions.push(this.Selected5Position);
-      this.formString += '\n5th Position (100/200 experience): ' + this.Selected5Position;
     }
     
     this.forumTemplateReady = true;
