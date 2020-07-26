@@ -15,62 +15,65 @@ export class Velocity {
   /*30 across the table*/
   private static veloValue(velo: String): number {
     switch (velo) {
-      case '80 - 83':
+      case '75 - 80':
         return 0;
         break;
-      case '83 - 85':
+      case '80 - 83':
         return 30;
         break;
-      case '84 - 86':
+      case '83 - 85':
         return 60;
         break;
-      case '85 - 87':
+      case '84 - 86':
         return 90;
         break;
-      case '86 - 88':
+      case '85 - 87':
         return 120;
         break;
-      case '87 - 89':
+      case '86 - 88':
         return 150;
         break;
-      case '88 - 90':
+      case '87 - 89':
         return 180;
         break;
-      case '89 - 91':
+      case '88 - 90':
         return 210;
         break;
-      case '90 - 92':
+      case '89 - 91':
         return 240;
         break;
-      case '91 - 93':
+      case '90 - 92':
         return 270;
         break;
-      case '92 - 94':
+      case '91 - 93':
         return 300;
         break;
-      case '93 - 95':
+      case '92 - 94':
         return 330;
         break;
-      case '94 - 96':
+      case '93 - 95':
         return 360;
         break;
-      case '95 - 97':
+      case '94 - 96':
         return 390;
         break;
-      case '96 - 98':
+      case '95 - 97':
         return 420;
         break;
-      case '97 - 99':
+      case '96 - 98':
         return 450;
         break;
-      case '98 - 100':
+      case '97 - 99':
         return 480;
         break;
-      case '99 - 101':
+      case '98 - 100':
         return 510;
         break;
-      case '100':
+      case '99 - 101':
         return 540;
+        break;
+      case '100':
+        return 570;
         break;
     }
   }
