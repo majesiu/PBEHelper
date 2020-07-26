@@ -16,7 +16,7 @@
      { "name":"Pitch 5:","min":40,"max":60},
      { "name":"GB%:","min":51,"max":51}
      ] },
-     {"name":"Control Freak (e.g. Mariano Rivera, Kirby Yates)",
+     {"name":"Control Freak RP (e.g. Mariano Rivera, Kirby Yates)",
       "attributes": [
      { "name":"Velocity:","min": "91 - 93" ,"max": "96 - 98"},
      { "name":"Movement vs LHB:","min":50,"max":85},
@@ -50,7 +50,7 @@
      ] },
     {"name":"Flamethrower SP (e.g. Nolan Ryan, Gerrit Cole)",
       "attributes": [
-     { "name":"Velocity:","min": "90 - 92" ,"max": "98 - 100"},
+     { "name":"Velocity:","min": "94 - 96" ,"max": "98 - 100"},
      { "name":"Movement vs LHB:","min":30,"max":95},
      { "name":"Movement vs. RHB:","min":30,"max":95},
      { "name":"Control vs. LHB:","min":30,"max":75},
@@ -69,8 +69,8 @@
      { "name":"Velocity:","min": "88 - 90" ,"max": "92 - 94"},
      { "name":"Movement vs LHB:","min":40,"max":90},
      { "name":"Movement vs. RHB:","min":40,"max":90},
-     { "name":"Control vs. LHB:","min":40,"max":80},
-     { "name":"Control vs. RHB:","min":40,"max":80},
+     { "name":"Control vs. LHB:","min":40,"max":85},
+     { "name":"Control vs. RHB:","min":40,"max":85},
      { "name":"Stamina:","min":50,"max":75},
      { "name":"Holding Runners:","min":40,"max":85},
      { "name":"Pitch 1:","min":50,"max":95},
@@ -82,7 +82,7 @@
      ] },
      {"name":"Knuckler (e.g. Phil Niekro, RA Dickey)",
       "attributes": [
-     { "name":"Velocity:","min": "75 - 80" ,"max": "90 - 92"},
+     { "name":"Velocity:","min": "75 - 80" ,"max": "91 - 93"},
      { "name":"Movement vs LHB:","min":30,"max":90},
      { "name":"Movement vs. RHB:","min":30,"max":90},
      { "name":"Control vs. LHB:","min":35,"max":85},
@@ -91,8 +91,8 @@
      { "name":"Holding Runners:","min":30,"max":85},
      { "name":"Pitch 1:","min":40,"max":95},
      { "name":"Pitch 2:","min":30,"max":90},
-     { "name":"Pitch 3:","min":30,"max":75},
-     { "name":"Pitch 4:","min":40,"max":70},
+     { "name":"Pitch 3:","min":30,"max":90},
+     { "name":"Pitch 4:","min":40,"max":80},
      { "name":"Pitch 5:","min":0,"max":0},
      { "name":"GB%:","min":45,"max":45}
      ] },
