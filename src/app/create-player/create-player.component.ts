@@ -29,7 +29,8 @@ export class CreatePlayerComponent implements OnInit {
     'Screwball', 'Knuckle Curve'];
   positions = ['Relief Pitcher', 'Starting Pitcher', 'Catcher', 'First Baseman', 'Second Baseman', 'Third Baseman', 'Shortstop',
     'Left Fielder', 'Center Fielder', 'Right Fielder']; 
-  public velocityValues = ['80 - 83',
+  public velocityValues = ['75 - 80',
+    '80 - 83',
     '83 - 85',
     '84 - 86',
     '85 - 87',
@@ -437,21 +438,21 @@ export class CreatePlayerComponent implements OnInit {
       + this.selectedPitches[2] + ', ' + (this.selectedPitches[3] !== 'Pitch 4' ? this.selectedPitches[3] + ', ' : ' ')
       + (this.selectedPitches[4] !== 'Pitch 5' ? this.selectedPitches[4] : ' ');
   
-    switch (this.selectedPitchingArchetype) {
-      case this.pitchingArchetypes[0]: 
-      case this.pitchingArchetypes[3]: 
-      this.formString += '\n\nGroundball Percentage: 51%';
-        break;
-      case this.pitchingArchetypes[1]: 
-      case this.pitchingArchetypes[5]: 
-      case this.pitchingArchetypes[6]: 
-      this.formString += '\n\nGroundball Percentage: 55%';
-        break;
-      case this.pitchingArchetypes[2]: 
-      case this.pitchingArchetypes[4]: 
-      this.formString += '\n\nGroundball Percentage: 59%';
-        break;
-    }
+    // switch (this.selectedPitchingArchetype) {
+    //   case this.pitchingArchetypes[0]: 
+    //   case this.pitchingArchetypes[3]: 
+    //   this.formString += '\n\nGroundball Percentage: 51%';
+    //     break;
+    //   case this.pitchingArchetypes[1]: 
+    //   case this.pitchingArchetypes[5]: 
+    //   case this.pitchingArchetypes[6]: 
+    //   this.formString += '\n\nGroundball Percentage: 55%';
+    //     break;
+    //   case this.pitchingArchetypes[2]: 
+    //   case this.pitchingArchetypes[4]: 
+    //   this.formString += '\n\nGroundball Percentage: 59%';
+    //     break;
+    // }
 
     this.forumTemplateReady = true;
   
