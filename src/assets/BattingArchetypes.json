@@ -2,7 +2,7 @@
   "Archetypes": [
     {"name":"Mr. Utility (e.g. Jackie Robinson, Ben Zobrist)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "30","max": "85"},
+     { "name":"BABIP vs LHP","min": 30,"max": 85},
      { "name":"BABIP vs RHP","min":30,"max":85},
      { "name":"Avoid K's vs LHP","min":30,"max":75},
      { "name":"Avoid K's vs RHP","min":30,"max":75},
@@ -23,7 +23,7 @@
      ] },
      {"name":"The Streak (e.g. Rickey Henderson, Trea Turner)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "35","max": "90"},
+     { "name":"BABIP vs LHP","min": 35,"max": 90},
      { "name":"BABIP vs RHP","min":35,"max":90},
      { "name":"Avoid K's vs LHP","min":35,"max":75},
      { "name":"Avoid K's vs RHP","min":35,"max":75},
@@ -44,7 +44,7 @@
      ] },
      {"name":"Handy Man (e.g. Todd Helton, Buster Posey)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "30","max": "80"},
+     { "name":"BABIP vs LHP","min": 30,"max": 80},
      { "name":"BABIP vs RHP","min":30,"max":80},
      { "name":"Avoid K's vs LHP","min":30,"max":70},
      { "name":"Avoid K's vs RHP","min":30,"max":70},
@@ -59,13 +59,13 @@
      { "name":"Bunting (Both)","min":40,"max":75},
      { "name":"Fielding Range","min":20,"max":70},
      { "name":"Fielding Error","min":45,"max":90},
-     { "name":"Fielding/Catching Arm","min":20,"max":60},
+     { "name":"Fielding/Catching Arm","min":30,"max":70},
      { "name":"Turn Double Play","min":20,"max":60},
      { "name":"Catcher Ability","min":45,"max":90}
      ] },
      {"name":"The Cannon (e.g. Gary Sheffield, Joey Gallo)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "25","max": "60"},
+     { "name":"BABIP vs LHP","min": 25,"max": 60},
      { "name":"BABIP vs RHP","min":25,"max":60},
      { "name":"Avoid K's vs LHP","min":25,"max":65},
      { "name":"Avoid K's vs RHP","min":25,"max":65},
@@ -86,7 +86,7 @@
      ] },
      {"name":"Magician (e.g. Ozzie Smith, Andrelton Simmons)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "30","max": "80"},
+     { "name":"BABIP vs LHP","min": 30,"max": 80},
      { "name":"BABIP vs RHP","min":30,"max":80},
      { "name":"Avoid K's vs LHP","min":40,"max":85},
      { "name":"Avoid K's vs RHP","min":40,"max":85},
@@ -107,7 +107,7 @@
      ] },
      {"name":"Big Man On Campus (e.g. David Ortiz, Edwin Encarnacion)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "25","max": "70"},
+     { "name":"BABIP vs LHP","min": 25,"max": 70},
      { "name":"BABIP vs RHP","min":25,"max":70},
      { "name":"Avoid K's vs LHP","min":25,"max":70},
      { "name":"Avoid K's vs RHP","min":25,"max":70},
@@ -128,7 +128,7 @@
      ] },
      {"name":"The Freak (e.g. Ken Griffey Jr., Trevor Story)",
       "attributes": [
-     { "name":"BABIP vs LHP","min": "25","max": "65"},
+     { "name":"BABIP vs LHP","min": 25,"max": 65},
      { "name":"BABIP vs RHP","min":25,"max":65},
      { "name":"Avoid K's vs LHP","min":20,"max":60},
      { "name":"Avoid K's vs RHP","min":20,"max":60},
