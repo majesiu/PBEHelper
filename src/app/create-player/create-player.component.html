@@ -204,7 +204,7 @@
           <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('knuckle')">
             <img class="Image" src="assets/knuckle.jpg">
             <div class="Overlay">
-              <div class="Text">Knuckler</div>
+              <div class="Text">Knuckler SP</div>
             </div>
           </div>
           <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('finnesse')">
@@ -733,6 +733,8 @@
         <button mat-button matTooltip="Click to complete the process of creating your player!"
           [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to
           forums</button>
+          <br>
+      <mat-checkbox class="example-margin" [(ngModel)]="skipCreationValidation">Generate only attributes (Skips creation validation)</mat-checkbox>
         <textarea id="formArea" matInput [value]="formString" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
           cdkAutosizeMinRows="20" cdkAutosizeMaxRows="40">></textarea>
       </div>

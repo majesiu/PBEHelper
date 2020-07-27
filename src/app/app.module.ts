@@ -22,6 +22,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { UpdatePlayerComponent } from './update-player/update-player.component';
 import { PlayerCalcComponent } from './player-calc/player-calc.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { PlayerCalcComponent } from './player-calc/player-calc.component';
     MatDatepickerModule,
     MatMomentDateModule,
     MatTooltipModule,
-    MatExpansionModule 
+    MatExpansionModule,
+    MatCheckboxModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

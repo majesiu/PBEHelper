@@ -84,6 +84,7 @@ export class CreatePlayerComponent implements OnInit {
   playerTypes = ['Batter','Pitcher']
   formString = '[color=red][u][b]Player Information[/b][/u][/color]'; 
   ArmSlots = ["Normal (3/4)", "Submarine", "Sidearm", "Over the top"];
+  skipCreationValidation = false;
   
 
   constructor(private _formBuilder: FormBuilder) {
@@ -430,10 +431,64 @@ export class CreatePlayerComponent implements OnInit {
   
   }
 
+  createBatterAttributes() {
+ 
+    this.formString += '\n\n[color=red][u][b]Attributes: [/b][/u][/color]'; 
+    this.formString += '\n[b]Hitting Archetype:[/b] ' + this.selectedHittingArchetype.name;
+    for (const att of this.selectedHittingArchetype.attributes) {
+      this.formString += '\n(MIN: ' + att.min + ') (MAX: ' + att.max + ') '
+        + att.name + ' ' + att.value;
+    } 
+    this.formString += '\n1st Position (200/200 experience): ' + this.SelectedPosition;
+    this.formString += '\n2nd Position (150/200 experience): ' + this.Selected2Position;
+    this.formString += '\n3rd Position (100/200 experience): ' + this.Selected3Position;
+  }
+
+  createPitcherAttributes() {
+    this.formString = '\n[b]Player Archetype:[/b] ' + this.selectedPitchingArchetype.name;
+    this.formString += '\n(MIN: ' + this.selectedPitchingArchetype.velocity.min + ') (MAX: ' +
+      this.selectedPitchingArchetype.velocity.max + ') ' + this.selectedPitchingArchetype.velocity.name + ' ' +
+      this.selectedPitchingArchetype.velocity.value;
+    for (const att of this.selectedPitchingArchetype.attributes) {
+      let attributeName = att.name;
+      switch (att.name){
+        case 'Pitch 1:':
+          attributeName = this.selectedPitches[0]+":";
+          break;
+        case 'Pitch 2:':
+          attributeName = this.selectedPitches[1]+":";
+          break;
+        case 'Pitch 3:':
+          attributeName = this.selectedPitches[2]+":";
+          break;
+        case 'Pitch 4:':
+          if(this.selectedPitches[3] != "") attributeName = this.selectedPitches[3]+":";
+          break;
+        case 'Pitch 5:':
+          if(this.selectedPitches[4] != "") attributeName = this.selectedPitches[4]+":";
+          break;
+        default:
+          break;
+      }
+      this.formString += '\n(MIN: ' + att.min + ') (MAX: ' + att.max + ') '
+        + attributeName + ' ' + att.value;
+    }
+    this.formString += '\nArm Slot: ' + this.ArmSlot;
+    this.formString += '\n\nPitches: ' + this.selectedPitches[0] + ', ' + this.selectedPitches[1] + ', '
+      + this.selectedPitches[2] + ', ' + (this.selectedPitches[3] !== 'Pitch 4' ? this.selectedPitches[3] + ', ' : ' ')
+      + (this.selectedPitches[4] !== 'Pitch 5' ? this.selectedPitches[4] : ' ');
+  }
+
   generateForm(){
-    if(this.playerType == "Batter") this.createBatter();
-    else if (this.playerType == "Pitcher") this.createPitcher();
-    else alert("Please select batter or pitcher first and fill in the fields")
+    if(this.skipCreationValidation) {
+      if(this.playerType == "Batter") this.createBatterAttributes();
+      else if (this.playerType == "Pitcher") this.createPitcherAttributes();
+    } else {
+      if(this.playerType == "Batter") this.createBatter();
+      else if (this.playerType == "Pitcher") this.createPitcher();
+      else alert("Please select batter or pitcher first and fill in the fields")
+    }
+    
   }
 
   copyAndGoToForums() {
