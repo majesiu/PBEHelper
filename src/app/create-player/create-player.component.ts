@@ -317,7 +317,7 @@ export class CreatePlayerComponent implements OnInit {
       return alert('Please input the Number');
     }
     this.formString += '\n[b]Number:[/b] ' + this.Number; 
-    if (!this.selectedPitchingArchetype.name.startsWith("Relief")) {
+    if (this.selectedPitchingArchetype.name.indexOf(" RP ") != -1) {
       this.formString += '\n[b]Position:[/b] RP';
     } else {
       this.formString += '\n[b]Position:[/b] SP';
