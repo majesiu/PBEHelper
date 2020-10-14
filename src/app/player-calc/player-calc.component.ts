@@ -491,10 +491,10 @@ export class PlayerCalcComponent implements OnInit {
          this.selectedPitchingArchetype.attributes[7].value = Number.parseInt(playerString.match(pitches[1]+".{1,3}?([0-9]+)")[1].trim());
          this.selectedPitches[2] = pitches[2];
          this.selectedPitchingArchetype.attributes[8].value = Number.parseInt(playerString.match(pitches[2]+".{1,3}?([0-9]+)")[1].trim());
-         if(pitches.length > 3 && pitches[3] in this.pitches){
+         if(pitches.length > 3 && this.pitches.includes(pitches[3])){
           this.selectedPitches[3] = pitches[3];
           this.selectedPitchingArchetype.attributes[9].value = Number.parseInt(playerString.match(pitches[3]+".{1,3}?([0-9]+)")[1].trim());
-          if(pitches.length > 4 && pitches[4] in this.pitches){
+          if(pitches.length > 4 && this.pitches.includes(pitches[4])){
             this.selectedPitches[4] = pitches[4];
             this.selectedPitchingArchetype.attributes[10].value = Number.parseInt(playerString.match(pitches[4]+".{1,3}?([0-9]+)")[1].trim());
             }
