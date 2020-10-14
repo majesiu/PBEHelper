@@ -437,7 +437,7 @@ export class PlayerCalcComponent implements OnInit {
   importPlayer(){ 
     
     document.getElementById("spinner").hidden = false;
-    const playerPage = this.http.get("http://localhost:8080/"+this.pageLink, {responseType: 'text' }).subscribe({
+    const playerPage = this.http.get("http://pbesim.com:8080/"+this.pageLink, {responseType: 'text' }).subscribe({
       next: data => {
          const regexpBase: RegExp = new RegExp("^.*Archetype.*$", 'm'); 
          const playerString: String = regexpBase.exec(data)[0].replace(/<\/?[^>]+(>|$)/g, " ");
