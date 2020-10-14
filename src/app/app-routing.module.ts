@@ -6,7 +6,7 @@ import { PlayerCalcComponent } from './player-calc/player-calc.component';
 
 
 const routes: Routes = [ 
-  { path: '', pathMatch: 'full', component: CreatePlayerComponent },
+  { path: '', component: CreatePlayerComponent},
   // { path: 'update', component: UpdatePlayerComponent },
   { path: 'calc', component: PlayerCalcComponent }
 ];
