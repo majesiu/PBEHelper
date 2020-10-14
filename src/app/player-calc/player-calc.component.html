@@ -1,0 +1,520 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <mat-nav-list><a mat-list-item matTooltip="Click to go through process of creating the player"
+        matTooltipPosition="after" href="/">Player Create </a>
+        <a mat-list-item matTooltip="Click to just be able to calculate and import player build"
+        matTooltipPosition="after" href="/calc">Player Calc </a>
+        <a mat-list-item matTooltip="Click to go to the player update tool by AuGold"
+        matTooltipPosition="after" href="https://pbe.rejj.net/">Player Update </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item matTooltip="Click to check which positions are currently in biggest demand"
+          matTooltipPosition="after" href="http://probaseballexperience.jcink.net/index.php?showtopic=2182"
+          target="_blank">
+          Position Tracker
+        </a>
+        <a mat-list-item matTooltip="Click to read about attributes in depth" matTooltipPosition="after"
+          href="http://probaseballexperience.jcink.net/index.php?showtopic=2570" target="_blank">
+          Attribute Guide
+        </a>
+        <a mat-list-item matTooltip="Click to find about first steps in the league" matTooltipPosition="after"
+          href="http://probaseballexperience.jcink.net/index.php?showtopic=11013" target="_blank">
+          New Player Guide
+        </a>
+        <a mat-list-item matTooltip="Click to see sim results" matTooltipPosition="after" href="http://pbesim.com"
+          target="_blank">
+          PBE Index
+        </a>
+        <a mat-list-item matTooltip="Click to join league discord, great place to ask questions"
+          matTooltipPosition="after" href="https://discord.gg/wMhQcxW" target="_blank">
+          League Discord
+        </a>
+      </mat-nav-list>
+    </mat-sidenav> 
+    <mat-sidenav-content style="overflow: hidden;">
+        <div fxLayout="row" fxLayout.lt-md="column" style="text-align: center">
+          <mat-radio-group [(ngModel)]="playerType" fxFlex="100%">
+            <mat-radio-button style="text-align: center; padding: 10px" class="table-radio-button" *ngFor="let pt of playerTypes" [value]="pt">
+              {{pt}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div fxLayout="row" fxLayout.lt-md="column" style="text-align: center;">
+            <mat-form-field class="example-form-field"  fxFlex="100%"  style=" padding:  5px 10px 0px; text-align: center;">
+                <mat-label>Link to player page</mat-label>
+                <input  matInput type="text" [(ngModel)]="pageLink">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayout.lt-md="column" style="text-align: center;  padding: 0px 10px 10px">
+            <button fxFlex="100%" mat-stroked-button color="accent" matTooltip="Click to import player attributes!"
+            (click)="importPlayer()">Import player</button>
+        </div>
+        <div id="spinner" hidden=true>
+            <mat-spinner style="margin:0 auto;"></mat-spinner>
+        </div>
+        
+        <div *ngIf="playerType=='Batter'" fxLayout="row" fxLayout.lt-md="column">
+          <div fxFlex="50%" fxFlexFill>
+            <table mat-table class="mat-elevation-z8" [dataSource]="selectedHittingArchetype.attributes">
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.name}} </td>
+                <td mat-footer-cell *matFooterCellDef> </td>
+              </ng-container>
+              <ng-container matColumnDef="min">
+                <th mat-header-cell *matHeaderCellDef>Min</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.min}} </td>
+                <td mat-footer-cell *matFooterCellDef> </td>
+              </ng-container>
+              <ng-container matColumnDef="max">
+                <th mat-header-cell *matHeaderCellDef>Max</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.max}} </td>
+                <td mat-footer-cell *matFooterCellDef>
+                  <p [style.color]="selectedHittingArchetype.costSum()"></p>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef>Value</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  <input matInput type="number" [(ngModel)]="attribute.value" name="attribute.value" min={{attribute.min}}
+                    max={{attribute.max}}>
+                </td>
+                <td mat-footer-cell *matFooterCellDef> </td>
+              </ng-container>
+              <ng-container matColumnDef="slider">
+                <th mat-header-cell *matHeaderCellDef>Slider</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  <mat-slider [max]="attribute.max" [min]="attribute.min" [step]="1" [thumbLabel]="attribute.value"
+                    [(ngModel)]="attribute.value">
+                  </mat-slider>
+                </td>
+                <td mat-footer-cell *matFooterCellDef> </td>
+              </ng-container>
+              <ng-container matColumnDef="cost">
+                <td mat-footer-cell *matFooterCellDef>
+                  <p [style.color]="selectedHittingArchetype.costSum()===100 ? 'green' : 'orange'">
+                    {{selectedHittingArchetype.costSum()}} </p>
+                </td>
+                <th mat-header-cell *matHeaderCellDef>Cost</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.cost()}} </td>
+              </ng-container>
+              <ng-container matColumnDef="BattingArchetype">
+                <th mat-header-cell *matHeaderCellDef colspan="6" matTooltip="Select Batting Artchetype that will determine your player identity
+                and minimum and maximum caps for every attribute." matTooltipPosition="after">
+                  <mat-label>Batting Archetype:</mat-label>
+                  <mat-select [(ngModel)]="selectedHittingArchetype">
+                    <mat-option *ngFor="let ha of hittingArchetypes" [value]="ha"> {{ha.name}}</mat-option>
+                  </mat-select>
+                </th>
+              </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="['BattingArchetype']"></tr>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+            </table>
+          </div>
+          <div fxFlex="50%" fxFlexFill>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Update Scale
+                </mat-panel-title>
+                <mat-panel-description>
+                Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="centered aligned" style="text-align: center;">
+                1-40: 1 TPE Per Point<br>
+                40-50: 2 TPE Per Point<br>
+                50-60: 3 TPE Per Point<br>
+                60-70: 4 TPE Per Point<br>
+                70-80: 6 TPE Per Point<br>
+                80-90: 7 TPE Per Point<br>
+                90-115: 8 TPE Per Point<br>
+            </div>
+            </mat-expansion-panel>
+            <table mat-table class="mat-elevation-z8">
+              <ng-container matColumnDef="BattingHands">
+                <td mat-footer-cell *matFooterCellDef colspan="6" matTooltip="Select your batter handedness."
+                  matTooltipPosition="after">
+                  Batting Hand:
+                  <mat-radio-group [(ngModel)]="Bats">
+                    <mat-radio-button class="table-radio-button" *ngFor="let bh of BattingHands" [value]="bh">
+                      {{bh}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Throwing Hand">
+                <td mat-footer-cell *matFooterCellDef colspan="6"
+                  matTooltip="Throwing Hand, also important for fielding (Lefties get penalized as 2B/3B/SS)"
+                  matTooltipPosition="after">
+                  <mat-label>Throwing Hand: </mat-label>
+                  <mat-radio-group [(ngModel)]="Throws">
+                    <mat-radio-button class="table-radio-button" *ngFor="let bh of ThrowingHands" [value]="bh">
+                      {{bh}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="HittingType">
+                <td mat-footer-cell *matFooterCellDef colspan="6"
+                  matTooltip="Select your batter hitting type. It affects the placement of your hits."
+                  matTooltipPosition="after">
+                  Hitting Type:
+                  <mat-radio-group [(ngModel)]="Hitting">
+                    <mat-radio-button class="table-radio-button" *ngFor="let bh of HittingTypes" [value]="bh">
+                      {{bh}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="FieldingPositions">
+                <td mat-footer-cell *matFooterCellDef colspan="2"
+                  matTooltip="Select your main position. You will start with maximum fielding experience there."
+                  matTooltipPosition="after">
+                  <mat-label>Position 1 (200/200 EXP):</mat-label>
+                  <mat-select [(ngModel)]="SelectedPosition">
+                    <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+                  </mat-select>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="FieldingPositions2">
+                <td mat-footer-cell *matFooterCellDef colspan="2"
+                  matTooltip="Select your secondary fielding position your player will be able to play. You can only select each position once."
+                  matTooltipPosition="after">
+                  <mat-label>Position 2 (150/200 EXP):</mat-label>
+                  <mat-select [(ngModel)]="Selected2Position">
+                    <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+                  </mat-select>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="FieldingPositions3">
+                <td mat-footer-cell *matFooterCellDef colspan="2"
+                  matTooltip="Select your tertiary fielding position your player will be able to play. You can only select each position once."
+                  matTooltipPosition="after">
+                  <mat-label>Position 3 (100/200 EXP):</mat-label>
+                  <mat-select [(ngModel)]="Selected3Position">
+                    <mat-option *ngFor="let p of Positions" [value]="p"> {{p}}</mat-option>
+                  </mat-select>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="BasicInfo">
+                <th mat-footer-cell *matFooterCellDef colspan="6">
+                  <form>
+                    <mat-form-field>
+                      <input matInput placeholder="Player Name" [(ngModel)]="PlayerName"
+                        [ngModelOptions]="{standalone: true}" required matTooltip="First and Last name of your player."
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Recruited by" [(ngModel)]="Recruited"
+                        [ngModelOptions]="{standalone: true}"
+                        matTooltip="Optional, if someone recruited you then you can input a user nickname so they can get bonus for recruiting you"
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}"
+                        required matTooltip="Number that your player will wear in the game." matTooltipPosition="after">
+                    </mat-form-field>
+                  </form>
+                  <form>
+                    <mat-form-field>
+                      <input matInput placeholder="Height" [(ngModel)]="Height" [ngModelOptions]="{standalone: true}"
+                        required
+                        matTooltip="The height of your player, affects only First Base Defence. Maximum of 6'4'' for batters, 6'8'' for pitchers.'"
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Weight" [(ngModel)]="Weight" [ngModelOptions]="{standalone: true}"
+                        required matTooltip="Weight of your player, purely cosmetic." matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}"
+                        matTooltip="Optional - put your discord username (remember the numbers, ex. player1#4567) to allow teams to contact you more easily."
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                  </form>
+                  <form>
+                    <mat-form-field>
+                      <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
+                        [ngModelOptions]="{standalone: true}" required
+                        matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Choose a Birthdate</mat-label>
+                      <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}"
+                        required matTooltip="The date in the sim, league is currently in year 2036 (Season 20)"
+                        matTooltipPosition="after">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+                  </form>
+                </th>
+              </ng-container>
+              <tr mat-row *matFooterRowDef="['BasicInfo']"></tr>
+              <tr mat-row *matFooterRowDef="['HittingType']"></tr>
+              <tr mat-row *matFooterRowDef="['BattingHands']"></tr>
+              <tr mat-row *matFooterRowDef="['Throwing Hand']"></tr>
+              <tr mat-row *matFooterRowDef="['FieldingPositions','FieldingPositions2','FieldingPositions3']"></tr>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="playerType=='Pitcher'" fxLayout="row" fxLayout.lt-md="column">
+          <div fxFlex="50%">
+            <table mat-table class="mat-elevation-z8" [dataSource]="selectedPitchingArchetype.attributes">
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"
+                  [ngSwitch]="attribute.name">
+                  <span *ngSwitchCase="'Pitch 1:'">
+                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]" *ngIf="selectedPitchingArchetype === pitchingArchetypes[5];else standardPitch" >
+                      <mat-option *ngFor="let pitch of ['Knuckleball']" [value]="pitch">
+                        {{pitch}}
+                      </mat-option>
+                    </mat-select>
+                    <ng-template #standardPitch> 
+                      <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]">
+                        <mat-option *ngFor="let pitch of pitches"
+                                [value]="pitch">
+                          {{pitch}}
+                        </mat-option>
+                      </mat-select>
+                    </ng-template>
+                  </span>
+                  <span *ngSwitchCase="'Pitch 2:'">
+                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[1]">
+                      <mat-option *ngFor="let pitch of pitches" [value]="pitch">
+                        {{pitch}}
+                      </mat-option>
+                    </mat-select>
+                  </span>
+                  <span *ngSwitchCase="'Pitch 3:'">
+                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[2]">
+                      <mat-option *ngFor="let pitch of pitches" [value]="pitch">
+                        {{pitch}}
+                      </mat-option>
+                    </mat-select>
+                  </span>
+                  <span *ngSwitchCase="'Pitch 4:'">
+                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[3]">
+                      <mat-option *ngFor="let pitch of pitches" [value]="pitch">
+                        {{pitch}}
+                      </mat-option>
+                    </mat-select>
+                  </span>
+                  <span *ngSwitchCase="'Pitch 5:'">
+                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[4]">
+                      <mat-option *ngFor="let pitch of pitches" [value]="pitch">
+                        {{pitch}}
+                      </mat-option>
+                    </mat-select>
+                  </span>
+                  <span *ngSwitchDefault>{{attribute.name}}</span>
+                </td>
+                <td mat-footer-cell *matFooterCellDef
+                  matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+                Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+                  matTooltipPosition="after">{{selectedPitchingArchetype.velocity.name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="min">
+                <th mat-header-cell *matHeaderCellDef>Min</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.min}} </td>
+                <td mat-footer-cell *matFooterCellDef
+                  matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+                Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+                  matTooltipPosition="after">{{selectedPitchingArchetype.velocity.min}} </td>
+              </ng-container>
+              <ng-container matColumnDef="max">
+                <th mat-header-cell *matHeaderCellDef>Max</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.max}} </td>
+                <td mat-footer-cell *matFooterCellDef
+                  matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+                Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+                  matTooltipPosition="after">{{selectedPitchingArchetype.velocity.max}}</td>
+              </ng-container>
+              <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef>Value</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  <input matInput type="number" [(ngModel)]="attribute.value" name="attribute.value" min={{attribute.min}}
+                    max={{attribute.max}}>
+                </td>
+                <td mat-footer-cell *matFooterCellDef
+                  matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+                Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+                  matTooltipPosition="after">{{selectedPitchingArchetype.velocity.value}} </td>
+              </ng-container>
+              <ng-container matColumnDef="slider">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  <mat-slider [max]="attribute.max" [min]="attribute.min" [step]="1" [thumbLabel]="attribute.value"
+                    [(ngModel)]="attribute.value">
+                  </mat-slider>
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                  <mat-select [(ngModel)]="selectedPitchingArchetype.velocity.value"
+                    matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+                  Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">
+                    <mat-option *ngFor="let velocityValue of velocityValues" [value]="velocityValue">
+                      {{velocityValue}}
+                    </mat-option>
+                  </mat-select>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="cost">
+                <th mat-header-cell *matHeaderCellDef>Cost</th>
+                <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
+                  {{attribute.cost()}} </td>
+                <td mat-footer-cell *matFooterCellDef
+                  matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
+                Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale."
+                  matTooltipPosition="after">{{selectedPitchingArchetype.velocity.cost()}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Total">
+                <td mat-footer-cell *matFooterCellDef colspan="6">
+                  <p style="text-align: right" [style.color]="selectedPitchingArchetype.costSum()">
+                    <u>{{selectedPitchingArchetype.costSum()}}</u></p>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="PitchingArchetype">
+                <th mat-header-cell *matHeaderCellDef colspan="6"
+                  matTooltip="Select Pitching Artchetype that will determine your player identity and minimum and maximum caps for every attribute. First 3 archetypes are Relief Pitchers, latter 4 Starters. Choose 1."
+                  matTooltipPosition="after">
+                  <mat-label>Pitching Archetype:</mat-label>
+                  <mat-select [(ngModel)]="selectedPitchingArchetype">
+                    <mat-option *ngFor="let fa of pitchingArchetypes" [value]="fa"> {{fa.name}}</mat-option>
+                  </mat-select>
+                </th>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="['PitchingArchetype']"></tr>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+              <tr mat-footer-row *matFooterRowDef="['Total']">
+            </table>
+          </div>
+          <div fxFlex="50%">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Update Scale
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="centered aligned" style="text-align: center;">
+                1-40: 1 TPE Per Point<br>
+                40-50: 2 TPE Per Point<br>
+                50-60: 3 TPE Per Point<br>
+                60-70: 4 TPE Per Point<br>
+                70-80: 6 TPE Per Point<br>
+                80-90: 7 TPE Per Point<br>
+                90-115: 8 TPE Per Point<br>
+                Velocity: 30 TPE per tier<br>
+              </div>
+            </mat-expansion-panel>
+            <table mat-table class="mat-elevation-z8">
+              <ng-container matColumnDef="Throwing Hand">
+                <td mat-footer-cell *matFooterCellDef colspan="6"
+                  matTooltip="Throwing Hand, also important for fielding (Lefties get penalized as 2B/3B/SS)"
+                  matTooltipPosition="after">
+                  <mat-label>Throwing Hand: </mat-label>
+                  <mat-radio-group [(ngModel)]="Throws">
+                    <mat-radio-button class="table-radio-button" *ngFor="let bh of ThrowingHands" [value]="bh">
+                      {{bh}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="Arm Slot">
+                <td mat-footer-cell *matFooterCellDef colspan="6"
+                  matTooltip="Arm slot affects whether you are more effective vs Batters of the same or opposite handedness - submarine is the best vs the Same, Over the Top vs opposite."
+                  matTooltipPosition="after">
+                  <mat-label>Arm slot: </mat-label>
+                  <mat-radio-group [(ngModel)]="ArmSlot">
+                    <mat-radio-button class="table-radio-button" *ngFor="let slot of ArmSlots" [value]="slot">
+                      {{slot}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="BasicInfo">
+                <th mat-footer-cell *matFooterCellDef colspan="6">
+                  <form>
+                    <mat-form-field>
+                      <input matInput placeholder="Player Name" [(ngModel)]="PlayerName"
+                        [ngModelOptions]="{standalone: true}" required matTooltip="First and Last name of your player."
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Recruited by" [(ngModel)]="Recruited"
+                        [ngModelOptions]="{standalone: true}"
+                        matTooltip="Optional, if someone recruited you then you can input a user nickname so they can get bonus for recruiting you"
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Number" [(ngModel)]="Number" [ngModelOptions]="{standalone: true}"
+                        required matTooltip="Number that your player will wear in the game." matTooltipPosition="after">
+                    </mat-form-field>
+                  </form>
+                  <form>
+                    <mat-form-field>
+                      <input matInput placeholder="Height" [(ngModel)]="Height" [ngModelOptions]="{standalone: true}"
+                        required
+                        matTooltip="The height of your player, affects only First Base Defence. Maximum of 6'4'' for batters, 6'8'' for pitchers.'"
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Weight" [(ngModel)]="Weight" [ngModelOptions]="{standalone: true}"
+                        required matTooltip="Weight of your player, purely cosmetic." matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Discord" [(ngModel)]="Discord" [ngModelOptions]="{standalone: true}"
+                        matTooltip="Optional - put your discord username (remember the numbers, ex. player1#4567) to allow teams to contact you more easily."
+                        matTooltipPosition="after">
+                    </mat-form-field>
+                  </form>
+                  <form>
+                    <mat-form-field>
+                      <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
+                        [ngModelOptions]="{standalone: true}" required
+                        matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Choose a Birthdate</mat-label>
+                      <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}"
+                        required matTooltip="The date in the sim, league is currently in year 2036 (Season 20)"
+                        matTooltipPosition="after">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+                  </form>
+                </th>
+              </ng-container>
+              <tr mat-row *matFooterRowDef="['BasicInfo']"></tr>
+              <tr mat-row *matFooterRowDef="['Throwing Hand']"></tr>
+              <tr mat-row *matFooterRowDef="['Arm Slot']"></tr>
+            </table>
+          </div>
+        </div>
+        <div>
+          <button mat-button matTooltip="Click to generate forum template for your player!"
+            (click)="generateForm()">Generate Forum Formatting</button>
+          <button mat-button matTooltip="Click to complete the process of creating your player!"
+            [disabled]="!forumTemplateReady" (click)="copyAndGoToForums()">Copy to Clipboard & Go to
+            forums</button>
+            <br>
+        <mat-checkbox class="example-margin" [(ngModel)]="skipCreationValidation">Generate only attributes (Skips creation validation)</mat-checkbox>
+          <textarea hidden=true id="formArea" matInput [value]="formString" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="20" cdkAutosizeMaxRows="40">></textarea>
+        </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+  
