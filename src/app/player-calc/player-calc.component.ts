@@ -392,7 +392,7 @@ export class PlayerCalcComponent implements OnInit {
       else if (this.playerType == "Pitcher") this.createPitcher();
       else alert("Please select batter or pitcher first and fill in the fields")
     }
-    
+    document.getElementById("formArea").hidden = false;
   }
 
   copyAndGoToForums() {
