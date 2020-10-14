@@ -6,9 +6,9 @@ import { PlayerCalcComponent } from './player-calc/player-calc.component';
 
 
 const routes: Routes = [ 
-  { path: '', pathMatch: 'full', component: CreatePlayerComponent }
+  { path: '', pathMatch: 'full', component: CreatePlayerComponent },
   // { path: 'update', component: UpdatePlayerComponent },
-  // { path: 'calc', component: PlayerCalcComponent }
+  { path: 'calc', component: PlayerCalcComponent }
 ];
 
 @NgModule({
