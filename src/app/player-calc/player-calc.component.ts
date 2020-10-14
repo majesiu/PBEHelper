@@ -412,7 +412,7 @@ export class PlayerCalcComponent implements OnInit {
     }
   }
 
-  setMatchingPitchingArchetype(archName: string, position: string){
+  setMatchingPitchingArchetype(archName, position: string){
     archName = archName.replace("The ","");
     if (!archName.endsWith("RP") && !archName.endsWith(" SP")){
       if(position == "Starting") archName = archName.concat(" SP");
@@ -475,7 +475,7 @@ export class PlayerCalcComponent implements OnInit {
             if (this.Positions.includes(tertiaryPosition)) this.Selected3Position = tertiaryPosition;
             else this.Selected3Position = posToAcronym[tertiaryPosition];
          } else if(this.playerType == "Pitcher"){
-          this.setMatchingPitchingArchetype(playerString.match("Archetype:(.+?)\\\(.+?\\\)")[1].trim(), playerString.match("Position.{1,3}?([A-z]+)")[1]);
+          this.setMatchingPitchingArchetype(playerString.match("Archetype:(.+?)(?=Banked|\\\(.+?\\\))")[1].trim(), playerString.match("Position.{1,3}?([A-z]+)")[1]);
           this.selectedPitchingArchetype.attributes[0].value = Number.parseInt(playerString.match("Movement vs\.{0,1} LHB.{1,3}?([0-9]+)")[1].trim());
           this.selectedPitchingArchetype.attributes[1].value = Number.parseInt(playerString.match("Movement vs\.{0,1} RHB.{1,3}?([0-9]+)")[1].trim());
           this.selectedPitchingArchetype.attributes[2].value = Number.parseInt(playerString.match("Control vs\.{0,1} LHB.{1,3}?([0-9]+)")[1].trim());
