@@ -456,9 +456,9 @@ export class PlayerCalcComponent implements OnInit {
             this.selectedHittingArchetype.attributes[10].value = Number.parseInt(playerString.match("Speed \\\(Base &amp; Run\\\).{1,3}?([0-9]+)")[1].trim());
             this.selectedHittingArchetype.attributes[11].value = Number.parseInt(playerString.match("Stealing Ability.{1,3}?([0-9]+)")[1].trim());
             this.selectedHittingArchetype.attributes[12].value = Number.parseInt(playerString.match("Bunting \\\(Both\\\).{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[13].value = Number.parseInt(playerString.match("Fielding Range.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[14].value = Number.parseInt(playerString.match("Fielding Error.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[15].value = Number.parseInt(playerString.match("Fielding\/Catching Arm.{1,3}?([0-9]+)")[1].trim());
+            this.selectedHittingArchetype.attributes[13].value = Number.parseInt(playerString.match("Range.{1,3}?([0-9]+)")[1].trim());
+            this.selectedHittingArchetype.attributes[14].value = Number.parseInt(playerString.match("Error.{1,3}?([0-9]+)")[1].trim());
+            this.selectedHittingArchetype.attributes[15].value = Number.parseInt(playerString.match("Arm.{1,3}?([0-9]+)")[1].trim());
             this.selectedHittingArchetype.attributes[16].value = Number.parseInt(playerString.match("Turn Double Play.{1,3}?([0-9]+)")[1].trim());
             this.selectedHittingArchetype.attributes[17].value = Number.parseInt(playerString.match("Catcher Ability.{1,3}?([0-9]+)")[1].trim());
             this.Bats = playerString.match("Bats.{1,3}?([A-z]+)")[1];
