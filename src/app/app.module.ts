@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreatePlayerComponent } from './create-player/create-player.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule } from '@angular/material';
+import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule, MatIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatSliderModule} from '@angular/material/slider';
@@ -23,6 +23,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { UpdatePlayerComponent } from './update-player/update-player.component';
 import { PlayerCalcComponent } from './player-calc/player-calc.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatMomentDateModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatCheckboxModule 
+    MatCheckboxModule ,
+    MatIconModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
