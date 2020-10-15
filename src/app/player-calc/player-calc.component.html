@@ -49,8 +49,11 @@
             <button fxFlex="100%" mat-stroked-button color="accent" matTooltip="Click to import player attributes!"
             (click)="importPlayer()">Import player</button>
         </div>
-        <div id="spinner" hidden=true>
-            <mat-spinner style="margin:0 auto;"></mat-spinner>
+        <div id="spinner" hidden=true >
+            <mat-spinner  style="margin:0 auto;"></mat-spinner>
+        </div>
+        <div id="errorDiv" hidden=true>
+          <p id="errorText" style="color: red; text-align: center; padding-bottom: 5px;">Test</p>
         </div>
         
         <div *ngIf="playerType=='Batter'" fxLayout="row" fxLayout.lt-md="column">

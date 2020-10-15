@@ -402,17 +402,18 @@ export class PlayerCalcComponent implements OnInit {
     });
   }
 
-  setMatchingHittingArchetype(archName: string){
+  setMatchingHittingArchetype(archName: string): boolean{
     archName = archName.replace("The ","").split(" ")[0];
     for (let archetype of this.hittingArchetypes){
         if(archetype.name.indexOf(archName) != -1){
           this.selectedHittingArchetype = archetype;
-          break;
+          return true;
         }
     }
+    return false;
   }
 
-  setMatchingPitchingArchetype(archName, position: string){
+  setMatchingPitchingArchetype(archName, position: string): boolean{
     archName = archName.replace("The ","");
     if (!archName.endsWith("RP") && !archName.endsWith(" SP")){
       if(position == "Starting") archName = archName.concat(" SP");
@@ -422,9 +423,10 @@ export class PlayerCalcComponent implements OnInit {
     for (let archetype of this.pitchingArchetypes){
       if(archetype.name.indexOf(archName) != -1){
         this.selectedPitchingArchetype = archetype;
-        break;
+        return true;
       }
     }
+    return false;
   }
 
   setArmSlot(armSlotString){
@@ -441,76 +443,156 @@ export class PlayerCalcComponent implements OnInit {
       next: data => {
          const regexpBase: RegExp = new RegExp("^.*Archetype.*$", 'm'); 
          const playerString: String = regexpBase.exec(data)[0].replace(/<\/?[^>]+(>|$)/g, " ");
+         let errorText: string = "";
          if(this.playerType == "Batter"){
-            this.setMatchingHittingArchetype(playerString.match("Archetype:(.+?)\\\(.+?\\\)")[1].trim());
-            this.selectedHittingArchetype.attributes[0].value = Number.parseInt(playerString.match("BABIP vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[1].value = Number.parseInt(playerString.match("BABIP vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[2].value = Number.parseInt(playerString.match("Avoid K&#39;s vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[3].value = Number.parseInt(playerString.match("Avoid K&#39;s vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[4].value = Number.parseInt(playerString.match("Gap vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[5].value = Number.parseInt(playerString.match("Gap vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[6].value = Number.parseInt(playerString.match("Power vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[7].value = Number.parseInt(playerString.match("Power vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[8].value = Number.parseInt(playerString.match("Eye\/Patience vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[9].value = Number.parseInt(playerString.match("Eye\/Patience v\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[10].value = Number.parseInt(playerString.match("Speed \\\(Base &amp; Run\\\).{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[11].value = Number.parseInt(playerString.match("Stealing Ability.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[12].value = Number.parseInt(playerString.match("Bunting \\\(Both\\\).{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[13].value = Number.parseInt(playerString.match("Range.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[14].value = Number.parseInt(playerString.match("Error.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[15].value = Number.parseInt(playerString.match("Arm.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[16].value = Number.parseInt(playerString.match("Turn Double Play.{1,3}?([0-9]+)")[1].trim());
-            this.selectedHittingArchetype.attributes[17].value = Number.parseInt(playerString.match("Catcher Ability.{1,3}?([0-9]+)")[1].trim());
-            this.Bats = playerString.match("Bats.{1,3}?([A-z]+)")[1];
-            this.Hitting = playerString.match("Hitting.{1,3}?([A-z]+)")[1];
-            const posToAcronym = {  "Right": "RF", "Left": "LF", "Center": "CF", "Shortstop": "SS", "First": "1B", "Second": "2B",
-              "Third": "3B", "Catcher": "C"};
-            const primaryPosition = playerString.match("1st Position \\\(200/200 experience\\\).{1,3}?([A-z0-9]+)")[1];
-            if (this.Positions.includes(primaryPosition)) this.SelectedPosition = primaryPosition;
-            else this.SelectedPosition = posToAcronym[primaryPosition];
-            const secondaryPosition = playerString.match("2nd Position \\\(150/200 experience\\\).{1,3}?([A-z0-9]+)")[1];
-            if (this.Positions.includes(secondaryPosition)) this.Selected2Position = secondaryPosition;
-            else this.Selected2Position = posToAcronym[secondaryPosition];
-            const tertiaryPosition = playerString.match("3rd Position \\\(100/200 experience\\\).{1,3}?([A-z0-9]+)")[1];
-            if (this.Positions.includes(tertiaryPosition)) this.Selected3Position = tertiaryPosition;
-            else this.Selected3Position = posToAcronym[tertiaryPosition];
+            try {
+              const battingArchFound = this.setMatchingHittingArchetype(playerString.match("Archetype:(.+?)\\\(.+?\\\)")[1].trim());
+              if(!battingArchFound) errorText += "\nArchetype not recognized";
+            }
+            catch (error) {errorText += "\nArchetype not found on the player page";}
+
+            try { this.selectedHittingArchetype.attributes[0].value = Number.parseInt(playerString.match("BABIP vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField BABIP vs LHP not found on the player page  - make sure you put link to the batter and not pitcher page";}
+            try { this.selectedHittingArchetype.attributes[1].value = Number.parseInt(playerString.match("BABIP vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField BABIP vs RHP not found on the player page";}
+
+            try {this.selectedHittingArchetype.attributes[2].value = Number.parseInt(playerString.match("Avoid K&#39;s vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Avoid K's vs LHP not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[3].value = Number.parseInt(playerString.match("Avoid K&#39;s vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim()); } 
+            catch(error) { errorText += "\nField Avoid K's vs RHP not found on the player page";}
+
+            try {this.selectedHittingArchetype.attributes[4].value = Number.parseInt(playerString.match("Gap vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Gap vs LHP not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[5].value = Number.parseInt(playerString.match("Gap vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Gap vs RHP not found on the player page";}
+            
+            try {this.selectedHittingArchetype.attributes[6].value = Number.parseInt(playerString.match("Power vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Power vs LHP not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[7].value = Number.parseInt(playerString.match("Power vs\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Power vs RHP not found on the player page";}
+            
+            try {this.selectedHittingArchetype.attributes[8].value = Number.parseInt(playerString.match("Eye\/Patience vs\.{0,1} LHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Eye/Patience vs LHP not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[9].value = Number.parseInt(playerString.match("Eye\/Patience v\.{0,1} RHP.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Eye/Patience vs RHP not found on the player page";}
+            
+            try {this.selectedHittingArchetype.attributes[10].value = Number.parseInt(playerString.match("Speed \\\(Base &amp; Run\\\).{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Speed (Base & Run) not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[11].value = Number.parseInt(playerString.match("Stealing Ability.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Stealing Ability not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[12].value = Number.parseInt(playerString.match("Bunting \\\(Both\\\).{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField <Bunting (Both)/i> not found on the player page";}
+            
+            try {this.selectedHittingArchetype.attributes[13].value = Number.parseInt(playerString.match("Range.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Range not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[14].value = Number.parseInt(playerString.match("Error.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Error not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[15].value = Number.parseInt(playerString.match("Arm.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Arm not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[16].value = Number.parseInt(playerString.match("Double Play.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Double Play not found on the player page";}
+            try {this.selectedHittingArchetype.attributes[17].value = Number.parseInt(playerString.match("Catcher Ability.{1,3}?([0-9]+)")[1].trim());} 
+            catch(error) { errorText += "\nField Catcher Ability not found on the player page";}
+
+            try {this.Bats = playerString.match("Bats.{1,3}?([A-z]+)")[1];} 
+            catch(error) { errorText += "\nField Bats (batting hand) not found on the player page";}
+            try {this.Hitting = playerString.match("Hitting.{1,3}?([A-z]+)")[1];} 
+            catch(error) { errorText += "\nField Hitting not found on the player page";}
+
+            
+            const posToAcronym = {  "Right": "RF", "Left": "LF", "Center": "CF", "Shortstop": "SS", "First": "1B", "Second": "2B", "Third": "3B", "Catcher": "C"};
+            try { 
+              const primaryPosition = playerString.match("1st Position \\\(200/200 experience\\\).{1,3}?([A-z0-9]+)")[1];
+              if (this.Positions.includes(primaryPosition)) this.SelectedPosition = primaryPosition;
+              else this.SelectedPosition = posToAcronym[primaryPosition];
+            } 
+            catch(error) { errorText += "\nField 1st Position (200/200 experience) not found on the player page";}
+            try { 
+              const secondaryPosition = playerString.match("2nd Position \\\(150/200 experience\\\).{1,3}?([A-z0-9]+)")[1];
+              if (this.Positions.includes(secondaryPosition)) this.Selected2Position = secondaryPosition;
+              else this.Selected2Position = posToAcronym[secondaryPosition];
+            } 
+            catch(error) { errorText += "\nField 2nd Position (150/200 experience) not found on the player page";}
+            try { 
+              const tertiaryPosition = playerString.match("3rd Position \\\(100/200 experience\\\).{1,3}?([A-z0-9]+)")[1];
+              if (this.Positions.includes(tertiaryPosition)) this.Selected3Position = tertiaryPosition;
+              else this.Selected3Position = posToAcronym[tertiaryPosition];
+            } 
+            catch(error) { errorText += "\nField 3rd Position (100/200 experience) not found on the player page";}
          } else if(this.playerType == "Pitcher"){
-          this.setMatchingPitchingArchetype(playerString.match("Archetype:(.+?)(?=Banked|\\\(.+?\\\))")[1].trim(), playerString.match("Position.{1,3}?([A-z]+)")[1]);
-          this.selectedPitchingArchetype.attributes[0].value = Number.parseInt(playerString.match("Movement vs\.{0,1} LHB.{1,3}?([0-9]+)")[1].trim());
-          this.selectedPitchingArchetype.attributes[1].value = Number.parseInt(playerString.match("Movement vs\.{0,1} RHB.{1,3}?([0-9]+)")[1].trim());
-          this.selectedPitchingArchetype.attributes[2].value = Number.parseInt(playerString.match("Control vs\.{0,1} LHB.{1,3}?([0-9]+)")[1].trim());
-          this.selectedPitchingArchetype.attributes[3].value = Number.parseInt(playerString.match("Control vs\.{0,1} RHB.{1,3}?([0-9]+)")[1].trim());
-          this.selectedPitchingArchetype.attributes[4].value = Number.parseInt(playerString.match("Stamina.{1,3}?([0-9]+)")[1].trim());
-          this.selectedPitchingArchetype.attributes[5].value = Number.parseInt(playerString.match("Holding Runners.{1,3}?([0-9]+)")[1].trim());
-          this.selectedPitchingArchetype.velocity.value = playerString.match(/Velocity:?.{1,2}?(.*?)(?=\s{2}|\()/)[1].trim();
-          this.setArmSlot(playerString.match("Arm Slot.{1,3}?([A-z]+)")[1]);
-          let pitches = playerString.match(/Pitches:?.{1,2}?(.*?)(?=\s{2}|Groundball|GB)/)[1].trim().split(",").map(_ => _.trim());
-         this.selectedPitches[0] = pitches[0];
-         this.selectedPitchingArchetype.attributes[6].value = Number.parseInt(playerString.match(pitches[0]+".{1,3}?([0-9]+)")[1].trim());
-         this.selectedPitches[1] = pitches[1];
-         this.selectedPitchingArchetype.attributes[7].value = Number.parseInt(playerString.match(pitches[1]+".{1,3}?([0-9]+)")[1].trim());
-         this.selectedPitches[2] = pitches[2];
-         this.selectedPitchingArchetype.attributes[8].value = Number.parseInt(playerString.match(pitches[2]+".{1,3}?([0-9]+)")[1].trim());
-         if(pitches.length > 3 && this.pitches.includes(pitches[3])){
-          this.selectedPitches[3] = pitches[3];
-          this.selectedPitchingArchetype.attributes[9].value = Number.parseInt(playerString.match(pitches[3]+".{1,3}?([0-9]+)")[1].trim());
-          if(pitches.length > 4 && this.pitches.includes(pitches[4])){
-            this.selectedPitches[4] = pitches[4];
-            this.selectedPitchingArchetype.attributes[10].value = Number.parseInt(playerString.match(pitches[4]+".{1,3}?([0-9]+)")[1].trim());
+          try {
+            const pitchingArchFound = this.setMatchingPitchingArchetype(playerString.match("Archetype:(.+?)(?=Banked|\\\(.+?\\\))")[1].trim(), playerString.match("Position.{1,3}?([A-z]+)")[1]);
+            if(!pitchingArchFound) errorText += "\nArchetype not recognized";
+          }
+          catch (error) {errorText += "\nArchetype not found on the player page";}
+          
+          try {this.selectedPitchingArchetype.attributes[0].value = Number.parseInt(playerString.match("Movement vs\.{0,1} LHB.{1,3}?([0-9]+)")[1].trim());} 
+          catch(error) { errorText += "\nField Movement vs LHP not found on the player page - make sure you put link to pitchers page";}
+          try {this.selectedPitchingArchetype.attributes[1].value = Number.parseInt(playerString.match("Movement vs\.{0,1} RHB.{1,3}?([0-9]+)")[1].trim());} 
+          catch(error) { errorText += "\nField Movement vs RHP not found on the player page";}
+          try {this.selectedPitchingArchetype.attributes[2].value = Number.parseInt(playerString.match("Control vs\.{0,1} LHB.{1,3}?([0-9]+)")[1].trim());} 
+          catch(error) { errorText += "\nField Control vs LHP not found on the player page";}
+          try {this.selectedPitchingArchetype.attributes[3].value = Number.parseInt(playerString.match("Control vs\.{0,1} RHB.{1,3}?([0-9]+)")[1].trim());} 
+          catch(error) { errorText += "\nField Control vs RHP not found on the player page";}
+          
+          try{this.selectedPitchingArchetype.attributes[4].value = Number.parseInt(playerString.match("Stamina.{1,3}?([0-9]+)")[1].trim());}
+          catch(error) { errorText += "\nField Stamina not found on the player page";}
+          try{this.selectedPitchingArchetype.attributes[5].value = Number.parseInt(playerString.match("Holding Runners.{1,3}?([0-9]+)")[1].trim());}
+          catch(error) { errorText += "\nField Holding Runners not found on the player page";}
+          try{this.selectedPitchingArchetype.velocity.value = playerString.match(/Velocity:?.{1,2}?(.*?)(?=\s{2}|\()/)[1].trim();}
+          catch(error) { errorText += "\nField Velocity not found on the player page";}
+          
+          try{this.setArmSlot(playerString.match("Arm Slot.{1,3}?([A-z]+)")[1]);}
+          catch(error) { errorText += "\nField Arm Slot not found on the player page";}
+          try{
+            let pitches = playerString.match(/Pitches:?.{1,2}?(.*?)(?=\s{2}|Groundball|GB)/)[1].trim().split(",").map(_ => _.trim());
+            this.selectedPitches[0] = pitches[0];
+            this.selectedPitchingArchetype.attributes[6].value = Number.parseInt(playerString.match(pitches[0]+".{1,3}?([0-9]+)")[1].trim());
+            this.selectedPitches[1] = pitches[1];
+            this.selectedPitchingArchetype.attributes[7].value = Number.parseInt(playerString.match(pitches[1]+".{1,3}?([0-9]+)")[1].trim());
+            this.selectedPitches[2] = pitches[2];
+            this.selectedPitchingArchetype.attributes[8].value = Number.parseInt(playerString.match(pitches[2]+".{1,3}?([0-9]+)")[1].trim());
+            if(pitches.length > 3 && this.pitches.includes(pitches[3])){
+              this.selectedPitches[3] = pitches[3];
+              this.selectedPitchingArchetype.attributes[9].value = Number.parseInt(playerString.match(pitches[3]+".{1,3}?([0-9]+)")[1].trim());
+              if(pitches.length > 4 && this.pitches.includes(pitches[4])){
+                this.selectedPitches[4] = pitches[4];
+                this.selectedPitchingArchetype.attributes[10].value = Number.parseInt(playerString.match(pitches[4]+".{1,3}?([0-9]+)")[1].trim());
+              }
             }
           }
+          catch(error) { errorText += "\nList of Pitches: not found on the player page";}
          } 
-         this.PlayerName = playerString.match("Name.{1,3}?([A-z]+)")[1];
-         this.Number = playerString.match("Number.{1,3}?([0-9]+)")[1];
-         this.Throws = playerString.match("Throws.{1,3}?([A-z]+)")[1];
-         this.Weight = playerString.match("Weight:.{1,3}?([0-9]+)")[1];
-         this.Height = playerString.match("Height:.{1,3}?([^ ]+)")[1].replace(/&#39;/g,"'").replace(/&quot;/g,'"');
-         const recruited = playerString.match("Recruited by.{1,3}?([A-z]+)");
-         if(recruited && recruited.length > 1 ) this.Recruited = recruited[1];
-         const birthplace = playerString.match(/Birthplace:?.{1,2}?(.*?)(?=\s{2})/);
-         if(birthplace && birthplace.length > 1) this.Birthplace = birthplace[1];
-         const discord = playerString.match("Discord name.{1,3}?([^ ]+)");
-         if(discord && discord.length > 1) this.Discord = discord[1]; 
+         try{this.PlayerName = playerString.match("Name.{1,3}?([A-z]+)")[1];}
+         catch(error) { errorText += "\nField Name not found on the player page";}
+         try{this.Number = playerString.match("Number.{1,3}?([0-9]+)")[1];}
+         catch(error) { errorText += "\nField Number not found on the player page";}
+         try{this.Throws = playerString.match("Throws.{1,3}?([A-z]+)")[1];}
+         catch(error) { errorText += "\nField Throws not found on the player page";}
+         try{this.Weight = playerString.match("Weight:.{1,3}?([0-9]+)")[1];}
+         catch(error) { errorText += "\nField Weight not found on the player page";}
+         try{this.Height = playerString.match("Height:.{1,3}?([^ ]+)")[1].replace(/&#39;/g,"'").replace(/&quot;/g,'"');}
+         catch(error) { errorText += "\nField Height not found on the player page";}
+         try{
+          const recruited = playerString.match("Recruited by.{1,3}?([A-z]+)");
+          if(recruited && recruited.length > 1 ) this.Recruited = recruited[1];
+          const birthplace = playerString.match(/Birthplace:?.{1,2}?(.*?)(?=\s{2})/);
+         }
+         catch(error) { errorText += "\nField Recruited by not found on the player page";}
+         try{
+          const birthplace = playerString.match(/Birthplace:?.{1,2}?(.*?)(?=\s{2})/);
+          if(birthplace && birthplace.length > 1) this.Birthplace = birthplace[1];
+         }
+         catch(error) { errorText += "\nField Birthplace not found on the player page";}
+         try{
+          const discord = playerString.match("Discord name.{1,3}?([^ ]+)");
+          if(discord && discord.length > 1) this.Discord = discord[1]; 
+         }
+         catch(error) { errorText += "\nField Discord name not found on the player page";}
+         if(errorText != ""){
+          document.getElementById("errorDiv").hidden = false;
+          document.getElementById("errorText").innerText = errorText.trim();
+         } else document.getElementById("errorDiv").hidden = true;
          document.getElementById("spinner").hidden = true;
       },
       error: error => {
