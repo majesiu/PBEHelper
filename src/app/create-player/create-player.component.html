@@ -327,7 +327,7 @@
             <ng-container matColumnDef="cost">
               <td mat-footer-cell *matFooterCellDef>
                 <p [style.color]="selectedHittingArchetype.costSum()===100 ? 'green' : 'orange'">
-                  {{selectedHittingArchetype.costSum()}} </p>
+                  {{selectedHittingArchetype.costSum()}} <span *ngIf="selectedHittingArchetype.costSum()===100" class="material-icons"> check </span> <span *ngIf="selectedHittingArchetype.costSum()!=100" class="material-icons"> close </span> </p>
               </td>
               <th mat-header-cell *matHeaderCellDef>Cost</th>
               <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
@@ -599,7 +599,8 @@
               <td mat-footer-cell *matFooterCellDef colspan="6">
                 <p style="text-align: right" [style.color]="selectedPitchingArchetype.costSum()===100 ? 'green' : 'orange'">
                   Total (you need to spend exactly 100):
-                  <u>{{selectedPitchingArchetype.costSum()}}</u></p>
+                  {{selectedPitchingArchetype.costSum()}}
+                  <span *ngIf="selectedPitchingArchetype.costSum()===100" class="material-icons"> check </span> <span *ngIf="selectedPitchingArchetype.costSum()!=100" class="material-icons"> close </span> </p>
               </td>
             </ng-container>
             <ng-container matColumnDef="PitchingArchetype">
