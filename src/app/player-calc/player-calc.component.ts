@@ -68,6 +68,7 @@ export class PlayerCalcComponent implements OnInit {
   Height = '';
   Weight = '';
   Birthplace = '';
+  Render = '';
   Discord = '';
   startDate = new Date(2012, 0, 1);
   Hitting: any;
@@ -164,6 +165,7 @@ export class PlayerCalcComponent implements OnInit {
     }
     this.formString += '\n[b]Weight:[/b] ' + this.Weight;
     this.formString += '\n[b]Birthplace:[/b] ' + this.Birthplace;
+    this.formString += '\n[b]Player Render:[/b] ' + this.Render;
     this.formString += '\n[b]Discord name:[/b] ' + this.Discord;
     console.log(this.Hitting);
     if (!this.Hitting || this.Hitting === '') {
@@ -245,6 +247,7 @@ export class PlayerCalcComponent implements OnInit {
     }
     this.formString += '\n[b]Weight:[/b] ' + this.Weight;
     this.formString += '\n[b]Birthplace:[/b] ' + this.Birthplace;
+    this.formString += '\n[b]Player Render:[/b] ' + this.Render;
     this.formString += '\n[b]Discord name:[/b] ' + this.Discord;
     this.formString += '\n\n[color=red][u][b]Pitching Attributes: [/b][/u][/color]';
     // if (this.selectedPitchingArchetype.costSum() !== 100) {
@@ -436,6 +439,19 @@ export class PlayerCalcComponent implements OnInit {
     else if (armSlotString == "Over") this.ArmSlot = "Over the top";
   }
 
+  
+  createSharableUrl(){
+    let kopia = Object.assign({}, this.selectedHittingArchetype);
+    let json = JSON.stringify(kopia);
+    return "localhost:4200/calc?="+encodeURIComponent(json)
+  }
+
+  readSharableUrl(urlParams: string) {
+    let jason = decodeURIComponent(urlParams)
+    let kopia2 = JSON.parse(jason)
+    this.selectedHittingArchetype = kopia2
+  } 
+
   importPlayer(){ 
     
     document.getElementById("spinner").hidden = false;
@@ -601,5 +617,6 @@ export class PlayerCalcComponent implements OnInit {
       }
   })
   }
+
 
 }
