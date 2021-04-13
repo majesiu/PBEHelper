@@ -103,7 +103,7 @@
      { "name":"Fielding Error:","min":40,"max":100},
      { "name":"Fielding/Catching Arm:","min":35,"max":90},
      { "name":"Turn Double Play:","min":40,"max":90},
-     { "name":"Catcher Ability:","min":5,"max":100}
+     { "name":"Catcher Ability:","min":40,"max":100}
      ] },
      {"name":"Big Man On Campus (e.g. David Ortiz, Edwin Encarnacion)",
       "attributes": [
