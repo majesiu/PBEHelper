@@ -60,8 +60,7 @@ export class CreatePlayerComponent implements OnInit {
   PlayerName = ''; 
   Number = '';
   SelectedPosition = '';
-  College = '';
-  Birthdate: Moment;
+  College = ''; 
   Throws = '';
   Recruited = '';
   Height = '';
@@ -69,7 +68,6 @@ export class CreatePlayerComponent implements OnInit {
   Birthplace = '';
   Render = '';
   Discord = '';
-  startDate = new Date(2012, 0, 1);
   Hitting: any;
   Bats: any;
   Selected2Position: any;
@@ -238,11 +236,7 @@ export class CreatePlayerComponent implements OnInit {
       return alert('Please Select the Position');
     }
     this.formString += '\n[b]Position:[/b] ' + this.SelectedPosition;
-    this.formString += '\n[b]College:[/b] ' + this.College;
-    if (!this.Birthdate || !this.Birthdate.isValid()) {
-      return alert('Please input the Birthdate of your player');
-    }
-    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate.toDate().toDateString();
+    this.formString += '\n[b]College:[/b] ' + this.College; 
     if (!this.Throws) {
       return alert('Please select the Throwing Hand');
     }
@@ -324,11 +318,7 @@ export class CreatePlayerComponent implements OnInit {
     } else {
       this.formString += '\n[b]Position:[/b] SP';
     } 
-    this.formString += '\n[b]College:[/b] ' + this.College;
-    if (!this.Birthdate || !this.Birthdate.isValid()) {
-      return alert('Please input the Birthdate of your player');
-    }
-    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate.toDate().toDateString();
+    this.formString += '\n[b]College:[/b] ' + this.College; 
     if (this.Throws.length === 0) {
       return alert('Please select the Throwing Hand');
     }

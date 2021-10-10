@@ -254,14 +254,6 @@
                         [ngModelOptions]="{standalone: true}" required
                         matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
                     </mat-form-field>
-                    <mat-form-field>
-                      <mat-label>Choose a Birthdate</mat-label>
-                      <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}"
-                        required matTooltip="The date in the sim, league is currently in year 2039 (Season 23)"
-                        matTooltipPosition="after">
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-                    </mat-form-field>
                   </form>
                 </th>
               </ng-container>
@@ -500,14 +492,6 @@
                       <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
                         [ngModelOptions]="{standalone: true}" required
                         matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
-                    </mat-form-field>
-                    <mat-form-field>
-                      <mat-label>Choose a Birthdate</mat-label>
-                      <input matInput [matDatepicker]="picker" [(ngModel)]="Birthdate" [ngModelOptions]="{standalone: true}"
-                        required matTooltip="The date in the sim, league is currently in year 2039 (Season 23)"
-                        matTooltipPosition="after">
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                     </mat-form-field>
                   </form>
                 </th>

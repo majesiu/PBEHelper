@@ -61,16 +61,14 @@ export class PlayerCalcComponent implements OnInit {
   PlayerName = ''; 
   Number = '';
   SelectedPosition = '';
-  College = '';
-  Birthdate: Moment;
+  College = ''; 
   Throws = '';
   Recruited = '';
   Height = '';
   Weight = '';
   Birthplace = '';
   Render = '';
-  Discord = '';
-  startDate = new Date(2012, 0, 1);
+  Discord = ''; 
   Hitting: any;
   Bats: any;
   Selected2Position: any;
@@ -143,10 +141,6 @@ export class PlayerCalcComponent implements OnInit {
     }
     this.formString += '\n[b]Position:[/b] ' + this.SelectedPosition;
     this.formString += '\n[b]College:[/b] ' + this.College;
-    if (!this.Birthdate || !this.Birthdate.isValid()) {
-      return alert('Please input the Birthdate of your player');
-    }
-    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate.toDate().toDateString();
     if (!this.Throws) {
       return alert('Please select the Throwing Hand');
     }
@@ -229,10 +223,6 @@ export class PlayerCalcComponent implements OnInit {
       this.formString += '\n[b]Position:[/b] SP';
     } 
     this.formString += '\n[b]College:[/b] ' + this.College;
-    if (!this.Birthdate || !this.Birthdate.isValid()) {
-      return alert('Please input the Birthdate of your player');
-    }
-    this.formString += '\n[b]Birthdate:[/b] ' + this.Birthdate.toDate().toDateString();
     if (this.Throws.length === 0) {
       return alert('Please select the Throwing Hand');
     }
