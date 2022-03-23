@@ -205,12 +205,6 @@
           </div>
         </div>
         <div fxLayout="row" fxLayout.lt-md="column">
-          <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('knuckle')">
-            <img class="Image" src="assets/knuckle.jpg">
-            <div class="Overlay">
-              <div class="Text">Knuckler SP</div>
-            </div>
-          </div>
           <div fxFlex="50%" fxLayoutAlign="fit" class="Container" (click)="transitionStep3('finnesse')">
             <img class="Image" src="assets/finnesse.jpg">
             <div class="Overlay">
@@ -496,19 +490,11 @@
               <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"
                 [ngSwitch]="attribute.name">
                 <span *ngSwitchCase="'Pitch 1:'">
-                  <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]" *ngIf="selectedPitchingArchetype === pitchingArchetypes[5];else standardPitch" >
-                    <mat-option *ngFor="let pitch of ['Knuckleball']" [value]="pitch">
+                  <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]">
+                    <mat-option *ngFor="let pitch of pitches" [value]="pitch">
                       {{pitch}}
                     </mat-option>
                   </mat-select>
-                  <ng-template #standardPitch> 
-                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]">
-                      <mat-option *ngFor="let pitch of pitches"
-                              [value]="pitch">
-                        {{pitch}}
-                      </mat-option>
-                    </mat-select>
-                  </ng-template>
                 </span>
                 <span *ngSwitchCase="'Pitch 2:'">
                   <mat-select class="centered aligned" [(ngModel)]="selectedPitches[1]">

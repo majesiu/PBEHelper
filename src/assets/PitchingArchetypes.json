@@ -80,22 +80,6 @@
      { "name":"Pitch 5:","min":40,"max":70},
      { "name":"GB%:","min":65,"max":65}
      ] },
-     {"name":"Knuckler SP (e.g. Phil Niekro, RA Dickey)",
-      "attributes": [
-     { "name":"Velocity:","min": "75 - 80" ,"max": "91 - 93"},
-     { "name":"Movement vs LHB:","min":30,"max":90},
-     { "name":"Movement vs. RHB:","min":30,"max":90},
-     { "name":"Control vs. LHB:","min":35,"max":85},
-     { "name":"Control vs. RHB:","min":35,"max":85},
-     { "name":"Stamina:","min":20,"max":70},
-     { "name":"Holding Runners:","min":30,"max":85},
-     { "name":"Pitch 1:","min":40,"max":95},
-     { "name":"Pitch 2:","min":30,"max":90},
-     { "name":"Pitch 3:","min":30,"max":90},
-     { "name":"Pitch 4:","min":40,"max":80},
-     { "name":"Pitch 5:","min":0,"max":0},
-     { "name":"GB%:","min":45,"max":45}
-     ] },
     {"name":"Control Freak SP (e.g. Brett Saberhagen, Zach Greinke)",
       "attributes": [
      { "name":"Velocity:","min": "90 - 92" ,"max": "95 - 97"},

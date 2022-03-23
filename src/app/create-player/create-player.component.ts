@@ -202,11 +202,11 @@ export class CreatePlayerComponent implements OnInit {
           this.selectedPitchingArchetype = this.pitchingArchetypes[3];
           break; 
         case 'balancedsp':
-          this.selectedPitchingArchetype = this.pitchingArchetypes[6];
-          break; 
-        case 'knuckle':
           this.selectedPitchingArchetype = this.pitchingArchetypes[5];
           break; 
+        // case 'knuckle':
+        //   this.selectedPitchingArchetype = this.pitchingArchetypes[5];
+        //   break; 
         case 'finnesse':
           this.selectedPitchingArchetype = this.pitchingArchetypes[4];
           break; 
