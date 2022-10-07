@@ -153,6 +153,9 @@ export class CreatePlayerComponent implements OnInit {
         case 'The Freak':
           this.selectedHittingArchetype = this.hittingArchetypes[6];
           break; 
+        case '3TO':
+          this.selectedHittingArchetype = this.hittingArchetypes[7];
+          break;
     }
     document.getElementById("step2button").click();
     document.getElementById("step3button").click();
@@ -193,6 +196,9 @@ export class CreatePlayerComponent implements OnInit {
         case 'The Freak':
           this.selectedHittingArchetype = this.hittingArchetypes[6];
           break; 
+        case '3TO':
+          this.selectedHittingArchetype = this.hittingArchetypes[7];
+          break;
     }
     } else if(this.playerType === "Pitcher"){
       switch(secondArch) {
@@ -200,11 +206,11 @@ export class CreatePlayerComponent implements OnInit {
           this.selectedPitchingArchetype = this.pitchingArchetypes[3];
           break; 
         case 'balancedsp':
-          this.selectedPitchingArchetype = this.pitchingArchetypes[6];
-          break; 
-        case 'knuckle':
           this.selectedPitchingArchetype = this.pitchingArchetypes[5];
           break; 
+        // case 'knuckle':
+        //   this.selectedPitchingArchetype = this.pitchingArchetypes[5];
+        //   break; 
         case 'finnesse':
           this.selectedPitchingArchetype = this.pitchingArchetypes[4];
           break; 

@@ -146,6 +146,27 @@
      { "name":"Fielding/Catching Arm:","min":40,"max":75},
      { "name":"Turn Double Play:","min":25,"max":60},
      { "name":"Catcher Ability:","min":5,"max":10}
+     ] },
+     {"name":"Three True Outcomes (Adam Dunn, Joey Gallo)",
+      "attributes": [
+     { "name":"BABIP vs LHP:","min": 25,"max": 65},
+     { "name":"BABIP vs RHP:","min":25,"max":65},
+     { "name":"Avoid K's vs LHP:","min":20,"max":70},
+     { "name":"Avoid K's vs RHP:","min":20,"max":70},
+     { "name":"Gap vs LHP:","min":30,"max":80},
+     { "name":"Gap vs RHP:","min":30,"max":80},
+     { "name":"Power vs LHP:","min":45,"max":90},
+     { "name":"Power vs RHP:","min":45,"max":90},
+     { "name":"Eye/Patience vs LHP:","min":30,"max":80},
+     { "name":"Eye/Patience vs RHP:","min":30,"max":80},
+     { "name":"Speed (Base & Run):","min":30,"max":70},
+     { "name":"Stealing Ability:","min":30,"max":70},
+     { "name":"Bunting (Both):","min":5,"max":10},
+     { "name":"Fielding Range:","min":40,"max":90},
+     { "name":"Fielding Error:","min":30,"max":60},
+     { "name":"Fielding/Catching Arm:","min":40,"max":75},
+     { "name":"Turn Double Play:","min":25,"max":60},
+     { "name":"Catcher Ability:","min":5,"max":10}
      ] }
   ]
 }

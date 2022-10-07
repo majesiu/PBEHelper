@@ -21,17 +21,21 @@ export class Attribute {
     80-90: 7 TPE Per Point
    90-115: 8 TPE Per Point*/
   cost(archetype: string): number {
-    if (this.value === 0) { return 0; }
-    const minCost = this.min <= 40 ? this.min : this.min <= 50 ? 40 + 2 * (this.min - 40) : this.min <= 60 ? 60 + 3 * (this.min - 50) :
-                  this.min <= 70 ? 90 + 4 * (this.min - 60) : this.min <= 80 ? 130 + 6 * (this.min - 70) : this.min <= 90 ?
-                  190 + 7 * (this.min - 80) : 260 + 8 * (this.min - 90);
-    const valueCost = this.value <= 40 ? this.value : this.value <= 50 ? 40 + 2 * (this.value - 40) : this.value <= 60 ? 60 + 3 *
-                    (this.value - 50) : this.value <= 70 ? 90 + 4 * (this.value - 60) : this.value <= 80 ? 130 + 6 *
-                    (this.value - 70) : this.value <= 90 ? 190 + 7 * (this.value - 80) : 260 + 8 * (this.value - 90);
-    
-    return valueCost - minCost + (['Pitch 4:', 'Pitch 5:'].includes(this.name) ? 50 : 0);
-   
+    if (this.name == 'GB%:') {
+      return (this.value-this.min)*25;
+    } else {
+      if (this.value === 0) { return 0; }
+      const minCost = this.min <= 40 ? this.min : this.min <= 50 ? 40 + 2 * (this.min - 40) : this.min <= 60 ? 60 + 3 * (this.min - 50) :
+                    this.min <= 70 ? 90 + 4 * (this.min - 60) : this.min <= 80 ? 130 + 6 * (this.min - 70) : this.min <= 90 ?
+                    190 + 7 * (this.min - 80) : 260 + 8 * (this.min - 90);
+      const valueCost = this.value <= 40 ? this.value : this.value <= 50 ? 40 + 2 * (this.value - 40) : this.value <= 60 ? 60 + 3 *
+                      (this.value - 50) : this.value <= 70 ? 90 + 4 * (this.value - 60) : this.value <= 80 ? 130 + 6 *
+                      (this.value - 70) : this.value <= 90 ? 190 + 7 * (this.value - 80) : 260 + 8 * (this.value - 90);
+      
+      return valueCost - minCost + (['Pitch 4:', 'Pitch 5:'].includes(this.name) ? 50 : 0);
+    }
   }
+
   baseCost(archetype: string): number {
     const minCost = this.min <= 40 ? this.min : this.min <= 50 ? 40 + 2 * (this.min - 40) : this.min <= 60 ? 60 + 3 * (this.min - 50) :
       this.min <= 70 ? 90 + 4 * (this.min - 60) : this.min <= 80 ? 130 + 6 * (this.min - 70) : this.min <= 90 ?
@@ -84,6 +88,7 @@ export class Attribute {
         'turning the play from 2B (or rarely from 3B/1B), not the throw initiating the double play.';
       case 'Catcher Ability:': return 'Catcher Ability is a measure of a catcher\'s overall catching skill. ' +
         'It affects the framing (increasing pitchers K/9 and BB/9), limits errors and passed balls.';
+      case 'GB%:': return 'Increases frequency of batted balls against to be groundballs instead of flyballs. Costs 25 TPE to upgrade for 1%.';
       default: return '';
     }
   }

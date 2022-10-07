@@ -272,7 +272,7 @@
                 <th mat-header-cell *matHeaderCellDef>Name</th>
                 <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after"
                   [ngSwitch]="attribute.name">
-                  <span *ngSwitchCase="'Pitch 1:'">
+                  <!-- <span *ngSwitchCase="'Pitch 1:'">
                     <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]" *ngIf="selectedPitchingArchetype === pitchingArchetypes[5];else standardPitch" >
                       <mat-option *ngFor="let pitch of ['Knuckleball']" [value]="pitch">
                         {{pitch}}
@@ -286,6 +286,13 @@
                         </mat-option>
                       </mat-select>
                     </ng-template>
+                  </span> -->
+                  <span *ngSwitchCase="'Pitch 1:'">
+                    <mat-select class="centered aligned" [(ngModel)]="selectedPitches[0]">
+                      <mat-option *ngFor="let pitch of pitches" [value]="pitch">
+                        {{pitch}}
+                      </mat-option>
+                    </mat-select>
                   </span>
                   <span *ngSwitchCase="'Pitch 2:'">
                     <mat-select class="centered aligned" [(ngModel)]="selectedPitches[1]">
