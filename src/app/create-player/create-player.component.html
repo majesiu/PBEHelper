@@ -335,6 +335,7 @@
               <td mat-footer-cell *matFooterCellDef>
                 <p [style.color]="selectedHittingArchetype.costSum()===100 ? 'green' : 'orange'">
                   {{selectedHittingArchetype.costSum()}} <span *ngIf="selectedHittingArchetype.costSum()===100" class="material-icons"> check </span> <span *ngIf="selectedHittingArchetype.costSum()!=100" class="material-icons"> close </span> </p>
+                  <!-- <p>                  {{selectedHittingArchetype.costBase()}}</p> -->
               </td>
               <th mat-header-cell *matHeaderCellDef>Cost</th>
               <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
