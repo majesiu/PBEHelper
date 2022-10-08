@@ -132,7 +132,7 @@ export class CreatePlayerComponent implements OnInit {
   transitionStep2(subtype: string){
     if(this.playerType === "Batter"){
       switch(subtype) {
-        case 'Mr Utility':
+        case 'Contact':
           this.selectedHittingArchetype = this.hittingArchetypes[0];
           break; 
         case 'The Streak':
@@ -175,7 +175,7 @@ export class CreatePlayerComponent implements OnInit {
   transitionStep3(secondArch: string){
     if(this.playerType === "Batter"){
       switch(secondArch) {
-        case 'Mr Utility':
+        case 'Contact':
           this.selectedHittingArchetype = this.hittingArchetypes[0];
           break; 
         case 'The Streak':

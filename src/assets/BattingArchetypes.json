@@ -21,7 +21,7 @@
      { "name":"Turn Double Play:","min":30,"max":70},
      { "name":"Catcher Ability:","min":20,"max":80}
      ] },
-     {"name":"[b]Hitting Archetype:[/b] Speed (Rickey Henderson, Trea Turner)",
+     {"name":"Speed (Rickey Henderson, Trea Turner)",
       "attributes": [
      { "name":"BABIP vs LHP:","min": 20,"max": 80},
      { "name":"BABIP vs RHP:","min":20,"max":80},
