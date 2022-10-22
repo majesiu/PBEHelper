@@ -2,6 +2,8 @@ export class Velocity {
   readonly name: string;
   readonly min: string;
   readonly max: string;
+  readonly listLimitMin: number;
+  readonly listLimitMax: number;
   value: string;
 
 
@@ -10,6 +12,8 @@ export class Velocity {
     this.min = min;
     this.max = max;
     this.value = min;
+    this.listLimitMin = Number(min.substring(0,2))-88;
+    this.listLimitMax = Number(max.substring(0,2))-87;
   }
 
   /*30 across the table*/

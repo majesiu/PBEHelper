@@ -100,6 +100,7 @@
                 <td mat-footer-cell *matFooterCellDef>
                   <p [style.color]="selectedHittingArchetype.costSum()===100 ? 'green' : 'orange'">
                     {{selectedHittingArchetype.costSum()}} </p>
+                    <!-- <p>{{selectedHittingArchetype.baseCost()}} </p> -->
                 </td>
                 <th mat-header-cell *matHeaderCellDef>Cost</th>
                 <td mat-cell *matCellDef="let attribute" [matTooltip]="attribute.tooltip()" matTooltipPosition="after">
@@ -369,7 +370,7 @@
                   <mat-select [(ngModel)]="selectedPitchingArchetype.velocity.value"
                     matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
                   Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">
-                  <mat-option *ngFor="let velocityValue of velocityValues | slice:0: (selectedPitchingArchetype.velocity.max.substr(0,2)-80);" [value]="velocityValue">
+                  <mat-option *ngFor="let velocityValue of velocityValues | slice:selectedPitchingArchetype.velocity.listLimitMin:selectedPitchingArchetype.velocity.listLimitMax;" [value]="velocityValue">
                       {{velocityValue}}
                     </mat-option>
                   </mat-select>

@@ -28,26 +28,27 @@ export class CreatePlayerComponent implements OnInit {
     'Screwball', 'Knuckle Curve'];
   positions = ['Relief Pitcher', 'Starting Pitcher', 'Catcher', 'First Baseman', 'Second Baseman', 'Third Baseman', 'Shortstop',
     'Left Fielder', 'Center Fielder', 'Right Fielder']; 
-  public velocityValues = ['75 - 80',
-    '80 - 83',
-    '83 - 85',
-    '84 - 86',
-    '85 - 87',
-    '86 - 88',
-    '87 - 89',
-    '88 - 90',
-    '89 - 91',
-    '90 - 92',
-    '91 - 93',
-    '92 - 94',
-    '93 - 95',
-    '94 - 96',
-    '95 - 97',
-    '96 - 98',
-    '97 - 99',
-    '98 - 100',
-    '99 - 101',
-    '100'];
+    public velocityValues = [
+      // '75 - 80',
+      // '80 - 83',
+      // '83 - 85',
+      // '84 - 86',
+      // '85 - 87',
+      // '86 - 88',
+      // '87 - 89',
+      '88 - 90',
+      '89 - 91',
+      '90 - 92',
+      '91 - 93',
+      '92 - 94',
+      '93 - 95',
+      '94 - 96',
+      '95 - 97',
+      '96 - 98',
+      '97 - 99',
+      '98 - 100',
+      '99 - 101'
+    ];
 
   earnedBatterTPE = 100;
   earnedPitcherTPE = 100;
