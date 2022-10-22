@@ -369,7 +369,7 @@
                   <mat-select [(ngModel)]="selectedPitchingArchetype.velocity.value"
                     matTooltip="Affects Stuff rating, that dictates how often pitcher strikes out opponents.
                   Works better with pitches relying on velocity like Fastball, Sinker, Cutter, Splitter, Forkball. Has seperate update scale." matTooltipPosition="after">
-                    <mat-option *ngFor="let velocityValue of velocityValues" [value]="velocityValue">
+                  <mat-option *ngFor="let velocityValue of velocityValues | slice:0: (selectedPitchingArchetype.velocity.max.substr(0,2)-80);" [value]="velocityValue">
                       {{velocityValue}}
                     </mat-option>
                   </mat-select>

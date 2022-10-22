@@ -47,8 +47,7 @@ export class PlayerCalcComponent implements OnInit {
     '96 - 98',
     '97 - 99',
     '98 - 100',
-    '99 - 101',
-    '100'];
+    '99 - 101'];
 
   earnedBatterTPE = 100;
   earnedPitcherTPE = 100;
