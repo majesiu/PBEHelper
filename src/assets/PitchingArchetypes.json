@@ -69,8 +69,8 @@
      { "name":"Velocity:","min": "88 - 90" ,"max": "91 - 93"},
      { "name":"Movement vs LHB:","min":40,"max":80},
      { "name":"Movement vs. RHB:","min":40,"max":80},
-     { "name":"Control vs. LHB:","min":45,"max":85},
-     { "name":"Control vs. RHB:","min":45,"max":85},
+     { "name":"Control vs. LHB:","min":45,"max":90},
+     { "name":"Control vs. RHB:","min":45,"max":90},
      { "name":"Stamina:","min":50,"max":75},
      { "name":"Holding Runners:","min":40,"max":70},
      { "name":"Pitch 1:","min":50,"max":95},
@@ -78,7 +78,7 @@
      { "name":"Pitch 3:","min":40,"max":90},
      { "name":"Pitch 4:","min":45,"max":80},
      { "name":"Pitch 5:","min":40,"max":75},
-     { "name":"GB%:","min":54,"max":65}
+     { "name":"GB%:","min":55,"max":64}
      ] },
     {"name":"Control Freak SP (e.g. Cliff Lee, Corey Kluber)",
       "attributes": [
