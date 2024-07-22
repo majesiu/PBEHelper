@@ -319,6 +319,7 @@ export class CreatePlayerComponent implements OnInit {
     if (this.ForumUsername === '') {
       return alert('Please input your current forum Username (or the one you\' use in the future)');
     }
+    this.formString += '\n[b]Username:[/b] ' + this.ForumUsername;
     if (this.PlayerName === '') {
       return alert('Please input the Player Name');
     }
