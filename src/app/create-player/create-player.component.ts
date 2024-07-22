@@ -68,6 +68,7 @@ export class CreatePlayerComponent implements OnInit {
   Weight = '';
   Birthplace = '';
   Render = '';
+  ForumUsername = '';
   Discord = '';
   Hitting: any;
   Bats: any;
@@ -231,6 +232,10 @@ export class CreatePlayerComponent implements OnInit {
 
   createBatter() {
     this.formString = "[color=red][u][b]Player Information[/b][/u][/color]";
+    if (this.ForumUsername === '') {
+      return alert('Please input your current forum Username (or the one you\' use in the future)');
+    }
+    this.formString += '\n[b]Username:[/b] ' + this.ForumUsername;
     if (this.PlayerName === '') {
       return alert('Please input the Player Name');
     }
@@ -262,7 +267,6 @@ export class CreatePlayerComponent implements OnInit {
     }
     this.formString += '\n[b]Weight:[/b] ' + this.Weight;
     this.formString += '\n[b]Birthplace:[/b] ' + this.Birthplace;
-    this.formString += '\n[b]Player Render:[/b] ' + this.Render;
     this.formString += '\n[b]Discord name:[/b] ' + this.Discord;
     console.log(this.Hitting);
     if (!this.Hitting || this.Hitting === '') {
@@ -312,6 +316,9 @@ export class CreatePlayerComponent implements OnInit {
   
   createPitcher() { 
     this.formString = "[color=red][u][b]Player Information[/b][/u][/color]";
+    if (this.ForumUsername === '') {
+      return alert('Please input your current forum Username (or the one you\' use in the future)');
+    }
     if (this.PlayerName === '') {
       return alert('Please input the Player Name');
     }

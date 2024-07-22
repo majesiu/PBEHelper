@@ -462,9 +462,19 @@
                 </form>
                 <form>
                   <mat-form-field>
+                    <input matInput placeholder="Forum Username" [(ngModel)]="ForumUsername"
+                      [ngModelOptions]="{standalone: true}" required
+                      matTooltip="Your username on the PBE forums" matTooltipPosition="after">
+                  </mat-form-field> 
+                  <mat-form-field>
                     <input matInput placeholder="Render" [(ngModel)]="Render"
                       [ngModelOptions]="{standalone: true}" 
                       matTooltip="Render of your player, optional - useful for future graphics." matTooltipPosition="after">
+                  </mat-form-field> 
+                  <mat-form-field>
+                    <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
+                      [ngModelOptions]="{standalone: true}" 
+                      matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
                   </mat-form-field> 
                 </form>
               </th>
@@ -711,13 +721,18 @@
                 </form>
                 <form>
                   <mat-form-field>
+                    <input matInput placeholder="Forum Username" [(ngModel)]="ForumUsername"
+                      [ngModelOptions]="{standalone: true}" required
+                      matTooltip="Your username on the PBE forums" matTooltipPosition="after">
+                  </mat-form-field> 
+                  <mat-form-field>
                     <input matInput placeholder="Render" [(ngModel)]="Render"
                       [ngModelOptions]="{standalone: true}" 
                       matTooltip="Render of your player, optional - useful for future graphics." matTooltipPosition="after">
                   </mat-form-field>
                   <mat-form-field>
                     <input matInput placeholder="Birthplace" [(ngModel)]="Birthplace"
-                      [ngModelOptions]="{standalone: true}" required
+                      [ngModelOptions]="{standalone: true}"
                       matTooltip="Birthplace of your player, also dictates his Nation." matTooltipPosition="after">
                   </mat-form-field> 
                 </form>
