@@ -89,6 +89,7 @@ export class Attribute {
       case 'Catcher Ability:': return 'Catcher Ability is a measure of a catcher\'s overall catching skill. ' +
         'It affects the framing (increasing pitchers K/9 and BB/9), limits errors and passed balls.';
       case 'GB%:': return 'Increases frequency of batted balls against to be groundballs instead of flyballs. Costs 25 TPE to upgrade for 1%.';
+      case 'pBABIP:': return 'Decreases frequency of batted balls against to be hits.';
       default: return '';
     }
   }

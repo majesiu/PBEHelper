@@ -47,7 +47,8 @@ export class CreatePlayerComponent implements OnInit {
       '96 - 98',
       '97 - 99',
       '98 - 100',
-      '99 - 101'
+      '99 - 101',
+      '100'
     ];
 
   earnedBatterTPE = 100;
