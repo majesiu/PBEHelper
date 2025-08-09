@@ -502,7 +502,7 @@ export class CreatePlayerComponent implements OnInit {
   copyAndGoToForums() {
     clipboard.writeText(this.formString).then( _ => { 
       alert('New thread on forums will open up - template was copied into clipboard, paste it there and create the thread');
-      window.open('http://probaseballexperience.jcink.net/index.php?act=Post&CODE=00&f=2');
+      window.open('https://forum.pbesim.com/newthread.php?fid=2');
     });
   }
 

@@ -86,7 +86,7 @@ export class PlayerCalcComponent implements OnInit {
   formString = '[color=red][u][b]Player Information[/b][/u][/color]'; 
   ArmSlots = ["Normal (3/4)", "Submarine", "Sidearm", "Over the top"];
   skipCreationValidation = false;
-  pageLink = "http://probaseballexperience.jcink.net/index.php?showtopic=11514";
+  pageLink = "https://forum.pbesim.com/showthread.php?tid=38900";
   value = 'Clear me';
 
   constructor(private _formBuilder: FormBuilder, private http: HttpClient) {
@@ -446,7 +446,7 @@ export class PlayerCalcComponent implements OnInit {
   importPlayer(){ 
     
     document.getElementById("spinner").hidden = false;
-    const playerPage = this.http.get("http://pbesim.com:8080/"+this.pageLink, {responseType: 'text' }).subscribe({
+    const playerPage = this.http.get(this.pageLink, {responseType: 'text' }).subscribe({
       next: data => {
          const regexpBase: RegExp = new RegExp("^.*Archetype.*$", 'm'); 
          const playerString: String = regexpBase.exec(data)[0].replace(/<\/?[^>]+(>|$)/g, " ");
