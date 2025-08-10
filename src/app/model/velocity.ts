@@ -13,7 +13,7 @@ export class Velocity {
     this.max = max;
     this.value = min;
     this.listLimitMin = Number(min.substring(0,2))-88;
-    if (max==='100'){
+    if (max==='100+'){
       this.listLimitMax = 13;
     } else{
       this.listLimitMax = Number(max.substring(0,2))-87;
@@ -80,7 +80,7 @@ export class Velocity {
       case '99 - 101':
         return 270;
         break;
-      case '100':
+      case '100+':
         return 285;
         break;
     }

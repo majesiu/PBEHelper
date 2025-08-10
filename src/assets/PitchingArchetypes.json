@@ -2,7 +2,7 @@
   "Archetypes": [
     {"name":"Flamethrower RP (Mason Miller)",
       "attributes": [
-     { "name":"Velocity:","min": "93 - 95" ,"max": "100"},
+     { "name":"Velocity:","min": "93 - 95" ,"max": "100+"},
      { "name":"Movement vs. LHB:","min":45,"max":95},
      { "name":"Movement vs. RHB:","min":45,"max":95},
      { "name":"Control vs. LHB:","min":35,"max":70},
@@ -12,7 +12,7 @@
      { "name":"Holding Runners:","min":40,"max":85},
      { "name":"Pitch 1:","min":50,"max":100},
      { "name":"Pitch 2:","min":45,"max":95},
-     { "name":"Pitch 3:","min":45,"max":80},
+     { "name":"Pitch 3:","min":45,"max":95},
      { "name":"Pitch 4:","min":40,"max":80},
      { "name":"Pitch 5:","min":35,"max":80},
      { "name":"GB%:","min":43,"max":50}
@@ -32,11 +32,11 @@
      { "name":"Pitch 3:","min":45,"max":75},
      { "name":"Pitch 4:","min":40,"max":70},
      { "name":"Pitch 5:","min":35,"max":70},
-     { "name":"GB%:","min":51,"max":58}
+     { "name":"GB%:","min":53,"max":58}
      ] },
     {"name":"Junkballer RP (Tyler Rogers)",
       "attributes": [
-     { "name":"Velocity:","min": "88 - 90" ,"max": "90 - 92"},
+     { "name":"Velocity:","min": "88 - 90" ,"max": "91 - 93"},
      { "name":"Movement vs. LHB:","min":55,"max":115},
      { "name":"Movement vs. RHB:","min":55,"max":115},
      { "name":"Control vs. LHB:","min":55,"max":95},
@@ -56,8 +56,8 @@
      { "name":"Velocity:","min": "92 - 94" ,"max": "98 - 100"},
      { "name":"Movement vs. LHB:","min":45,"max":85},
      { "name":"Movement vs. RHB:","min":45,"max":85},
-     { "name":"Control vs. LHB:","min":45,"max":70},
-     { "name":"Control vs. RHB:","min":45,"max":70},
+     { "name":"Control vs. LHB:","min":45,"max":75},
+     { "name":"Control vs. RHB:","min":45,"max":75},
      { "name":"pBABIP:","min":60,"max":100},
      { "name":"Stamina:","min":50,"max":80},
      { "name":"Holding Runners:","min":40,"max":70},
@@ -66,7 +66,7 @@
      { "name":"Pitch 3:","min":50,"max":80},
      { "name":"Pitch 4:","min":40,"max":75},
      { "name":"Pitch 5:","min":40,"max":70},
-     { "name":"GB%:","min":44,"max":51}
+     { "name":"GB%:","min":44,"max":50}
      ] },
      {"name":"Junkballer SP (Yu Darvish)",
       "attributes": [
