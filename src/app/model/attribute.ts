@@ -62,31 +62,31 @@ export class Attribute {
       case 'Pitch 5:': return 'Choose if you decided to buy 5th pitch by selecting its rating';
       case 'Velocity:': return 'Affects Stuff rating, that dictates how often pitcher strikes out opponents. Works better with pitches' +
         'relying on velocity like Fastball, Sinker, Cutter.';
-      case 'BABIP vs LHP:': return 'Main attribute dictating contact rate - which is ' +
+      case 'BABIP vs LHP': return 'Main attribute dictating contact rate - which is ' +
         'responsible for chance of a hit vs Left Handed Pitchers';
-      case 'BABIP vs RHP:': return 'Main attribute dictating contact rate - which is ' +
+      case 'BABIP vs RHP': return 'Main attribute dictating contact rate - which is ' +
         'responsible for chance of a hit vs Right Handed Pitchers';
-      case 'Avoid K\'s vs LHP:': return 'Reduces amount of strikeouts vs Left Handed Pitchers, affects also contact rating vs LHP';
-      case 'Avoid K\'s vs RHP:': return 'Reduces amount of strikeouts vs Right Handed Pitchers, affects also contact rating vs RHP';
-      case 'Gap vs LHP:': return 'Improves amount of gap hits that result in extra base hits ' +
+      case 'Avoid K\'s vs LHP': return 'Reduces amount of strikeouts vs Left Handed Pitchers, affects also contact rating vs LHP';
+      case 'Avoid K\'s vs RHP': return 'Reduces amount of strikeouts vs Right Handed Pitchers, affects also contact rating vs RHP';
+      case 'Gap vs LHP': return 'Improves amount of gap hits that result in extra base hits ' +
         '(either doubles or triples) vs Left Handed Pitchers';
-      case 'Gap vs RHP:': return 'Improves amount of gap hits that result in extra base hits ' +
+      case 'Gap vs RHP': return 'Improves amount of gap hits that result in extra base hits ' +
         '(either doubles or triples) vs Right Handed Pitchers';
-      case 'Power vs LHP:': return 'Increases chance for a Home Run vs Left Handed Pitching, affects also contact rating vs LHP';
-      case 'Power vs RHP:': return 'Increases chance for a Home Run vs Right Handed Pitching, affects also contact rating vs RHP';
-      case 'Eye/Patience vs LHP:': return 'The better rating the bigger chance to draw a walk against Left Handed Pitchers';
-      case 'Eye/Patience vs RHP:': return 'The better rating the bigger chance to draw a walk against Right Handed Pitchers';
-      case 'Speed (Base & Run):': return 'Increases player baserunning instincts and speed that affects only offensive tendencies: ' +
+      case 'Power vs LHP': return 'Increases chance for a Home Run vs Left Handed Pitching, affects also contact rating vs LHP';
+      case 'Power vs RHP': return 'Increases chance for a Home Run vs Right Handed Pitching, affects also contact rating vs RHP';
+      case 'Eye/Patience vs LHP': return 'The better rating the bigger chance to draw a walk against Left Handed Pitchers';
+      case 'Eye/Patience vs RHP': return 'The better rating the bigger chance to draw a walk against Right Handed Pitchers';
+      case 'Speed (Base & Run)': return 'Increases player baserunning instincts and speed that affects only offensive tendencies: ' +
         'to steal and to turn doubles into triples';
-      case 'Stealing Ability:': return 'The higher the stealing ability the more efficient player is in stealing bases';
-      case 'Bunting (Both):': return 'Responsible for player bunting skills - both bunting for hit and sacrifice bunting. Not recommended.';
-      case 'Fielding Range:': return 'Measures how well a defensive player can reach a ball in play. Crucial rating for most positions.';
-      case 'Fielding Error:': return 'The better the rating the lower the chance to commit fielding error';
-      case 'Fielding/Catching Arm:': return 'Is a measure of the strength of a player\'s arm. ' +
+      case 'Stealing Ability': return 'The higher the stealing ability the more efficient player is in stealing bases';
+      case 'Bunting': return 'Responsible for player bunting skills - both bunting for hit and sacrifice bunting. Not recommended.';
+      case 'Fielding Range': return 'Measures how well a defensive player can reach a ball in play. Crucial rating for most positions.';
+      case 'Fielding Error': return 'The better the rating the lower the chance to commit fielding error';
+      case 'Fielding/Catching Arm': return 'Is a measure of the strength of a player\'s arm. ' +
         'Players with higher Arm ratings are more likely to throw out runners on a close play.';
-      case 'Turn Double Play:': return 'Defines how well infielders, pitchers, and catchers can turn infield double plays. Affects only ' +
+      case 'Turn Double Play': return 'Defines how well infielders, pitchers, and catchers can turn infield double plays. Affects only ' +
         'turning the play from 2B (or rarely from 3B/1B), not the throw initiating the double play.';
-      case 'Catcher Ability:': return 'Catcher Ability is a measure of a catcher\'s overall catching skill. ' +
+      case 'Catcher Ability': return 'Catcher Ability is a measure of a catcher\'s overall catching skill. ' +
         'It affects the framing (increasing pitchers K/9 and BB/9), limits errors and passed balls.';
       case 'GB%:': return 'Increases frequency of batted balls against to be groundballs instead of flyballs. Costs 25 TPE to upgrade for 1%.';
       case 'pBABIP:': return 'Decreases frequency of batted balls against to be hits.';
